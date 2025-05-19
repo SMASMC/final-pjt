@@ -1,0 +1,16 @@
+Django==3.2.18                # Django 3.2 (LTS, 안정성)
+djangorestframework==3.14.0   # DRF (API 서버)
+django-cors-headers==4.0.0    # CORS 정책 처리 (Vue 연동)
+django-environ==0.10.0        # .env 설정 파일 관리
+django-filter==23.2           # 필터링 기능
+django-allauth==0.52.0        # OAuth/소셜 로그인
+dj-rest-auth==4.0.0           # REST API용 인증 패키지
+requests==2.30.0              # HTTP 통신 (Google OAuth 등)
+requests-oauthlib==1.3.1      # OAuth2 요청 처리
+oauthlib==3.2.2               # OAuth 기반
+PyJWT==2.7.0                  # JWT 처리
+sqlparse==0.4.4               # SQL 파서 (Django 필요)
+pytz==2023.3                  # 시간대 처리 (Django 필요)
+python-decouple==3.15.0
+djangorestframework-simplejwt==5.2.2
+python-dotenv==1.1.0
