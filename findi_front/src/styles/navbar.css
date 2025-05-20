@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer components {
+  .navbar-header {
+    @apply w-full fixed top-0 z-50;
+  }
+
+  .navbar-container {
+    @apply flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-2 md:py-4 max-w-7xl mx-auto rounded-none md:rounded-full bg-white/10 backdrop-blur-md;
+  }
+
+  .logo-container {
+    @apply flex items-center space-x-2 mb-2 md:mb-0;
+  }
+
+  .logo-img {
+    @apply h-7 md:h-8 w-auto;
+  }
+
+  .menu-list {
+    @apply flex flex-wrap justify-center space-x-3 md:space-x-6 text-xs md:text-sm font-medium mb-2 md:mb-0;
+  }
+
+  .menu-link {
+    @apply px-3 md:px-4 py-1.5 rounded-full transition duration-200;
+  }
+
+  .menu-link-active {
+    @apply bg-[#8A69E1] text-white font-bold;
+  }
+
+  .menu-link-inactive {
+    @apply text-gray-600 hover:bg-[#EAE4FB] hover:text-[#8A69E1];
+  }
+
+  .button-group {
+    @apply flex space-x-2 md:space-x-3;
+  }
+
+  .btn-signup {
+    @apply text-xs md:text-sm rounded-full px-3 md:px-4 py-1 border bg-white text-[#8A69E1] border-[#8A69E1] hover:bg-[#8A69E1] hover:text-white transition;
+  }
+
+  .btn-login {
+    @apply text-xs md:text-sm rounded-full px-3 md:px-4 py-1 bg-[#8A69E1] text-white hover:bg-[#8A69E1]/90 transition;
+  }
+}

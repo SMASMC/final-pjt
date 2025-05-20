@@ -1,3 +1,4 @@
+// tailwindcss 적용
 import './assets/main.css'
 
 import { createApp } from 'vue'
