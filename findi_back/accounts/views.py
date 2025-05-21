@@ -11,6 +11,10 @@ import requests
 import os
 from dotenv import load_dotenv
 from urllib.parse import urlencode
+from django.core.cache import cache
+import random
+from django.core.mail import send_mail
+
 
 load_dotenv()
 User = get_user_model()
@@ -108,3 +112,47 @@ def google_login_callback(request):
     })
 
     return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
+
+@api_view(['POST'])
+@permission_classes([AllowAny])  # ← 인증 없이 접근 가능하게 설정
+def send_code(request):
+    email = request.data.get('email')
+    if not email:
+        return Response({'error': '이메일이 필요합니다.'}, status=400)
+
+    code = str(random.randint(100000, 999999))
+    cache.set(f'verify_code:{email}', code, timeout=300)  # 5분 유효
+
+    send_mail(
+        'Findi 비밀번호 찾기 인증코드',
+        f'인증번호는 {code}입니다.',
+        'msoko89@gmail.com',
+        [email],
+        fail_silently=False,
+    )
+    return Response({'message': '인증번호가 전송되었습니다.'})
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def verify_code(request):
+    email = request.data.get('email')
+    code = request.data.get('code')
+
+    saved_code = cache.get(f'verify_code:{email}')
+    if saved_code == code:
+        return Response({'verified': True})
+    return Response({'verified': False}, status=400)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def reset_password(request):
+    email = request.data.get('email')
+    password = request.data.get('password')
+
+    try:
+        user = User.objects.get(email=email)
+        user.set_password(password)
+        user.save()
+        return Response({'success': True})
+    except User.DoesNotExist:
+        return Response({'error': '사용자를 찾을 수 없습니다.'}, status=404)
