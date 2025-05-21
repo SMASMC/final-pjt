@@ -53,6 +53,12 @@ const protectedRoutes = [
   //   name: 'edit-profile',
   //   component: () => import('@/views/EditProfileView.vue'),
   //   meta: { requiresAuth: true },
+  // },
+  //   {
+  //   path: '/calendar',
+  //   name: 'calendar',
+  //   component: CalendarView,
+  //   meta: { requiresAuth: true },
   // }
 ]
 
