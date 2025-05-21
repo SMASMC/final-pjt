@@ -39,10 +39,6 @@ env/
 # VSCode settings
 .vscode/
 
-# Django Migrations
-**/migrations/
-!**/migrations/__init__.py
-
 # -------------------------
 # VUE & VITE (Frontend)
 # -------------------------
