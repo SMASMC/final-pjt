@@ -4,19 +4,30 @@
     class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 bg-gradient-to-b from-white via-[#f6fbea] to-[#CBADF7] relative"
   >
     <!-- 타이틀 -->
-    <div class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold leading-snug">
-        <span class="text-[#302770] font-bmjua">금융 상품의 모든 것,</span><br />
-        <span class="text-[#8A69E1]">Findi</span> <span class="font-bmjua">에서</span><br />
-        <span class="font-bmjua">쉽고 간편하게</span>
-      </h1>
-    </div>
+    <transition v-show="showMainContent" name="slide-fade-down" appear>
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold leading-snug">
+          <span class="text-[#302770] font-bmjua">금융 상품의 모든 것,</span><br />
+          <span class="text-[#8A69E1]">Findi</span> <span class="font-bmjua">에서</span><br />
+          <span class="font-bmjua">쉽고 간편하게</span>
+        </h1>
+      </div>
+    </transition>
     <!-- 일러스트 영역 -->
-    <div class="flex flex-col md:flex-row items-center justify-center gap-12 mt-10">
-      <img src="@/assets/main_page/bank_illustration.png" alt="은행 이미지" class="w-56 md:w-72" />
-      <img src="@/assets/main_page/dog_illustration.png" alt="강아지 이미지" class="w-52 md:w-64" />
-    </div>
-
+    <transition v-show="showMainContent" name="fade" appear>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-12 mt-10">
+        <img
+          src="@/assets/main_page/bank_illustration.png"
+          alt="은행 이미지"
+          class="w-56 md:w-72"
+        />
+        <img
+          src="@/assets/main_page/dog_illustration.png"
+          alt="강아지 이미지"
+          class="w-52 md:w-64"
+        />
+      </div>
+    </transition>
     <!-- 스크롤 유도 아이콘 -->
     <div class="absolute bottom-8 animate-bounce cursor-pointer" @click="scrollToSection(1)">
       <svg
@@ -30,6 +41,7 @@
       </svg>
     </div>
   </section>
+
   <!-- Section 2: 지도 소개 -->
   <section
     ref="section2"
@@ -159,11 +171,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
+// Sction 이동
 const section1 = ref(null)
 const section2 = ref(null)
 const section3 = ref(null)
@@ -188,4 +201,52 @@ const goToCalendar = () => {
 const goToRecommend = () => {
   router.push('/recommend')
 }
+
+// Intro Overlay 렌더링될때, 점점 생성되는 효과 부여
+const showMainContent = ref(false)
+const showIntro = ref(true)
+
+const colors = ['#8A69E1', '#CBADF7', '#F6FBEA', '#CBADF7', '#8A69E1']
+
+onMounted(() => {
+  setTimeout(
+    () => {
+      showIntro.value = false
+      // 콘텐츠 페이드인 트리거
+      setTimeout(() => {
+        showMainContent.value = true
+      }, 1000) // 약간의 여유
+    },
+    colors.length * 300 + 1000
+  )
+})
 </script>
+
+<style>
+/* 기존 fade 애니메이션 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+/* slide-fade-down: 위에서 아래로 내려오며 페이드인 */
+.slide-fade-down-enter-active {
+  transition: all 1s ease;
+}
+.slide-fade-down-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.slide-fade-down-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
