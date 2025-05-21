@@ -11,6 +11,6 @@ oauthlib==3.2.2               # OAuth 기반
 PyJWT==2.7.0                  # JWT 처리
 sqlparse==0.4.4               # SQL 파서 (Django 필요)
 pytz==2023.3                  # 시간대 처리 (Django 필요)
-python-decouple==3.15.0
+python-decouple==3.8.0
 djangorestframework-simplejwt==5.2.2
 python-dotenv==1.1.0
