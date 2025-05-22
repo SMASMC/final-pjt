@@ -40,6 +40,22 @@
   .btn-signup {
     @apply text-xs md:text-sm rounded-full px-3 md:px-4 py-1 border bg-white text-[#8A69E1] border-[#8A69E1] hover:bg-[#8A69E1] hover:text-white transition;
   }
+  /* 로그인 버튼 그룹 */
+  .profile-wrapper {
+    @apply flex items-center py-1 bg-[#8A69E1] rounded-full text-white hover:bg-[#7a56d9] transition;
+  }
+
+  .profile-img {
+    @apply w-8 rounded-full object-cover;
+  }
+
+  .profile-name {
+    @apply text-sm font-bold ml-2;
+  }
+
+  .btn-logout {
+    @apply text-sm rounded-full px-4 py-2 bg-[#8A69E1] text-white hover:bg-[#7a56d9] transition;
+  }
 
   .btn-login {
     @apply text-xs md:text-sm rounded-full px-3 md:px-4 py-1 bg-[#8A69E1] text-white hover:bg-[#8A69E1]/90 transition;

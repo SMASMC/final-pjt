@@ -17,7 +17,7 @@
     ></div>
   </div>
   <!-- Main Content -->
-  <div class="min-h-screen bg-[#f5f3f7]">
+  <div class="min-h-screen bg-[#f5f3f7] custom-cursor">
     <NavBar v-if="!hideNav.includes(route.path)" />
     <RouterView />
   </div>
@@ -63,5 +63,10 @@ onMounted(() => {
 }
 .animate-slideUpLayer {
   animation: slideUpLayer 1s ease-in-out forwards;
+}
+.custom-cursor {
+  cursor:
+    url('/findi_mascot_head.cur') 0 0,
+    auto !important;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="auth-container">
     <div class="auth-left">
       <h2 class="mb-4">회원가입</h2>
-      <div class="d-flex justify-content-between mb-3">
+      <div class="d-flex justify-between mb-3">
         <OAuthButton provider="google" signType="signup" />
         <OAuthButton provider="kakao" signType="signup" />
       </div>
@@ -25,18 +25,24 @@ import AuthForm from '@/components/AuthForm.vue'
   display: flex;
   height: 100vh;
 }
+
 .auth-left {
-  flex: 1;
+  width: 50%;
+  height: 100%;
   padding: 60px;
+  background-color: #ffffff; /* 왼쪽 배경 흰색 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .auth-right {
-  flex: 1;
-  background-color: #2c266a;
-  color: white;
+  width: 50%;
+  height: 100%;
+  background-color: #2e2466;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
   font-weight: bold;
+  font-family: 'BMJUA', sans-serif;
 }
 </style>

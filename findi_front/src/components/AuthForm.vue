@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <div class="mb-3">
-      <label>이메일</label>
-      <input type="email" v-model="form.email" required class="form-control" />
+    <div class="w-full mb-3">
+      <label class="w-full">이메일</label><br/>
+      <input type="email" v-model="form.email" required class="form-control w-full rounded-xl" />
     </div>
 
-    <div class="mb-3">
-      <label>비밀번호</label>
-      <input type="password" v-model="form.password" required class="form-control" />
+    <div class="w-full mb-3">
+      <label>비밀번호</label><br/>
+      <input type="password" v-model="form.password" required class="form-control w-full rounded-xl" />
     </div>
 
     <div v-if="mode === 'signup'" class="mb-3">
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary w-100">
+    <button type="submit" class="w-full btn btn-primary w-100 border rounded-lg p-2 text-white bg-[#a98dff] cursor-pointer">
       {{ mode === 'signup' ? '회원가입' : '로그인' }}
     </button>
   </form>

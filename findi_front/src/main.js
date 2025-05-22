@@ -1,5 +1,6 @@
 // tailwindcss 적용
 import './assets/main.css'
+import 'flowbite';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

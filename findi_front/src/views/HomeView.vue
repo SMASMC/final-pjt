@@ -1,7 +1,7 @@
 <template>
   <section
     ref="section1"
-    class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 bg-gradient-to-b from-white via-[#f6fbea] to-[#CBADF7] relative"
+    class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 bg-gradient-to-b from-white to-[#d4b7ff] relative"
   >
     <!-- 타이틀 -->
     <transition v-show="showMainContent" name="slide-fade-down" appear>
@@ -28,6 +28,15 @@
         />
       </div>
     </transition>
+    <!-- 안내 텍스트 -->
+    <transition v-show="showMainContent" name="fade" appear>
+      <div
+        class="absolute bottom-20 font-bold text-gray-500 text-xl text-center w-full animate-bounce cursor-pointer"
+        @click="scrollToSection(1)"
+      >
+        Findi의 기능들을 함께 둘러보세요
+      </div>
+    </transition>
     <!-- 스크롤 유도 아이콘 -->
     <div class="absolute bottom-8 animate-bounce cursor-pointer" @click="scrollToSection(1)">
       <svg
@@ -45,15 +54,15 @@
   <!-- Section 2: 지도 소개 -->
   <section
     ref="section2"
-    class="min-h-screen bg-gradient-to-b from-[#ffffff] via-[#f6fbea] to-[#9BAA59] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
+    class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#d7e599] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
   >
     <!-- 왼쪽 텍스트 및 버튼 -->
-    <div class="text-center md:text-left items-center flex flex-col">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 font-bmjua text-center">
+    <div class="text-center md:text-left items-center font-bmjua  flex flex-col">
+      <h2 class="text-2xl md:text-4xl font-normal mb-6 font-bmjua text-center">
         상품과 은행을<br />주변에서 찾아보세요
       </h2>
       <button
-        class="bg-[#9BAA59] text-white px-6 py-3 rounded-full font-semibold text-sm cursor-pointer hover:bg-[#8a9959] transition duration-200"
+        class="bg-[#9BAA59] text-white px-6 py-3 rounded-full font-normal text-base cursor-pointer hover:bg-[#8a9959] transition duration-200"
         @click="goToBanks"
       >
         지도로 찾기
@@ -78,18 +87,18 @@
   <!-- Section 3: 상품 소개 -->
   <section
     ref="section3"
-    class="min-h-screen bg-gradient-to-b from-[#ffffff] via-[#f6fbea] to-[#FFDECE] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
+    class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#ffcdb4] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
   >
     <!-- 왼쪽 이미지 -->
     <img src="@/assets/main_page/piggy.png" alt="피그" class="w-[400px] mt-12" />
 
     <!-- 오른쪽 텍스트 및 버튼 -->
     <div class="text-center md:text-left items-center flex flex-col">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 font-bmjua text-center">
+      <h2 class="text-2xl md:text-4xl font-normal mb-6 font-bmjua text-center">
         다양한 예적금 상품을<br />조회해보세요
       </h2>
       <button
-        class="bg-[#D9876C] text-white px-6 py-3 rounded-full font-semibold text-sm cursor-pointer hover:bg-[#c2725c] transition duration-200"
+        class="bg-[#D9876C] text-white px-6 py-3 rounded-full font-normal text-base cursor-pointer hover:bg-[#c2725c] transition duration-200"
         @click="goToProducts"
       >
         금융 상품 조회
@@ -112,15 +121,15 @@
   <!-- Section 4: 상품 -->
   <section
     ref="section4"
-    class="min-h-screen bg-gradient-to-b from-[#ffffff] via-[#f6fbea] to-[#BDE4F6] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
+    class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#BDE4F6] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
   >
     <!-- 왼쪽 텍스트 및 버튼 -->
     <div class="text-center md:text-left items-center flex flex-col">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 font-bmjua text-center">
+      <h2 class="text-2xl md:text-4xl font-normal mb-6 font-bmjua text-center">
         자신만의 적금 플랜을<br />한눈에 파악해 보세요
       </h2>
       <button
-        class="bg-[#486FAA] text-white px-6 py-3 rounded-full font-semibold text-sm cursor-pointer hover:bg-[#3c578a] transition duration-200"
+        class="bg-[#486FAA] text-white px-6 py-3 rounded-full font-normal text-base cursor-pointer hover:bg-[#3c578a] transition duration-200"
         @click="goToCalendar"
       >
         자신만의 플랜 조회
@@ -145,7 +154,7 @@
   <!-- Section 5: 상품 소개 -->
   <section
     ref="section5"
-    class="min-h-screen bg-gradient-to-b from-[#ffffff] via-[#f6fbea] to-[#A9FFF2] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80"
+    class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#c6fff6] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80"
   >
     <!-- 왼쪽 이미지 -->
     <img

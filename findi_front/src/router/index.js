@@ -5,6 +5,9 @@ import HomeView from '@/views/HomeView.vue'
 import SignUpView from '@/views/SignUpView.vue'
 import LogInView from '@/views/LogInView.vue'
 import OAuthCallback from '@/views/OAuthCallback.vue'
+import ResetPassword from '@/views/ResetPassword.vue'
+import Recommend from '@/views/Recommend.vue'
+import Logout from '@/components/Logout.vue'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -31,17 +34,30 @@ const publicRoutes = [
     name: 'OAuthCallback',
     component: OAuthCallback,
     meta: { public: true } // 이건 로그인 없이 리디렉션 받아야 하므로 public 처리
-  }
+  },
+  {
+    path: '/password-reset',
+    name: 'password-reset',
+    component: ResetPassword,
+    meta: { public: true }
+  },
 ]
 
 // 로그인한 사용자만 접근 가능한 라우트
 const protectedRoutes = [
-  // {
-  //   path: '/logout',
-  //   name: 'logout',
-  //   component: () => import('@/views/LogoutView.vue'),
-  //   meta: { requiresAuth: true },
-  // },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: Logout,
+    meta: { requiresAuth: true },
+  },
+  // 맞춤 상품 조회
+  {
+    path: '/recommend',
+    name: 'recommend',
+    component: Recommend,
+    meta: { requiresAuth: true },
+  },
   // {
   //   path: '/profile',
   //   name: 'profile',
