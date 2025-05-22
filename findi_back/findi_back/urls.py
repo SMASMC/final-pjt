@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 # JWT 인증, 인가를 위한 패키지
 from rest_framework_simplejwt.views import TokenRefreshView
+from accounts.views import CustomTokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    # JWT 인증, 인가를 위한 URL refresh token
+    # JWT 인증, 인가를 위한 URL
+    path('auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('finance/', include('finance.urls'), name='finance'),
 ]

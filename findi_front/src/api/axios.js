@@ -2,6 +2,9 @@
 import axios from 'axios'
 import router from '@/router'
 import { isTokenExpired } from '@/utils/jwt'
+import { useAuthStore } from '@/stores/auth'
+
+const authStore = useAuthStore()
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -25,10 +28,9 @@ api.interceptors.request.use(
           refresh,
         })
         access = res.data.access_token
-        localStorage.setItem('access_token', access)
-        localStorage.setItem('refresh_token', refresh)
+        authStore.loginSuccess({ access_token: access, refresh_token: refresh, user: res.data.user })
       } catch (err) {
-        localStorage.clear()
+        authStore.logout()
         router.replace({ name: 'login' })
         return Promise.reject(err)
       }
@@ -54,7 +56,7 @@ api.interceptors.response.use(
 
       const refreshToken = localStorage.getItem('refresh_token')
       if (!refreshToken) {
-        localStorage.clear()
+        authStore.logout()
         router.replace({ name: 'login' })
         return Promise.reject(error)
       }
@@ -63,14 +65,12 @@ api.interceptors.response.use(
         const res = await api.post(`/auth/refresh/`, { refresh: refreshToken })
         const { access_token, refresh_token, user } = res.data
 
-        localStorage.setItem('access_token', access_token)
-        localStorage.setItem('refresh_token', refresh_token)
-        localStorage.setItem('user', JSON.stringify(user))
+        authStore.loginSuccess({ access_token, refresh_token, user })
 
         originalRequest.headers.Authorization = `Bearer ${access_token}`
         return api(originalRequest)
       } catch (refreshError) {
-        localStorage.clear()
+        authStore.logout()
         router.replace({ name: 'login' })
         return Promise.reject(refreshError)
       }
