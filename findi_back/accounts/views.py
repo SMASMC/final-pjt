@@ -45,7 +45,6 @@ def google_login(request):
 
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
 @authentication_classes([])
 @transaction.atomic
 def google_login_callback(request):
@@ -120,7 +119,6 @@ def google_login_callback(request):
     return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
 
 @api_view(['POST'])
-@permission_classes([AllowAny])  # ← 인증 없이 접근 가능하게 설정
 def send_code(request):
     email = request.data.get('email')
     if not email:
@@ -143,7 +141,6 @@ def send_code(request):
     return Response({'message': '인증번호가 전송되었습니다.'})
 
 @api_view(['POST'])
-@permission_classes([AllowAny])
 def verify_code(request):
     email = request.data.get('email')
     code = request.data.get('code')
@@ -154,7 +151,6 @@ def verify_code(request):
     return Response({'verified': False}, status=400)
 
 @api_view(['POST'])
-@permission_classes([AllowAny])
 def reset_password(request):
     email = request.data.get('email')
     password = request.data.get('password')
