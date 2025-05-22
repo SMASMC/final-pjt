@@ -11,10 +11,12 @@ import router from './router'
 
 const app = createApp(App)
 const pinia = createPinia()
+
+
 app.use(pinia)
+app.use(router)
+app.mount('#app')
+
 // 웹 시작 시점에서 AuthStore 로컬스토리지 로드
 const authStore = useAuthStore()
 authStore.loadFromLocalStorage()
-
-app.use(router)
-app.mount('#app')

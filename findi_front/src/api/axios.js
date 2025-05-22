@@ -4,8 +4,6 @@ import router from '@/router'
 import { isTokenExpired } from '@/utils/jwt'
 import { useAuthStore } from '@/stores/auth'
 
-const authStore = useAuthStore()
-
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
   withCredentials: false // 쿠키 대신 localStorage 사용 시 false
@@ -19,12 +17,13 @@ api.defaults.headers.delete['Content-Type'] = 'application/json'
 // 요청 인터셉터
 api.interceptors.request.use(
   async (config) => {
-    let access = localStorage.getItem('access_token')
-    const refresh = localStorage.getItem('refresh_token')
+    const authStore = useAuthStore()
+    let access = authStore.accessToken
+    const refresh = authStore.refreshToken
 
     if (access && isTokenExpired(access) && refresh) {
       try {
-        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/refresh/`, {
+        const res = await api.post(`/auth/refresh/`, {
           refresh,
         })
         access = res.data.access_token
@@ -49,12 +48,13 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
+    const authStore = useAuthStore()
     const originalRequest = error.config
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true
 
-      const refreshToken = localStorage.getItem('refresh_token')
+      const refreshToken = authStore.refreshToken
       if (!refreshToken) {
         authStore.logout()
         router.replace({ name: 'login' })
