@@ -10,6 +10,7 @@ const api = axios.create({
 })
 
 // 기본 Content-Type 설정
+api.defaults.headers.get['Content-Type'] = 'application/json'
 api.defaults.headers.post['Content-Type'] = 'application/json'
 api.defaults.headers.put['Content-Type'] = 'application/json'
 api.defaults.headers.delete['Content-Type'] = 'application/json'

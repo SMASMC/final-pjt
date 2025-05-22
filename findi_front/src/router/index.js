@@ -8,6 +8,8 @@ import OAuthCallback from '@/views/OAuthCallback.vue'
 import ResetPassword from '@/views/ResetPassword.vue'
 import Recommend from '@/views/Recommend.vue'
 import Logout from '@/components/Logout.vue'
+import VideoSearchView from '@/views/VideoSearchView.vue'
+import VideoDetailView from '@/views/VideoDetailView.vue'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -35,12 +37,27 @@ const publicRoutes = [
     component: OAuthCallback,
     meta: { public: true } // 이건 로그인 없이 리디렉션 받아야 하므로 public 처리
   },
+  // 동영상 주식 정보 검색
+    {
+    path: '/videosearch',
+    name: 'videosearch',
+    component: VideoSearchView,
+    meta: { public: true } // 이건 로그인 없이 리디렉션 받아야 하므로 public 처리
+  },
+  // 동영상 디테일
+  {
+    path: '/video/:videoId',
+    name: 'videodetail',
+    component: VideoDetailView,
+    meta: { public: true }
+  },
   {
     path: '/password-reset',
     name: 'password-reset',
     component: ResetPassword,
     meta: { public: true }
   },
+
 ]
 
 // 로그인한 사용자만 접근 가능한 라우트

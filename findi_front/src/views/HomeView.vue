@@ -121,7 +121,7 @@
   <!-- Section 4: 상품 -->
   <section
     ref="section4"
-    class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#BDE4F6] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
+    class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#DB766C] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
   >
     <!-- 왼쪽 텍스트 및 버튼 -->
     <div class="text-center md:text-left items-center flex flex-col">
@@ -129,14 +129,14 @@
         자신만의 적금 플랜을<br />한눈에 파악해 보세요
       </h2>
       <button
-        class="bg-[#486FAA] text-white px-6 py-3 rounded-full font-normal text-base cursor-pointer hover:bg-[#3c578a] transition duration-200"
-        @click="goToCalendar"
+        class="bg-[#DB766C] text-white px-6 py-3 rounded-full font-normal text-base cursor-pointer hover:bg-[#3c578a] transition duration-200"
+        @click="goToVideos"
       >
-        자신만의 플랜 조회
+        주식 정보 영상 보기
       </button>
     </div>
     <!-- 오른쪽 이미지 -->
-    <img src="@/assets/main_page/schedule.png" alt="스케줄" class="w-[300px] md:w-[400px]" />
+    <img src="@/assets/main_page/video_icon.png" alt="스케줄" class="w-[300px] md:w-[400px]" />
 
     <!-- 스크롤 유도 아이콘 -->
     <div class="absolute bottom-8 animate-bounce cursor-pointer" @click="scrollToSection(4)">
@@ -204,8 +204,8 @@ const goToBanks = () => {
 const goToProducts = () => {
   router.push('/products')
 }
-const goToCalendar = () => {
-  router.push('/calendar')
+const goToVideos = () => {
+  router.push('/videosearch')
 }
 const goToRecommend = () => {
   router.push('/recommend')

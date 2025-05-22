@@ -27,4 +27,5 @@ urlpatterns = [
     path('auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('finance/', include('finance.urls'), name='finance'),
+    path('videos/', include('videos.urls'), name='videos')
 ]
