@@ -10,6 +10,8 @@ import Recommend from '@/views/Recommend.vue'
 import Logout from '@/components/Logout.vue'
 import VideoSearchView from '@/views/VideoSearchView.vue'
 import VideoDetailView from '@/views/VideoDetailView.vue'
+import ArticleView from '@/views/articles/ArticleView.vue'
+import ArticleDetailView from '@/views/articles/ArticleDetailView.vue'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -57,7 +59,19 @@ const publicRoutes = [
     component: ResetPassword,
     meta: { public: true }
   },
-
+  // 게시판
+  {
+    path: '/articles',
+    name: 'articles',
+    component: ArticleView,
+    meta: { public: true }
+  },
+  {
+    path: '/articles/:id',
+    name: 'articlesdetail',
+    component: ArticleDetailView,
+    meta: { public: true }
+  },
 ]
 
 // 로그인한 사용자만 접근 가능한 라우트

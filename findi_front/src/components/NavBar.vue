@@ -88,6 +88,7 @@ const menuItems = [
   { label: '은행 찾기', to: '/banks' },
   { label: '예/적금 상품 조회', to: '/products' },
   { label: '주식 정보 영상 조회', to: '/videosearch'},
+  { label: '상품 게시판', to: '/articles'},
   { label: '맞춤 상품 조회', to: '/recommend' }
 ]
 </script>

@@ -19,6 +19,8 @@ from django.urls import path, include
 # JWT 인증, 인가를 위한 패키지
 from rest_framework_simplejwt.views import TokenRefreshView
 from accounts.views import CustomTokenObtainPairView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +29,6 @@ urlpatterns = [
     path('auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('finance/', include('finance.urls'), name='finance'),
-    path('videos/', include('videos.urls'), name='videos')
-]
+    path('videos/', include('videos.urls'), name='videos'),
+    path('articles/', include('articles.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
