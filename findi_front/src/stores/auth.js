@@ -7,6 +7,11 @@ export const useAuthStore = defineStore('auth', {
     refreshToken: localStorage.getItem('refresh_token'),
     user: JSON.parse(localStorage.getItem('user') || 'null')
   }),
+      getters: {
+    //  accessToken 유무로 로그인 상태 판단
+    isAuthenticated: (state) => !!state.accessToken
+  },
+
   actions: {
     // 로그인 성공시
     loginSuccess({ access, refresh, user }) {

@@ -82,9 +82,13 @@ const fetchVideoDetail = async () => {
       video.value = null
       return
     }
-
     video.value = response.data.items[0]
     console.log('📺 video.value 할당 완료:', video.value)
+
+    // // ✅ 저장 여부 체크 로직 추가
+  const check = await api.get(`/videos/later-videos/${videoId}/`)
+  isSaved.value = check.data.isSaved
+
   } catch (error) {
     console.error('❌ 비디오 정보 불러오기 실패:', error)
   }

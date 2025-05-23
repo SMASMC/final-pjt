@@ -7,5 +7,5 @@ app_name = 'videos'
 
 urlpatterns = [
     path('later-videos/', views.later_video_list_create),
-    path('later-videos/<str:videoId>/', views.later_video_delete),
+    path('later-videos/<str:videoId>/', views.later_video_detail_and_delete),
 ]
