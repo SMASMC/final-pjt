@@ -177,7 +177,26 @@ def send_code(request):
     from_email = 'msoko89@gmail.com'
     to = [email]
     text_content = f'인증번호는 {code}입니다.'
-    html_content = render_to_string('emails/verify_code.html', {'code': code})
+    html_content = f"""
+                    <html>
+                    <body>
+                        <h2 style="color: #8A69E1;">Findi 인증번호</h2>
+                        <p>비밀번호 재설정을 위해 아래 인증번호를 입력해 주세요.</p>
+                        <div style="
+                            font-size: 20px;
+                            font-weight: bold;
+                            background: #8A69E1;
+                            color: white;
+                            padding: 10px 20px;
+                            border-radius: 6px;
+                            display: inline-block;
+                            margin-top: 10px;">
+                            {code}
+                        </div>
+                        <p style="margin-top: 20px; color: #888;">이 인증번호는 5분간 유효합니다.</p>
+                    </body>
+                    </html>
+                    """
 
     msg = EmailMultiAlternatives(subject, text_content, from_email, to)
     msg.attach_alternative(html_content, "text/html")
