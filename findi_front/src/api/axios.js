@@ -6,14 +6,11 @@ import { useAuthStore } from '@/stores/auth'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
-  withCredentials: false // 쿠키 대신 localStorage 사용 시 false
+  withCredentials: false
 })
 
-// 기본 Content-Type 설정
-api.defaults.headers.get['Content-Type'] = 'application/json'
-api.defaults.headers.post['Content-Type'] = 'application/json'
-api.defaults.headers.put['Content-Type'] = 'application/json'
-api.defaults.headers.delete['Content-Type'] = 'application/json'
+// Content-Type 기본 설정
+api.defaults.headers.common['Content-Type'] = 'application/json'
 
 // 요청 인터셉터
 api.interceptors.request.use(
@@ -22,14 +19,20 @@ api.interceptors.request.use(
     let access = authStore.accessToken
     const refresh = authStore.refreshToken
 
+    // access 만료 시 refresh 시도
     if (access && isTokenExpired(access) && refresh) {
       try {
-        const res = await api.post(`/auth/refresh/`, {
-          refresh,
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/refresh/`, {
+          refresh
         })
-        const { access_token, refresh_token, user } = res.data
-        
-        authStore.loginSuccess({ access_token, refresh_token, user })
+        const { access: newAccess, refresh: newRefresh } = res.data
+
+        authStore.loginSuccess({
+          access: newAccess,
+          refresh: newRefresh,
+          user: authStore.user // 기존 사용자 정보 유지
+        })
+        access = newAccess
       } catch (err) {
         authStore.logout()
         router.replace({ name: 'login' })
@@ -37,6 +40,7 @@ api.interceptors.request.use(
       }
     }
 
+    // 헤더에 accessToken 추가
     if (access) {
       config.headers.Authorization = `Bearer ${access}`
     }
@@ -64,12 +68,19 @@ api.interceptors.response.use(
       }
 
       try {
-        const res = await api.post(`/auth/refresh/`, { refresh: refreshToken })
-        const { access_token, refresh_token, user } = res.data
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/refresh/`, {
+          refresh: refreshToken
+        })
 
-        authStore.loginSuccess({ access_token, refresh_token, user })
+        const { access: newAccess, refresh: newRefresh } = res.data
 
-        originalRequest.headers.Authorization = `Bearer ${access_token}`
+        authStore.loginSuccess({
+          access: newAccess,
+          refresh: newRefresh,
+          user: authStore.user
+        })
+
+        originalRequest.headers.Authorization = `Bearer ${newAccess}`
         return api(originalRequest)
       } catch (refreshError) {
         authStore.logout()
@@ -83,6 +94,7 @@ api.interceptors.response.use(
 )
 
 export default api
+
 
 /*
 📌 사용 예시

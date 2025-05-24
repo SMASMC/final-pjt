@@ -1,7 +1,21 @@
 import uuid
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
+import os
 
+# 프로필 이미지 업로드 경로 => 이미있는 파일 삭제
+def user_profile_upload_path(instance, filename):
+    ext = 'png' # 확장자 고정
+    filename = f'{instance.user.email}.{ext}'
+    file_path = os.path.join('profiles', filename)
+
+    # 기존 파일 삭제
+    full_path = os.path.join(settings.MEDIA_ROOT, file_path)
+    if os.path.exists(full_path):
+        os.remove(full_path)
+
+    return file_path
 class CustomUser(AbstractUser):
     username = None  # username 필드 제거
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -24,10 +38,9 @@ class CustomUser(AbstractUser):
 
 class UserProfile(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    profileImage = models.URLField(null=True, blank=True)
-    createdAt = models.DateTimeField(auto_now_add=True)
-    updatedAt = models.DateTimeField(auto_now=True)
-    deletedAt = models.DateTimeField(null=True, blank=True)
+    monthly_income = models.PositiveIntegerField(null=True, blank=True)  # 월 소득 (만원)
+    savings = models.PositiveIntegerField(null=True, blank=True)         # 모아둔 돈 (만원)
+    profileImage = models.ImageField(upload_to=user_profile_upload_path, null=True, blank=True)  # 이미지 파일로 교체
 
     RISK_CHOICES = [
         ('low', 'Low'),
@@ -47,7 +60,6 @@ class UserProfile(models.Model):
     ]
 
     age = models.PositiveIntegerField(null=True, blank=True)
-    income_level = models.CharField(max_length=50, null=True, blank=True)  # 저소득, 중간, 고소득
     risk_tolerance = models.CharField(max_length=10, choices=RISK_CHOICES, default='medium')
     financial_goal = models.CharField(max_length=20, choices=FINANCE_GOALS, default='saving')
     interested_products = models.JSONField(default=list)  # ['deposit', 'fund'] 등
@@ -55,6 +67,9 @@ class UserProfile(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='profile')
+
+
+
 
 class UserPortfolio(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

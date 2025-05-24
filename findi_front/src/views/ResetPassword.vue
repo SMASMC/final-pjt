@@ -48,10 +48,10 @@
         >
           비밀번호 변경
         </button>
-
-        <Alerts v-if="showAlert" :type="alertType" :message="alertMessage" />
       </div>
     </div>
+    <!-- Toast 메시지 -->
+    <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
   </div>
 </template>
 
@@ -59,7 +59,7 @@
 import { ref, computed, onUnmounted } from 'vue'
 import api from '@/api/axios'
 import { useRouter } from 'vue-router'
-import Alerts from '@/components/Alerts.vue'
+import ToastMessage from '@/components/ToastMessage.vue'
 
 const router = useRouter()
 
@@ -72,16 +72,10 @@ const verified = ref(false)
 const timer = ref(0)
 let interval = null
 
-// Alert를 위한 선언
-const showAlert = ref(false)
-const alertType = ref('success')
-const alertMessage = ref('')
-
-const showSuccess = (msg) => {
-  alertType.value = 'success'
-  alertMessage.value = msg
-  showAlert.value = true
-  setTimeout(() => (showAlert.value = false), 3000)
+const toast = ref({ show: false, type: 'success', message: '' })
+const showToast = (type, message) => {
+  toast.value = { type, message, show: true }
+  setTimeout(() => (toast.value.show = false), 3000)
 }
 
 const sendCode = async () => {
@@ -90,8 +84,10 @@ const sendCode = async () => {
     codeSent.value = true
     timer.value = 300
     startTimer()
+    showToast('success', '인증번호가 발송되었습니다.')
   } catch (err) {
     console.error(err)
+    showToast('danger', '인증번호 발송에 실패했습니다.')
   }
 }
 
@@ -111,30 +107,39 @@ const formattedTime = computed(() => {
   const s = String(timer.value % 60).padStart(2, '0')
   return `${m}:${s}`
 })
+
 const verifyCode = async () => {
-  const res = await api.post('/accounts/verify-code/', {
-    email: email.value,
-    code: code.value
-  })
-  verified.value = res.data.verified
+  try {
+    const res = await api.post('/accounts/verify-code/', {
+      email: email.value,
+      code: code.value
+    })
+    verified.value = res.data.verified
+    if (verified.value) {
+      showToast('success', '인증되었습니다.')
+    } else {
+      showToast('danger', '인증에 실패했습니다.')
+    }
+  } catch (err) {
+    showToast('danger', '인증에 실패했습니다.')
+  }
 }
 
 const resetPassword = async () => {
   try {
     await api.post('/accounts/reset-password/', {
       email: email.value,
-      new_password: newPassword.value
+      password: newPassword.value
     })
-    showAlert.value = true
-    alertType.value = 'success'
-    alertMessage.value = '비밀번호가 변경되었습니다.'
-    router.push('/login')
+    showToast('success', '비밀번호가 변경되었습니다.')
+    setTimeout(() => router.push('/login'), 1500)
   } catch (err) {
-    alertType.value = 'danger'
-    alertMessage.value = '비밀번호 변경에 실패했습니다.'
-    showAlert.value = true
+    showToast(
+      'danger',
+      err.response?.data?.non_field_errors?.[0] || '비밀번호 변경에 실패했습니다.'
+    )
   }
 }
-// 인터벌 정리 onUnmounted는 컴포넌트가 제거될 때 인터벌을 정리하는 역할을 합니다.
+
 onUnmounted(() => clearInterval(interval))
 </script>

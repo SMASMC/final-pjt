@@ -20,4 +20,8 @@ urlpatterns = [
 
     # 사용자 정보 관련 URL
     path('profile/', views.user_profile, name='user_profile'),
+
+
+    # 회원 탈퇴
+    path('delete-account/', views.delete_account, name='delete_account'),
 ]

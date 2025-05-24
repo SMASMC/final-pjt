@@ -13,6 +13,7 @@ import VideoDetailView from '@/views/VideoDetailView.vue'
 import { useAuthStore } from '@/stores/auth'
 import ArticleView from '@/views/articles/ArticleView.vue'
 import ArticleDetailView from '@/views/articles/ArticleDetailView.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -90,12 +91,12 @@ const protectedRoutes = [
     component: Recommend,
     meta: { requiresAuth: true },
   },
-  // {
-  //   path: '/profile',
-  //   name: 'profile',
-  //   component: () => import('@/views/ProfileView.vue'),
-  //   meta: { requiresAuth: true },
-  // },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView,
+    meta: { requiresAuth: true },
+  },
   // {
   //   path: '/edit-profile',
   //   name: 'edit-profile',
@@ -122,18 +123,42 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const accessToken = authStore.accessToken
+  const rawAuth = localStorage.getItem('auth')
 
-  // meta.public이 true면 무조건 허용
+  let isLoggedIn = false
+
+  if (accessToken) {
+    isLoggedIn = true
+  } else if (rawAuth) {
+    try {
+      const auth = JSON.parse(rawAuth)
+
+      // 내부 키들이 모두 존재하는지 확인
+      const hasValidAuth = auth.accessToken && auth.refreshToken && auth.user
+      isLoggedIn = !!hasValidAuth
+    } catch (e) {
+      console.warn('localStorage auth 파싱 실패:', e)
+      isLoggedIn = false
+    }
+  }
+
+  // 로그인된 사용자가 login/signup 페이지 접근 시 홈으로 이동
+  if ((to.name === 'login' || to.name === 'signup') && isLoggedIn) {
+    return next({ name: 'home' })
+  }
+
+  // 공개 라우트는 항상 허용
   if (to.meta.public) {
     return next()
   }
 
-  // 그 외는 토큰이 없으면 로그인으로 리다이렉트
-  if (!accessToken) {
+  // 보호 라우트는 로그인되어야 허용
+  if (!isLoggedIn) {
     return next({ name: 'login' })
   }
 
   return next()
 })
+
 
 export default router
