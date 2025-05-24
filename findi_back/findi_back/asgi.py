@@ -8,9 +8,13 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 """
 
 import os
+from dotenv import load_dotenv
 
-from django.core.asgi import get_asgi_application
+# .env 파일 경로 기준은 manage.py와 동일
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'findi_back.settings')
 
-application = get_asgi_application()
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+

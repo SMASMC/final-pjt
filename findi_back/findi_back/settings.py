@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'schedules',
     'videos',
     'articles',
+    'kakaomap',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',

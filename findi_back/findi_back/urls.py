@@ -32,4 +32,5 @@ urlpatterns = [
     path('finance/', include('finance.urls'), name='finance'),
     path('videos/', include('videos.urls'), name='videos'),
     path('articles/', include('articles.urls')),
+    path('kakaomap/', include('kakaomap.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
