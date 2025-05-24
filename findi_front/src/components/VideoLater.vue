@@ -23,14 +23,14 @@ const savedVideos = ref([])
 const authStore = useAuthStore()
 
 const fetchSavedVideos = async () => {
-  console.log('✅ 로그인 상태:', authStore.accessToken)
+  console.log('로그인 상태:', authStore.accessToken)
 
   if (!authStore.isAuthenticated) return
 
   try {
     const res = await api.get('/videos/later-videos/')
     
-    // ✅ YouTube API 포맷으로 맞춤
+    // YouTube API 포맷으로 맞춤
     savedVideos.value = res.data.map(v => ({
       id: v.videoId,
       snippet: {

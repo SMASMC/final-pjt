@@ -1,11 +1,24 @@
-from rest_framework import serializers
-from .models import Article
+# articles/serializers.py
 
+from rest_framework import serializers
+from .models import Article, Comment
+from accounts.serializers import CustomUserSerializer
+
+# 게시글
 class ArticleSerializer(serializers.ModelSerializer):
-    # user 필드는 문자열로 읽기만 가능 (프론트에서 작성자 이름 확인용)
-    user = serializers.StringRelatedField(read_only=True)
+    user = CustomUserSerializer(read_only=True)
 
     class Meta:
         model = Article
         fields = '__all__'
         read_only_fields = ('user', 'views', 'created_at')
+
+
+# 댓글
+class CommentSerializer(serializers.ModelSerializer):
+    user = CustomUserSerializer(read_only=True)
+
+    class Meta:
+        model = Comment
+        fields = '__all__'
+        read_only_fields = ('user', 'created_at')

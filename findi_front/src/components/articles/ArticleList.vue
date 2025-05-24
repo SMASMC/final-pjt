@@ -1,22 +1,22 @@
 <template>
   <div>
-    <!-- 검색 입력창 -->
+    <!-- 검색창 -->
     <div class="flex gap-2 justify-end mb-4">
       <input
         v-model="searchQuery"
         type="text"
-        placeholder="제목 검색"
-        class="border border-gray-300 px-3 py-1 rounded w-64"
+        placeholder="제목으로 검색"
+        class="border border-gray-300 px-3 py-1 rounded w-80"
       />
       <button
-        @click="handleSearch"
+        @click="fetchArticles"
         class="bg-purple-500 text-white px-4 py-1 rounded hover:bg-purple-600"
       >
         검색
       </button>
     </div>
 
-    <!-- 게시판 테이블 -->
+    <!-- 게시글 목록 테이블 -->
     <table class="table-auto w-full text-sm border-collapse">
       <thead class="bg-gray-100 text-gray-700 text-left">
         <tr class="border-b">
@@ -30,12 +30,16 @@
         <tr
           v-for="article in articles"
           :key="article.id"
-          class="border-b hover:bg-gray-50 cursor-pointer"
-          @click="goToDetail(article.id)"
+          class="border-b"
         >
-          <td class="p-2 text-blue-600 hover:underline">{{ article.title }}</td>
-          <td class="p-2">{{ article.user }}</td>
-          <td class="p-2">{{ article.created_at }}</td>
+          <td
+            class="p-2 hover:bg-gray-50 cursor-pointer"
+            @click="goToDetail(article.id)"
+          >
+            {{ article.title }}
+          </td>
+          <td class="p-2">{{ article.user.userName }}</td>
+          <td class="p-2">{{ article.created_at.split('T')[0] }}</td>
           <td class="p-2 text-right">{{ article.views }}</td>
         </tr>
       </tbody>
@@ -48,26 +52,34 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import api from '@/api/axios'
 
-const router = useRouter()
-const searchQuery = ref('')
 const articles = ref([])
+const searchQuery = ref('')
+const router = useRouter()
 
-// 외부에서 접근 가능하게 export => 부모 컴포넌트(articleview.vue)가 새로고침 할 수 있게
 const fetchArticles = async () => {
   try {
     const { data } = await api.get('/articles/', {
-      params: searchQuery.value.trim() ? { search: searchQuery.value } : {}
+      params: searchQuery.value.trim()
+        ? { search: searchQuery.value }
+        : undefined
     })
     articles.value = data
   } catch (err) {
-    console.error('게시글 로드 실패:', err)
+    console.error('게시글 목록을 불러오지 못했습니다.', err)
   }
 }
-defineExpose({ fetchArticles })
-
-onMounted(fetchArticles)
 
 const goToDetail = (id) => {
   router.push(`/articles/${id}`)
 }
+
+onMounted(() => {
+  fetchArticles()
+})
+
+// 외부(부모)에서 불러쓸 수 있도록 export
+defineExpose({ fetchArticles })
 </script>
+
+<style scoped>
+</style>

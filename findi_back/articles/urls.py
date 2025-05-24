@@ -1,11 +1,14 @@
 from django.urls import path
 from . import views
 
-app_name = 'articles'
-
 urlpatterns = [
-    path('', views.article_list_create),
-    path('<uuid:pk>/', views.article_detail),
-    path('<uuid:pk>/increment-views/', views.increment_views),
-    path('api/upload_image/', views.upload_image),
-]
+    # 게시글
+    path('', views.article_list_create, name='article_list_create'),
+    path('<uuid:pk>/', views.article_detail, name='article_detail'),
+    path('<uuid:pk>/increment-views/', views.increment_views, name='article_increment_views'),
+
+    # 댓글
+    path('<uuid:article_id>/comments/', views.comment_list_create, name='comment_list_create'),
+    path('<uuid:article_id>/comments/<uuid:comment_id>/', views.comment_delete, name='comment_delete'),
+    path('<uuid:article_id>/comments/<uuid:comment_id>/edit/', views.comment_update, name='comment_update'),
+] 

@@ -18,6 +18,9 @@ class CustomUser(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['userName']
+    
+    def __str__(self):
+        return self.userName # article과 댓글에서 작성자 정보 위해
 
 class UserProfile(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
