@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
 from django.contrib.auth import get_user_model
-from rest_framework.decorators import api_view, permission_classes, authentication_classes
+from rest_framework.decorators import api_view, permission_classes, authentication_classes, parser_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -16,11 +16,15 @@ import random
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import CustomTokenObtainPairSerializer, UserWithProfileSerializer, CustomRegisterSerializer, CustomLoginSerializer
+from .serializers import CustomTokenObtainPairSerializer, UserWithProfileSerializer, CustomRegisterSerializer, CustomLoginSerializer, UserProfileUpdateSerializer
 from rest_framework.permissions import IsAuthenticated
 from dj_rest_auth.registration.views import RegisterView
 from rest_framework import status
 from dj_rest_auth.views import LoginView
+from rest_framework.parsers import MultiPartParser, FormParser
+
+
+
 
 # CustomLoginView의 선언 이유는?
 # 이 클래스는 기본 LoginView의 응답에 사용자 정보를 추가하고 싶을 때 사용
@@ -195,6 +199,7 @@ def verify_code(request):
 def reset_password(request):
     email = request.data.get('email')
     password = request.data.get('password')
+    print(email, password)
 
     try:
         user = User.objects.get(email=email)
@@ -205,8 +210,36 @@ def reset_password(request):
         return Response({'error': '사용자를 찾을 수 없습니다.'}, status=404)
 
 # 사용자 Profile + user 조회
-@api_view(['GET'])
+@api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
+@parser_classes([MultiPartParser, FormParser])
 def user_profile(request):
-    serializer = UserWithProfileSerializer(request.user)
-    return Response(serializer.data)
+    # UserProfile이 없으면 생성
+    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+
+    # GET: 프로필 정보 반환
+    if request.method == 'GET':
+        serializer = UserProfileUpdateSerializer(profile)
+        return Response(serializer.data)
+
+    # PUT: 프로필 정보 수정
+    if request.method == 'PUT':
+        serializer = UserProfileUpdateSerializer(profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
+
+
+
+# 회원 탈퇴
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_account(request):
+    user = request.user
+
+    try:
+        user.delete()
+        return Response({'message': '회원 탈퇴가 완료되었습니다.'}, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

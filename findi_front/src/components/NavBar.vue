@@ -60,17 +60,9 @@ const isLoggedIn = computed(() => !!authStore.accessToken)
 const userName = computed(() => authStore.user?.userName || '사용자') // userName이 없으면, 사용자라고 띄움
 // user객체에없으면, user.profile로 찾고, 없으면 assets/profile.png로 설정
 const profileImage = computed(() => {
-  const user = authStore?.user
-
-  // 사용자 객체가 없거나 프로필 이미지가 없을 때
-
-  if (!user || !user.profileImage || user.profile === null) return defaultProfile
-
-  // 중첩된 profile 객체 안에 프로필 이미지가 있는 경우
-  if (user.profile?.profileImage) return user.profile.profileImage
-
-  // 위 모두 해당하지 않을 때 기본 이미지 반환
-  return defaultProfile
+  const src = authStore.profileImage
+  if (!src) return defaultProfile
+  return src.startsWith('http') ? src : import.meta.env.VITE_BACKEND_URL + src
 })
 
 const goToLogin = () => router.push('/login')

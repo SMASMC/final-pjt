@@ -77,3 +77,12 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'userName')
+
+# 프로필 업데이트 serializer
+class UserProfileUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = [
+            'profileImage', 'age', 'risk_tolerance', 'monthly_income', 'savings',
+            'financial_goal', 'interested_products'
+        ]

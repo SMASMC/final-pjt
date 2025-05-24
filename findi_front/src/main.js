@@ -21,4 +21,8 @@ app.mount('#app')
 
 app.config.errorHandler = (err, instance, info) => {
     console.error('Vue error:', err, info)
-  }  
+}
+
+// 앱 시작 시 localStorage에서 복구
+const authStore = useAuthStore()
+authStore.initAuth()
