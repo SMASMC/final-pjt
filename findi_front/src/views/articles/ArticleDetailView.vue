@@ -1,8 +1,8 @@
 <!-- /src/views/articles/ArticleDetailView.vue -->
+
 <template>
   <div class="max-w-3xl mx-auto pt-20">
     <h1 class="text-2xl font-bold mb-4">{{ article.title }}</h1>
-
     <p class="text-sm text-gray-500 mb-4">
       작성자: {{ article.user?.userName || '알 수 없음' }} |
       작성일: {{ formatDate(article.created_at) }} |
@@ -17,15 +17,18 @@
     </div>
 
     <CommentSection
-      :comments="article.comments"
+      v-if="article.id"
       :article-id="article.id"
       @comment-added="fetchArticle"
       @comment-deleted="fetchArticle"
     />
 
+
     <ArticleEditModal
       v-if="isEditOpen"
-      :article="article"
+      :article-id="article.id"
+      :initial-title="article.title"
+      :initial-content="article.content"
       @close="isEditOpen = false"
       @updated="handleArticleUpdated"
     />
@@ -36,11 +39,13 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import api from '@/api/axios'
+import { useAuthStore } from '@/stores/auth'
 import CommentSection from '@/components/articles/CommentSection.vue'
 import ArticleEditModal from '@/components/articles/ArticleEditModal.vue'
 
 const route = useRoute()
 const router = useRouter()
+const authStore = useAuthStore()
 
 const article = ref({
   id: null,
@@ -49,8 +54,7 @@ const article = ref({
   views: 0,
   user: null,
   is_author: false,
-  created_at: '',
-  comments: []
+  created_at: ''
 })
 
 const isEditOpen = ref(false)
@@ -59,7 +63,9 @@ let hasViewed = false
 
 const fetchArticle = async () => {
   try {
-    const { data } = await api.get(`/articles/${route.params.id}/`)
+    const { data } = await api.get(`/articles/${route.params.id}/`, {
+      headers: { Authorization: `Bearer ${authStore.accessToken}` }
+    })
     article.value = data
   } catch (error) {
     console.error('게시글 로드 실패:', error)
@@ -70,7 +76,9 @@ const delayedViewCount = async () => {
   timer = setTimeout(async () => {
     if (!hasViewed) {
       try {
-        await api.post(`/articles/${route.params.id}/increment-views/`)
+        await api.post(`/articles/${route.params.id}/increment-views/`, {}, {
+          headers: { Authorization: `Bearer ${authStore.accessToken}` }
+        })
         hasViewed = true
         article.value.views += 1
       } catch (error) {
@@ -83,7 +91,9 @@ const delayedViewCount = async () => {
 const deleteArticle = async () => {
   if (!confirm('정말 삭제하시겠습니까?')) return
   try {
-    await api.delete(`/articles/${route.params.id}/`)
+    await api.delete(`/articles/${route.params.id}/`, {
+      headers: { Authorization: `Bearer ${authStore.accessToken}` }
+    })
     alert('삭제 완료')
     router.push('/articles')
   } catch (error) {

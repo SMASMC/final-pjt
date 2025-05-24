@@ -9,6 +9,5 @@ urlpatterns = [
 
     # 댓글
     path('<uuid:article_id>/comments/', views.comment_list_create, name='comment_list_create'),
-    path('<uuid:article_id>/comments/<uuid:comment_id>/', views.comment_delete, name='comment_delete'),
-    path('<uuid:article_id>/comments/<uuid:comment_id>/edit/', views.comment_update, name='comment_update'),
+    path('<uuid:article_id>/comments/<uuid:comment_id>/', views.comment_update_or_delete, name='comment_update_or_delete')
 ] 
