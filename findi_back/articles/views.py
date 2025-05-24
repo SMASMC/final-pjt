@@ -5,6 +5,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from .models import Article, Comment
 from .serializers import ArticleSerializer, CommentSerializer
+from rest_framework.pagination import PageNumberPagination
 
 # 게시글 전체 조회 및 생성
 @api_view(['GET', 'POST'])
@@ -12,13 +13,16 @@ from .serializers import ArticleSerializer, CommentSerializer
 def article_list_create(request):
     if request.method == 'GET':
         search = request.query_params.get('search')
+        articles = Article.objects.all().order_by('-created_at')
         if search:
-            articles = Article.objects.filter(title__icontains=search).order_by('-created_at')
-        else:
-            articles = Article.objects.all().order_by('-created_at')
-        serializer = ArticleSerializer(articles, many=True, context={'request': request})
-        return Response(serializer.data)
-
+            articles = articles.filter(title__icontains=search)
+        # 페이지네이션 처리
+        paginator = PageNumberPagination()
+        paginator.page_size = 15
+        result_page = paginator.paginate_queryset(articles, request)
+        serializer = ArticleSerializer(result_page, many=True, context={'request': request})
+        return paginator.get_paginated_response(serializer.data)
+    
     elif request.method == 'POST':
         serializer = ArticleSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():

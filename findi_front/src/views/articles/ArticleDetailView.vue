@@ -11,10 +11,21 @@
 
     <div class="prose whitespace-pre-line mb-6" v-html="article.content"></div>
 
-    <div v-if="article.is_author" class="flex gap-2 mb-6">
-      <button @click="isEditOpen = true" class="px-4 py-2 border rounded">수정</button>
-      <button @click="deleteArticle" class="px-4 py-2 border rounded text-red-500">삭제</button>
+    <div v-if="article.is_author" class="flex justify-end gap-2 mb-6">
+      <button
+        @click="isEditOpen = true"
+        class="text-sm px-3 py-1 border rounded hover:bg-gray-100"
+      >
+        수정
+      </button>
+      <button
+        @click="deleteArticle"
+        class="text-sm px-3 py-1 border rounded text-red-500 hover:bg-red-50"
+      >
+        삭제
+      </button>
     </div>
+
 
     <CommentSection
       v-if="article.id"

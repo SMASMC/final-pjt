@@ -1,9 +1,19 @@
 <template>
   <div class="mt-10">
-    <h2 class="text-xl font-semibold mb-2">댓글</h2>
+    <h2 class="text-xl font-semibold mb-4">댓글</h2>
+
+    <!-- 댓글 작성 폼 -->
+    <form @submit.prevent="submitComment" class="mb-6">
+      <textarea v-model="newComment" placeholder="댓글을 입력하세요" class="w-full border rounded p-2" rows="3" required></textarea>
+      <div class="flex justify-end mt-2">
+        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">댓글 작성</button>
+      </div>
+    </form>
+
+    <!-- 댓글 목록 -->
     <ul>
       <li v-if="comments.length === 0" class="text-gray-400">아직 댓글이 없습니다.</li>
-      <li v-for="comment in comments" :key="comment.id" class="border-b py-2">
+      <li v-for="comment in visibleComments" :key="comment.id" class="border-b py-2">
         <div class="text-sm">
           <strong>{{ comment.user?.userName || '알 수 없음' }}</strong>
           <template v-if="editingCommentId === comment.id">
@@ -26,17 +36,17 @@
       </li>
     </ul>
 
-    <form @submit.prevent="submitComment" class="mt-6">
-      <textarea v-model="newComment" placeholder="댓글을 입력하세요" class="w-full border rounded p-2" rows="3" required></textarea>
-      <div class="flex justify-end mt-2">
-        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">댓글 작성</button>
-      </div>
-    </form>
+    <!-- 더보기/접기 -->
+    <div v-if="comments.length > visibleCount" class="text-right mt-2">
+      <button @click="toggleComments" class="text-sm text-purple-600 hover:underline">
+        {{ isExpanded ? '접기' : '더보기' }}
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import api from '@/api/axios'
 import { useAuthStore } from '@/stores/auth'
 
@@ -50,12 +60,23 @@ const comments = ref([])
 const newComment = ref('')
 const editingCommentId = ref(null)
 const editedContent = ref('')
+const visibleCount = ref(5)
+const isExpanded = ref(false)
+
+const visibleComments = computed(() => {
+  return isExpanded.value ? comments.value : comments.value.slice(0, visibleCount.value)
+})
+
+const toggleComments = () => {
+  isExpanded.value = !isExpanded.value
+}
 
 const loadComments = async () => {
   if (!props.articleId) return
   try {
     const { data } = await api.get(`/articles/${props.articleId}/comments/`)
     comments.value = data
+    isExpanded.value = false  // 초기화 시 접힌 상태로
   } catch (err) {
     console.error('댓글 로드 실패:', err)
   }
