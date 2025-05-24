@@ -6,6 +6,8 @@ from django.shortcuts import get_object_or_404
 from .models import Article, Comment
 from .serializers import ArticleSerializer, CommentSerializer
 from rest_framework.pagination import PageNumberPagination
+from articles.utils.utils import save_quill_images
+from django.utils.text import slugify
 
 # 게시글 전체 조회 및 생성
 @api_view(['GET', 'POST'])
@@ -22,12 +24,24 @@ def article_list_create(request):
         result_page = paginator.paginate_queryset(articles, request)
         serializer = ArticleSerializer(result_page, many=True, context={'request': request})
         return paginator.get_paginated_response(serializer.data)
-    
     elif request.method == 'POST':
-        serializer = ArticleSerializer(data=request.data, context={'request': request})
+        title = request.data.get('title')
+        content = request.data.get('content')
+        title_slug = slugify(title)
+
+        # 1. 이미지 저장 및 content 내용 업데이트
+        new_content = save_quill_images(content, title_slug)
+
+        # 2. 수정된 content를 바탕으로 serializer 저장
+        serializer = ArticleSerializer(data={
+            "title": title,
+            "content": new_content
+        }, context={'request': request})
+
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
