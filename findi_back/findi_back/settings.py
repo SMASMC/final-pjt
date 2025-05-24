@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 SITE_ID = 1 # Site ID 설정 (allauth) OAuth를 위한 설정
 
+
 INSTALLED_APPS = [
     'accounts',
     'faq',
@@ -145,6 +146,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 사용자 모델 설정
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
+# 로그인 serializer 설정
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER': 'accounts.serializers.CustomLoginSerializer'
+}
+
+# dj-rest-auth 회원가입 시 serializer 설정
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
+}
+
 # Authentication Backend 설정 (allauth)
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -161,6 +172,9 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None  # username 필드 없음 선언
 
+# 이메일 인증을 사용하지 않음.
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 # 환경변수에서 GOOGLE_CLIENT_ID, SECRET 관리
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -176,6 +190,7 @@ SOCIALACCOUNT_PROVIDERS = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 # REST Framework 설정
 REST_FRAMEWORK = {

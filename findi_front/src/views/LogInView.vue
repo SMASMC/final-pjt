@@ -11,8 +11,14 @@
         <OAuthButton class="rounded-lg cursor-pointer" provider="kakao" />
       </div>
       <AuthForm class="w-full" mode="login" />
-      <div class="text-right mt-2">
-        <button class="forgot-btn" @click="goToPasswordReset">비밀번호를 잊으셨나요?</button>
+      <div class="text-sm mt-4 flex justify-between w-full">
+        <div>
+          아직 회원이 아니신가요?
+          <button class="forgot-btn ml-1" @click="goToSignUp">회원가입</button>
+        </div>
+        <div>
+          <button class="forgot-btn" @click="goToPasswordReset">비밀번호를 잊으셨나요?</button>
+        </div>
       </div>
     </div>
     <div class="auth-right">
@@ -30,6 +36,10 @@ const router = useRouter()
 
 const goToPasswordReset = () => {
   router.push('/password-reset') // 비밀번호 재설정 페이지로 이동
+}
+
+const goToSignUp = () => {
+  router.push('/signup') // 회원가입 페이지로 이동
 }
 </script>
 

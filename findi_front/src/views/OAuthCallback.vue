@@ -7,37 +7,40 @@
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import api from '@/api/axios'
+
 const router = useRouter()
 const store = useAuthStore()
+
 onMounted(async () => {
   try {
     const params = new URLSearchParams(window.location.search)
-
     const access_token = params.get('access_token')
     const refresh_token = params.get('refresh_token')
-    const email = params.get('email')
-    const userName = params.get('userName')
-    const profileImage = params.get('profileImage')
 
     if (!access_token || !refresh_token) {
       router.replace({ name: 'login' })
       return
     }
 
-    const user = { email, userName, profileImage }
+    // 사용자 정보 요청
+    const res = await api.get('/accounts/profile/', {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    })
 
-    // localStorage에 저장
-    localStorage.setItem('access_token', access_token)
-    localStorage.setItem('refresh_token', refresh_token)
-    localStorage.setItem('user', JSON.stringify(user))
+    const user = res.data
+    if (!user?.id) {
+      throw new Error('사용자 정보 누락')
+    }
 
-    // store에 저장
     store.loginSuccess({ access: access_token, refresh: refresh_token, user })
 
-    // 홈으로 이동
     router.replace({ name: 'home' })
   } catch (error) {
     console.error('OAuth Callback Error:', error)
+    store.logout()
     router.replace({ name: 'login' })
   }
 })

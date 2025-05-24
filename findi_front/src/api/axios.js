@@ -27,8 +27,9 @@ api.interceptors.request.use(
         const res = await api.post(`/auth/refresh/`, {
           refresh,
         })
-        access = res.data.access_token
-        authStore.loginSuccess({ access_token: access, refresh_token: refresh, user: res.data.user })
+        const { access_token, refresh_token, user } = res.data
+        
+        authStore.loginSuccess({ access_token, refresh_token, user })
       } catch (err) {
         authStore.logout()
         router.replace({ name: 'login' })

@@ -16,11 +16,60 @@ import random
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import CustomTokenObtainPairSerializer
+from .serializers import CustomTokenObtainPairSerializer, UserWithProfileSerializer, CustomRegisterSerializer, CustomLoginSerializer
+from rest_framework.permissions import IsAuthenticated
+from dj_rest_auth.registration.views import RegisterView
+from rest_framework import status
+from dj_rest_auth.views import LoginView
 
+# CustomLoginView의 선언 이유는?
+# 이 클래스는 기본 LoginView의 응답에 사용자 정보를 추가하고 싶을 때 사용
+class CustomLoginView(LoginView):
+    permission_classes = [AllowAny]
+    serializer_class = CustomLoginSerializer
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        
+        user = serializer.user  # 로그인된 사용자
+        refresh = RefreshToken.for_user(user)
+        user_data = UserWithProfileSerializer(user).data
+
+        return Response({
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh),
+            'user': user_data
+        }, status=status.HTTP_200_OK)
+    
+# CustomTokenObtainPairView의 선언 이유는? 
+# 이 클래스는 기본 TokenObtainPairView의 응답에 사용자 정보를 추가하고 싶을 때 사용
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
+# 회원가입을 위한 view
+class CustomRegisterView(RegisterView):
+    permission_classes = [AllowAny]
+    serializer_class = CustomRegisterSerializer
+
+    def create(self, request, *args, **kwargs):
+        # 회원가입 시리얼라이저로 유효성 검사
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # 사용자 생성
+        user = serializer.save(request)
+
+        # JWT 토큰 발급
+        refresh = RefreshToken.for_user(user)
+
+        # 직렬화된 사용자 + 프로필 정보
+        user_data = UserWithProfileSerializer(user).data
+
+        return Response({
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh),
+            'user': user_data
+        }, status=status.HTTP_201_CREATED)
 
 load_dotenv()
 User = get_user_model()
@@ -88,8 +137,6 @@ def google_login_callback(request):
     user, created = User.objects.get_or_create(email=email, defaults={
         "userName": name,
         "loginPlatform": "google",
-        "createdAt": timezone.now(),
-        "updatedAt": timezone.now(),
     })
 
     if created:
@@ -98,8 +145,6 @@ def google_login_callback(request):
         UserProfile.objects.create(
             user=user,
             profileImage=profile_image,
-            createdAt=timezone.now(),
-            updatedAt=timezone.now(),
         )
 
     # 4. JWT 발급
@@ -111,11 +156,7 @@ def google_login_callback(request):
     params = urlencode({
         "access_token": access_token_jwt,
         "refresh_token": refresh_token_jwt,
-        "email": user.email,
-        "userName": user.userName,
-        "profileImage": profile_image,
     })
-
     return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
 
 @api_view(['POST'])
@@ -162,3 +203,10 @@ def reset_password(request):
         return Response({'success': True})
     except User.DoesNotExist:
         return Response({'error': '사용자를 찾을 수 없습니다.'}, status=404)
+
+# 사용자 Profile + user 조회
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_profile(request):
+    serializer = UserWithProfileSerializer(request.user)
+    return Response(serializer.data)

@@ -7,7 +7,7 @@ from .models import LaterVideo
 from .serializers import LaterVideoSerializer
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def later_video_list_create(request):
     print(f'request.data {request.data}')
     if request.method == 'GET':

@@ -23,6 +23,7 @@ from accounts.views import CustomTokenObtainPairView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    
     # JWT 인증, 인가를 위한 URL
     path('auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

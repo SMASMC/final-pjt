@@ -2,19 +2,25 @@
 <template>
   <div class="max-w-6xl mx-auto p-4 pt-20">
     <div class="flex gap-2 items-center">
-      <input 
-      v-model="query" 
-      class="w-full h-10 p-2 border border-purple-300 rounded" 
-      placeholder="검색어를 입력하세요" @keyup.enter="fetchVideos"/>
+      <input
+        v-model="query"
+        class="w-full h-10 p-2 border border-purple-300 rounded"
+        placeholder="검색어를 입력하세요"
+        @keyup.enter="fetchVideos"
+      />
 
-      <button class="h-10 px-4 bg-purple-400 text-white rounded hover:bg-purple-700 text-sm whitespace-nowrap" 
-      @click="fetchVideos">검색</button>
+      <button
+        class="h-10 px-4 bg-purple-400 text-white rounded hover:bg-purple-700 text-sm whitespace-nowrap"
+        @click="fetchVideos"
+      >
+        검색
+      </button>
     </div>
 
     <h3 class="mt-6 text-xl font-semibold">검색 결과</h3>
     <VideoCardList :videos="searchResults" />
-    <br>
-    <hr class="border-t border-pink-300 my-4">
+    <br />
+    <hr class="border-t border-pink-300 my-4" />
     <h3 class="mt-10 text-xl font-semibold">나중에 볼 동영상</h3>
     <VideoLater />
   </div>
@@ -50,6 +56,4 @@ const fetchVideos = async () => {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

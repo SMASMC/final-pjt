@@ -1,3 +1,4 @@
+// main.js
 // tailwindcss 적용
 import './assets/main.css'
 import 'flowbite';
@@ -12,12 +13,12 @@ import router from './router'
 
 const app = createApp(App)
 const pinia = createPinia()
+// 자동으로 localStorage 또는 sessionStorage에 저장된 상태를 Pinia store에 복원함.
 pinia.use(piniaPluginPersistedstate)
-
-app.use(pinia)
+app.use(pinia)  
 app.use(router)
 app.mount('#app')
 
-// 웹 시작 시점에서 AuthStore 로컬스토리지 로드
-const authStore = useAuthStore()
-authStore.loadFromLocalStorage()
+app.config.errorHandler = (err, instance, info) => {
+    console.error('Vue error:', err, info)
+  }  

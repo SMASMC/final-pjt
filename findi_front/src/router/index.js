@@ -10,6 +10,7 @@ import Recommend from '@/views/Recommend.vue'
 import Logout from '@/components/Logout.vue'
 import VideoSearchView from '@/views/VideoSearchView.vue'
 import VideoDetailView from '@/views/VideoDetailView.vue'
+import { useAuthStore } from '@/stores/auth'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -105,7 +106,8 @@ const router = createRouter({
 
 // 전역 라우터 가드
 router.beforeEach((to, from, next) => {
-  const accessToken = localStorage.getItem('access_token')
+  const authStore = useAuthStore()
+  const accessToken = authStore.accessToken
 
   // meta.public이 true면 무조건 허용
   if (to.meta.public) {

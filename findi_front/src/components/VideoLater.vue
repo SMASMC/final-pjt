@@ -4,11 +4,11 @@
     <h4 class="text-lg font-semibold mb-2">저장한 동영상</h4>
 
     <!-- 로그인 확인 -->
-    <template v-if="authStore.isAuthenticated">
+    <template v-if="authStore.isAuthenticated?.value">
       <VideoCardList v-if="savedVideos.length" :videos="savedVideos" />
       <p v-else class="text-sm text-gray-400">아직 저장한 영상이 없습니다.</p>
     </template>
-    
+
     <p v-else class="text-sm text-gray-400">로그인이 필요합니다.</p>
   </div>
 </template>
@@ -23,15 +23,16 @@ const savedVideos = ref([])
 const authStore = useAuthStore()
 
 const fetchSavedVideos = async () => {
-  console.log('✅ 로그인 상태:', authStore.accessToken)
-
-  if (!authStore.isAuthenticated) return
+  if (!authStore.isAuthenticated?.value) {
+    console.log('로그인하지 않았습니다.')
+    return
+  }
 
   try {
     const res = await api.get('/videos/later-videos/')
-    
+
     // ✅ YouTube API 포맷으로 맞춤
-    savedVideos.value = res.data.map(v => ({
+    savedVideos.value = res.data.map((v) => ({
       id: v.videoId,
       snippet: {
         title: v.title,
@@ -44,14 +45,12 @@ const fetchSavedVideos = async () => {
         }
       }
     }))
-
   } catch (err) {
     console.error('❌ 저장된 영상 불러오기 실패:', err)
   }
 }
 
 onMounted(() => {
-  console.log('📌 VideoLater mounted')
   fetchSavedVideos()
 })
 </script>
