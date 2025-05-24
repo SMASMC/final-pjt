@@ -12,3 +12,4 @@ sqlparse==0.4.4               # SQL 파서 (Django 필요)
 pytz==2023.3                  # 시간대 처리 (Django 필요)
 djangorestframework-simplejwt==5.2.2
 python-dotenv==1.1.0
+django-quill-editor==0.1.42

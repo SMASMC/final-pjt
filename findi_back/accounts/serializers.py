@@ -5,6 +5,7 @@ from dj_rest_auth.registration.serializers import RegisterSerializer
 from .models import UserProfile, CustomUser
 from dj_rest_auth.serializers import LoginSerializer
 from django.contrib.auth import authenticate
+
 User = get_user_model()
 
 # 로그인 serializer
@@ -72,6 +73,7 @@ class UserWithProfileSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['id', 'email', 'userName', 'loginPlatform', 'profile']
 
-
-
-
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'userName')
