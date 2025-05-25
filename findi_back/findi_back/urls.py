@@ -29,8 +29,13 @@ urlpatterns = [
     # JWT 인증, 인가를 위한 URL
     path('auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # 금융감독원 API를 이용한 데이터 + 맞춤 상품
     path('finance/', include('finance.urls'), name='finance'),
+    # 영상
     path('videos/', include('videos.urls'), name='videos'),
+    # 게시글
     path('articles/', include('articles.urls')),
+    # 카카오맵
     path('kakaomap/', include('kakaomap.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

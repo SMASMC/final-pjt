@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'accounts',
     'faq',
     'finance',
-    'useraction',
     'schedules',
     'videos',
     'articles',
@@ -75,15 +74,15 @@ MIDDLEWARE = [
     #"allauth.account.middleware.AccountMiddleware",
 
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_HOST = os.getenv('MEDIA_HOST')
 
 ROOT_URLCONF = 'findi_back.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

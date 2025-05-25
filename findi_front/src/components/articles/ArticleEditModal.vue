@@ -14,12 +14,12 @@
         />
 
         <label class="block mb-2 text-sm font-medium">내용</label>
-        <textarea
-          v-model="editedContent"
-          class="w-full border border-gray-300 rounded px-3 py-2 mb-4"
-          rows="8"
-          required
-        ></textarea>
+        <QuillEditor
+          v-model:content="editedContent"
+          toolbar="full"
+          contentType="html"
+          :style="{ height: '200px' }"
+        />
 
         <div class="mt-6 flex justify-end gap-2">
           <button
@@ -44,6 +44,8 @@
 <script setup>
 import { ref, watch } from 'vue'
 import api from '@/api/axios'
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
 const props = defineProps({
   articleId: String,
@@ -55,8 +57,14 @@ const emit = defineEmits(['close', 'updated'])
 const editedTitle = ref(props.initialTitle)
 const editedContent = ref(props.initialContent)
 
-watch(() => props.initialTitle, val => editedTitle.value = val)
-watch(() => props.initialContent, val => editedContent.value = val)
+watch(
+  () => props.initialTitle,
+  (val) => (editedTitle.value = val)
+)
+watch(
+  () => props.initialContent,
+  (val) => (editedContent.value = val)
+)
 
 const handleSubmit = async () => {
   try {

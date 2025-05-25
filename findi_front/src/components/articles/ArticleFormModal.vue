@@ -13,12 +13,12 @@
         />
 
         <label class="block mb-2 text-sm font-medium">내용</label>
-        <textarea
-          v-model="content"
-          class="w-full border border-gray-300 rounded px-3 py-2 mb-4 h-40 resize-none"
-          placeholder="내용을 입력해 주세요"
-          required
-        ></textarea>
+        <QuillEditor
+          v-model:content="content"
+          toolbar="full"
+          contentType="html"
+          :style="{ height: '200px' }"
+        />
 
         <div class="mt-6 flex justify-end gap-2">
           <button
@@ -42,6 +42,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import api from '@/api/axios'
 
 const emit = defineEmits(['close', 'created'])
@@ -61,6 +63,3 @@ const handleSubmit = async () => {
   }
 }
 </script>
-
-<style scoped>
-</style>

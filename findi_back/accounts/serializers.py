@@ -2,7 +2,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
-from .models import UserProfile, CustomUser
+from .models import UserProfile, CustomUser, UserPortfolio
 from dj_rest_auth.serializers import LoginSerializer
 from django.contrib.auth import authenticate
 
@@ -86,3 +86,10 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
             'profileImage', 'age', 'risk_tolerance', 'monthly_income', 'savings',
             'financial_goal', 'interested_products'
         ]
+
+
+# 사용자 포트폴리오 serializer
+class UserPortfolioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserPortfolio
+        fields = ['fin_prdt_cd', 'fin_prdt_nm', 'join_way', 'cb_name', 'fin_co_nm', 'fin_co_no', 'fin_co_subm_day', 'dcls_month', 'dcls_strt_day', 'dcls_end_day', 'crdt_prdt_type', 'crdt_prdt_type_nm']
