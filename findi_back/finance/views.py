@@ -93,7 +93,6 @@ def find_ai_fit_product(request):
         if not products:
             return Response({"error": f"{category} 상품이 부족합니다. 관리자에게 문의해주세요."}, status=500)
         top_products[category] = list(products)
-    print(top_products)
     # 사용자 요약
     summary = (
         f"{user.userName}님은 {profile.age}세이며, 월 소득은 {profile.monthly_income}만원, "
@@ -105,7 +104,7 @@ def find_ai_fit_product(request):
     def build_product_section(products, label):
         section = [f"{label} 상품 목록:"]
         for i, p in enumerate(products, 1):
-            rate = p.get_effective_rate()
+            rate = p.intr_rate2
             section.append(
                 f"{i}. 이름: {p.name}, 금리: {rate}%, 설명: {p.details or '없음'}, 링크: /products/{p.fin_prdt_cd}"
             )
@@ -132,18 +131,22 @@ def find_ai_fit_product(request):
     except Exception as e:
         return Response({"error": f"GPT 추천 생성 실패: {str(e)}"}, status=500)
 
-    # 프론트에 전달할 데이터 (카테고리별 첫 번째 상품만 요약)
-    summary_products = {}
+    # GPT가 추천한 상품 이름 찾기
+    recommended_names = []
+    for cat in ['deposit', 'saving']:
+        for product in top_products[cat]:
+            if product.name in ai_message:
+                recommended_names.append((cat, product))
+                break
 
-    for cat, product_list in top_products.items():
-        if not product_list:
-            continue
-        p = product_list[0]
+    # 추천된 상품 정보를 요약해서 프론트에 전달
+    summary_products = {}
+    for cat, product in recommended_names:
         summary_products[cat] = {
-            "name": p.name,
-            "rate": float(p.intr_rate2 or 0),
-            "details": p.details,
-            # "link": f"/products/{p.fin_prdt_cd}"
+            "name": product.name,
+            "rate": float(product.intr_rate2 or 0),
+            "details": product.details,
+            "link": f"/products/{product.fin_prdt_cd}"
         }
 
     return Response({
