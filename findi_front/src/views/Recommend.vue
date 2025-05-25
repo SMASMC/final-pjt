@@ -30,13 +30,15 @@
     </div>
 
     <!-- AI 맞춤 추천 버튼 -->
-    <div class="text-center mt-10">
-      <button
-        @click="fetchAIRecommendations"
-        class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition"
-      >
-        AI 맞춤 상품 찾아보기
-      </button>
+    <div v-if="profileLoaded">
+      <div class="text-center mt-10">
+        <button
+          @click="fetchAIRecommendations"
+          class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition"
+        >
+          AI 맞춤 상품 찾아보기
+        </button>
+      </div>
     </div>
   </div>
 
