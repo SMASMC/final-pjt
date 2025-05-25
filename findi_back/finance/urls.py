@@ -4,9 +4,10 @@ from . import views
 app_name = "finance"
 
 urlpatterns = [
-    # path('', views.finance_list, name="finance_list"),
-    # path('<str:fin_prdt_cd>/', views.finance_detail_and_update, name="finance_detail_and_update"),
-    # path('<str:fin_prdt_cd>/delete/', views.finance_delete, name="finance_delete"),
+    # 상품 조회
+    path('banks/products/', views.banks_products, name="banks_products"),
+
+    # 맞춤 상품 추천
     path('find-fit-products/', views.find_fit_product, name="find_fit_product"),
     path('find-ai-fit-products/', views.find_ai_fit_product, name="find_ai_fit_product"),
 

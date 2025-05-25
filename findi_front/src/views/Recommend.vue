@@ -1,5 +1,16 @@
 <template>
   <div class="max-w-6xl mx-auto p-4 pt-20">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      <BankCard
+        v-for="(data, name) in banks"
+        :key="name"
+        :name="name"
+        :logo="data.logo"
+        :products="data.products"
+        :has-profile="true"
+        :card-back-gradient="getCardGradient(name)"
+      />
+    </div>
     <!-- 사용자 프로필 상태 확인 -->
     <div v-if="!profileLoaded">
       <p class="text-center text-red-600 font-semibold">
@@ -52,6 +63,38 @@ import { useAuthStore } from '@/stores/auth'
 import ToastMessage from '@/components/ToastMessage.vue'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify' // 보안용 (선택적 권장)
+import BankCard from '@/components/recommend/BankCard.vue'
+import kbLogo from '@/assets/bank_logos/kb.png'
+import nhLogo from '@/assets/bank_logos/nh.png'
+import shinhanLogo from '@/assets/bank_logos/shinhan.png'
+import wooriLogo from '@/assets/bank_logos/woori.png'
+import hanaLogo from '@/assets/bank_logos/hana.png'
+
+const banks = ref({})
+// ✅ 은행명과 로고 경로 매핑
+const bankLogos = {
+  국민은행: kbLogo,
+  농협은행주식회사: nhLogo,
+  신한은행: shinhanLogo,
+  우리은행: wooriLogo,
+  하나은행: hanaLogo
+}
+const getCardGradient = (bankName) => {
+  switch (bankName) {
+    case '국민은행':
+      return 'linear-gradient(135deg, #f7971e, #ffd200)'
+    case '농협은행주식회사':
+      return 'linear-gradient(135deg, #EFBE00 50%, #035BAF 50%)'
+    case '신한은행':
+      return 'linear-gradient(135deg, #0046FF 50%, #0046FF 50%)'
+    case '우리은행':
+      return 'linear-gradient(135deg, #3AB9FF 29%, #007BC7 75%)'
+    case '하나은행':
+      return 'linear-gradient(135deg, #D8241C 25%, #009178 75%)'
+    default:
+      return 'linear-gradient(135deg, #999, #ccc)'
+  }
+}
 
 const renderedMarkdown = computed(() => {
   return DOMPurify.sanitize(marked.parse(aiMessage.value || ''))
@@ -73,7 +116,8 @@ const showToast = (type, message) => {
 const fetchProfileStatus = async () => {
   try {
     const res = await api.get('/accounts/profile/')
-    profileLoaded.value = !!res.data.age
+    console.log('profile:', JSON.stringify(res.data))
+    profileLoaded.value = !!res.data.user.profile.age
   } catch (e) {
     profileLoaded.value = false
   }
@@ -100,8 +144,23 @@ const categoryToLabel = (category) => {
       return category
   }
 }
+onMounted(async () => {
+  await fetchProfileStatus()
+  try {
+    const res = await api.get('/finance/banks/products/')
+    const rawData = res.data
 
-onMounted(fetchProfileStatus)
+    // 로고 경로 병합
+    for (const bankName in rawData) {
+      rawData[bankName].logo = bankLogos[bankName] || ''
+    }
+
+    banks.value = rawData
+    console.log('banks:', banks.value)
+  } catch (e) {
+    console.error('은행 상품 로딩 실패:', e)
+  }
+})
 </script>
 
 <style scoped></style>

@@ -13,23 +13,23 @@
       <input type="file" @change="handleImageUpload" accept="image/*" />
     </div>
 
-    <label class="block mb-2">
-      나이:
+    <label class="block mb-2"
+      >나이:
       <input v-model="age" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-2">
-      월 수입 (만원):
+    <label class="block mb-2"
+      >월 수입 (만원):
       <input v-model="monthly_income" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-4">
-      모아둔 돈 (만원):
+    <label class="block mb-4"
+      >모아둔 돈 (만원):
       <input v-model="savings" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-2">
-      위험 선호도:
+    <label class="block mb-2"
+      >위험 선호도:
       <select v-model="risk_tolerance" class="w-full p-2 border rounded">
         <option value="low">낮음</option>
         <option value="medium">중간</option>
@@ -37,8 +37,8 @@
       </select>
     </label>
 
-    <label class="block mb-2">
-      재무 목표:
+    <label class="block mb-2"
+      >재무 목표:
       <select v-model="financial_goal" class="w-full p-2 border rounded">
         <option value="saving">저축</option>
         <option value="investment">투자</option>
@@ -46,8 +46,8 @@
       </select>
     </label>
 
-    <label class="block mb-4">
-      관심 금융 상품:
+    <label class="block mb-4"
+      >관심 금융 상품:
       <div class="flex gap-2 mt-1">
         <label><input type="checkbox" value="deposit" v-model="interested_products" /> 예금</label>
         <label><input type="checkbox" value="loan" v-model="interested_products" /> 대출</label>
@@ -107,7 +107,6 @@
     @confirm="deleteAccount"
     @cancel="showModal = false"
   />
-
   <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
 </template>
 
@@ -127,7 +126,6 @@ const savings = ref('')
 const profileImage = ref(null)
 const previewImage = ref(null)
 const portfolios = ref([])
-
 const showModal = ref(false)
 const toast = ref({ show: false, type: 'success', message: '' })
 
@@ -153,11 +151,14 @@ const formatDate = (date) => {
 const loadProfile = async () => {
   try {
     const res = await api.get('/accounts/profile/')
-    const profile = res.data
+    console.log('profile:', JSON.stringify(res.data))
+    const profile = res.data.user.profile
     age.value = profile.age
     risk_tolerance.value = profile.risk_tolerance
     financial_goal.value = profile.financial_goal
-    interested_products.value = profile.interested_products
+    interested_products.value = Array.isArray(profile.interested_products)
+      ? profile.interested_products
+      : []
     monthly_income.value = profile.monthly_income
     savings.value = profile.savings
     previewImage.value = profile.profileImage
@@ -192,7 +193,6 @@ const submitProfile = async () => {
     const authStore = useAuthStore()
     if (authStore.user && authStore.user.profile) {
       authStore.profileImage = updatedProfileImage
-
       const saved = JSON.parse(localStorage.getItem('auth'))
       if (saved && saved.user?.profile) {
         saved.user.profile.profileImage = updatedProfileImage
@@ -221,7 +221,7 @@ const deleteAccount = async () => {
   }
 }
 
-onMounted(loadProfile)
+onMounted(() => loadProfile())
 </script>
 
 <style scoped>

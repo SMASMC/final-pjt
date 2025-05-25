@@ -64,7 +64,17 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ['profileImage', 'createdAt', 'updatedAt']
+        fields = [
+            'age',
+            'monthly_income',
+            'savings',
+            'risk_tolerance',
+            'financial_goal',
+            'interested_products',
+            'profileImage',
+            'createdAt',
+            'updatedAt'
+        ]
 
 class UserWithProfileSerializer(serializers.ModelSerializer):
     profile = UserProfileSerializer()
@@ -86,6 +96,7 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
             'profileImage', 'age', 'risk_tolerance', 'monthly_income', 'savings',
             'financial_goal', 'interested_products'
         ]
+        
 
 
 # 사용자 포트폴리오 serializer

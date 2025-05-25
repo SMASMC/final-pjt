@@ -47,7 +47,7 @@ class CustomUser(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(unique=True)
     userName = models.CharField(max_length=150)  # userName 선언 하여 다른 필드로 대체
-    age = models.PositiveIntegerField(null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
     PLATFORM_CHOICES = [('local', 'Local'), ('google', 'Google'), ('kakao', 'Kakao')]
     loginPlatform = models.CharField(max_length=10, choices=PLATFORM_CHOICES, default='local')
     role = models.CharField(max_length=10, choices=[('user', 'User'), ('admin', 'Admin')], default='user')
@@ -64,8 +64,8 @@ class CustomUser(AbstractUser):
 
 class UserProfile(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    monthly_income = models.PositiveIntegerField(null=True, blank=True)  # 월 소득 (만원)
-    savings = models.PositiveIntegerField(null=True, blank=True)         # 모아둔 돈 (만원)
+    monthly_income = models.IntegerField(null=True, blank=True)  # 월 소득 (만원)
+    savings = models.IntegerField(null=True, blank=True)         # 모아둔 돈 (만원)
     profileImage = models.ImageField(upload_to=user_profile_upload_path, null=True, blank=True)  # 이미지 파일로 교체
 
     RISK_CHOICES = [
@@ -85,7 +85,7 @@ class UserProfile(models.Model):
         ('fund', 'Fund'),
     ]
 
-    age = models.PositiveIntegerField(null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
     risk_tolerance = models.CharField(max_length=10, choices=RISK_CHOICES, default='medium')
     financial_goal = models.CharField(max_length=20, choices=FINANCE_GOALS, default='saving')
     interested_products = models.JSONField(default=list)  # ['deposit', 'fund'] 등

@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 import os
 from dotenv import load_dotenv
 from accounts.models import UserProfile
-from finance.models import FinancialProduct, DepositProduct, SavingProduct, CreditLoanProduct, RentHouseLoanProduct
+from finance.models import FinancialCompany,FinancialProduct, DepositProduct, SavingProduct, CreditLoanProduct, RentHouseLoanProduct
 from finance.serializers import DepositProductSerializer, SavingProductSerializer, CreditLoanProductSerializer, RentHouseLoanProductSerializer
 from rest_framework.pagination import PageNumberPagination
 
@@ -18,17 +18,32 @@ load_dotenv()
 BASE_URL = 'http://finlife.fss.or.kr/finlifeapi/'
 FINANCIAL_SUPERVISORY_API_KEY = os.getenv("FINANCIAL_SUPERVISORY_API_KEY")
 
-# @api_view(['GET'])
-# def finance_list(request):
-#     """
-#     금융상품 리스트 반환
-#     """
+@api_view(['GET'])
+def banks_products(request):
+    bank_names = ['국민은행', '농협은행주식회사', '신한은행', '우리은행', '하나은행']
+    response = {}
 
+    for name in bank_names:
+        company = FinancialCompany.objects.filter(name=name).first()
+        if not company:
+            print(f"[경고] '{name}' 회사가 DB에 존재하지 않습니다.")
+            response[name] = { "products": [] }  # ✅ 강제로라도 포함
+            continue
 
-# def finance_detail_and_update(request, fin_prdt_cd):
-#     """
-#     금융상품 상세 정보 반환
-#     """    
+        products = FinancialProduct.objects.filter(company=company).order_by('-createdAt')
+        product_list = []
+        for p in products:
+            rate = p.get_effective_rate()
+            product_list.append({
+                "productName": p.name,
+                "interestRate": float(rate) if rate is not None else None,
+            })
+
+        response[name] = {
+            "products": product_list
+        }
+
+    return Response(response)
 
 
 @api_view(['GET'])
