@@ -57,7 +57,7 @@
     class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#d7e599] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80 relative"
   >
     <!-- 왼쪽 텍스트 및 버튼 -->
-    <div class="text-center md:text-left items-center font-bmjua  flex flex-col">
+    <div class="text-center md:text-left items-center font-bmjua flex flex-col">
       <h2 class="text-2xl md:text-4xl font-normal mb-6 font-bmjua text-center">
         상품과 은행을<br />주변에서 찾아보세요
       </h2>
@@ -180,12 +180,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-// Sction 이동
+// Section refs
 const section1 = ref(null)
 const section2 = ref(null)
 const section3 = ref(null)
@@ -193,41 +193,77 @@ const section4 = ref(null)
 const section5 = ref(null)
 
 const sectionRefs = [section1, section2, section3, section4, section5]
+const currentSection = ref(0)
 
+// 스크롤로 섹션 이동
 const scrollToSection = (num) => {
-  sectionRefs[num]?.value?.scrollIntoView({ behavior: 'smooth' })
+  if (num >= 0 && num < sectionRefs.length) {
+    sectionRefs[num]?.value?.scrollIntoView({ behavior: 'smooth' })
+    currentSection.value = num
+  }
 }
 
-const goToBanks = () => {
-  router.push('/banks')
-}
-const goToProducts = () => {
-  router.push('/products')
-}
-const goToVideos = () => {
-  router.push('/videosearch')
-}
-const goToRecommend = () => {
-  router.push('/recommend')
-}
+// 페이지 이동용 버튼
+const goToBanks = () => router.push('/banks')
+const goToProducts = () => router.push('/products')
+const goToVideos = () => router.push('/videosearch')
+const goToRecommend = () => router.push('/recommend')
 
-// Intro Overlay 렌더링될때, 점점 생성되는 효과 부여
+// 인트로 효과
 const showMainContent = ref(false)
 const showIntro = ref(true)
-
 const colors = ['#8A69E1', '#CBADF7', '#F6FBEA', '#CBADF7', '#8A69E1']
 
+// 휠 스크롤 이벤트 처리
+let scrollTimeout = null
+const handleWheel = (event) => {
+  if (scrollTimeout) return
+
+  scrollTimeout = setTimeout(() => {
+    scrollTimeout = null
+  }, 800)
+
+  const delta = event.deltaY
+  if (delta > 0 && currentSection.value < sectionRefs.length - 1) {
+    scrollToSection(currentSection.value + 1)
+  } else if (delta < 0 && currentSection.value > 0) {
+    scrollToSection(currentSection.value - 1)
+  }
+}
+
+// 클릭 위치 기반 스크롤 이동
+const handleClickPosition = (event) => {
+  const screenHeight = window.innerHeight
+  const clickY = event.clientY
+
+  if (clickY < screenHeight / 2 && currentSection.value > 0) {
+    // 위쪽 클릭 → 이전 섹션
+    scrollToSection(currentSection.value - 1)
+  } else if (clickY >= screenHeight / 2 && currentSection.value < sectionRefs.length - 1) {
+    // 아래쪽 클릭 → 다음 섹션
+    scrollToSection(currentSection.value + 1)
+  }
+}
+
 onMounted(() => {
+  // 인트로 애니메이션 시작
   setTimeout(
     () => {
       showIntro.value = false
-      // 콘텐츠 페이드인 트리거
       setTimeout(() => {
         showMainContent.value = true
-      }, 1000) // 약간의 여유
+      }, 1000)
     },
     colors.length * 300 + 1000
   )
+  // 휠 스크롤 + 클릭 위치 기반 추가
+  window.addEventListener('wheel', handleWheel)
+  window.addEventListener('mousedown', handleClickPosition)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('wheel', handleWheel)
+  window.removeEventListener('mousedown', handleClickPosition)
 })
 </script>
 
