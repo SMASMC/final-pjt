@@ -1,7 +1,8 @@
+<!-- src/components/VideoCard.vue -->
 <template>
   <div
     v-if="video && video.snippet"
-    class="card shadow rounded overflow-hidden cursor-pointer hover:shadow-lg transition"
+    class="card shadow rounded overflow-hidden cursor-pointer hover:shadow-lg transition h-[380px]"
     @click="goToDetail"
   >
     <img
@@ -10,10 +11,10 @@
       alt="thumbnail"
     />
     <div class="p-4">
-      <h5 class="text-lg font-semibold mb-1">
+      <h5 class="text-lg font-semibold mb-1 truncate-title">
         {{ video.snippet.title }}
       </h5>
-      <p class="text-sm text-gray-600">
+      <p class="text-sm text-gray-600 truncate-description">
         {{ video.snippet.description }}
       </p>
     </div>
@@ -38,3 +39,21 @@ const goToDetail = () => {
   if (id) router.push(`/video/${id}`)
 }
 </script>
+
+<style scoped>
+.truncate-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /* 최대 2줄 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;  /* 최대 3줄 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

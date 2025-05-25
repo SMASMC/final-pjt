@@ -44,6 +44,9 @@
       @updated="handleArticleUpdated"
     />
   </div>
+
+  <ToastMessage v-if="toast.visible" :type="toast.type" :message="toast.message" />
+
 </template>
 
 <script setup>
@@ -53,6 +56,7 @@ import api from '@/api/axios'
 import { useAuthStore } from '@/stores/auth'
 import CommentSection from '@/components/articles/CommentSection.vue'
 import ArticleEditModal from '@/components/articles/ArticleEditModal.vue'
+import ToastMessage from '@/components/ToastMessage.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -71,6 +75,13 @@ const article = ref({
 const isEditOpen = ref(false)
 let timer = null
 let hasViewed = false
+
+const toast = ref({ visible: false, type: 'success', message: '' })
+
+const showToast = (type, message) => {
+  toast.value = { visible: true, type, message }
+  setTimeout(() => (toast.value.visible = false), 3000)
+}
 
 const fetchArticle = async () => {
   try {
@@ -105,10 +116,14 @@ const deleteArticle = async () => {
     await api.delete(`/articles/${route.params.id}/`, {
       headers: { Authorization: `Bearer ${authStore.accessToken}` }
     })
-    alert('삭제 완료')
-    router.push('/articles')
+    showToast('success', '삭제 완료')
+
+    // 토스트 표시를 위해 잠시 기다린 후 페이지 이동
+    setTimeout(() => {
+      router.push('/articles')
+    }, 1000) // 1초
   } catch (error) {
-    alert('삭제 실패')
+    showToast('danger', '삭제 실패')
   }
 }
 

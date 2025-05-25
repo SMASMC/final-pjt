@@ -1,3 +1,4 @@
+<!-- src/views/articles/ArticleView.vue -->
 <template>
   <div class="max-w-6xl mx-auto p-4 pt-20">
     <h1 class="text-2xl font-bold mb-4">자유 게시판</h1>
@@ -22,6 +23,9 @@
       @created="handleArticleCreated"
     />
   </div>
+
+  <ToastMessage v-if="toast.visible" :type="toast.type" :message="toast.message" />
+
 </template>
 
 <script setup>
@@ -30,17 +34,23 @@ import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import ArticleList from '@/components/articles/ArticleList.vue'
 import ArticleFormModal from '@/components/articles/ArticleFormModal.vue'
+import ToastMessage from '@/components/ToastMessage.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
 const isModalOpen = ref(false)
 const listRef = ref(null)
 
+const toast = ref({ visible: false, type: 'success', message: '' })
+
+const showToast = (type, message) => {
+  toast.value = { visible: true, type, message }
+  setTimeout(() => (toast.value.visible = false), 3000)
+}
+
 const handleCreateClick = () => {
   if (!authStore.isAuthenticated) {
-    // toast로 교체
-    // toast.value.showToast('로그인이 필요한 기능입니다.')
-    alert('로그인이 필요한 기능입니다.')
+    showToast('danger', '로그인이 필요한 기능입니다.')
     return
   }
   isModalOpen.value = true
@@ -52,4 +62,5 @@ const handleArticleCreated = () => {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

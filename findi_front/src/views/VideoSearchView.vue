@@ -46,7 +46,7 @@ const fetchVideos = async () => {
         part: 'snippet',
         type: 'video',
         maxResults: 8,
-        q: query.value
+        q: `${query.value} 주식`
       }
     })
     searchResults.value = response.data.items

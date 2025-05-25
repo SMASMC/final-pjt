@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 from accounts.models import UserProfile
 from finance.models import FinancialProduct, DepositProduct, SavingProduct, CreditLoanProduct, RentHouseLoanProduct
 from finance.serializers import DepositProductSerializer, SavingProductSerializer, CreditLoanProductSerializer, RentHouseLoanProductSerializer
+from rest_framework.pagination import PageNumberPagination
+
 
 from openai import OpenAI
 load_dotenv()
@@ -155,28 +157,49 @@ def find_ai_fit_product(request):
     })
 
 
-
-
+class ShortPagination(PageNumberPagination):
+    page_size = 15
+    page_size_query_param = 'page_size'
 
 # 예금 조회
 @api_view(['GET'])
 def deposit_get(request):
     queryset = DepositProduct.objects.all()
     bank = request.GET.get('bank')
+    save_trm = request.GET.get('save_trm')
+    ordering = request.GET.get('ordering')
+    if ordering:
+        queryset = queryset.order_by(ordering)
     if bank:
         queryset = queryset.filter(kor_co_nm__icontains=bank)
-    serializer = DepositProductSerializer(queryset, many=True)
-    return Response(serializer.data)
+    if save_trm:
+        queryset = queryset.filter(save_trm=save_trm)
+
+    paginator = ShortPagination()
+    page = paginator.paginate_queryset(queryset, request)
+    serializer = DepositProductSerializer(page, many=True)
+    return paginator.get_paginated_response(serializer.data)
+
 
 # 적금 조회
 @api_view(['GET'])
 def saving_get(request):
     queryset = SavingProduct.objects.all()
     bank = request.GET.get('bank')
+    save_trm = request.GET.get('save_trm')
+    ordering = request.GET.get('ordering')
+    if ordering:
+        queryset = queryset.order_by(ordering)
     if bank:
         queryset = queryset.filter(kor_co_nm__icontains=bank)
-    serializer = SavingProductSerializer(queryset, many=True)
-    return Response(serializer.data)
+    if save_trm:
+        queryset = queryset.filter(save_trm=save_trm)
+
+    paginator = ShortPagination()
+    page = paginator.paginate_queryset(queryset, request)
+    serializer = SavingProductSerializer(page, many=True)
+    return paginator.get_paginated_response(serializer.data)
+
 
 # 대출 조회
 @api_view(['GET'])

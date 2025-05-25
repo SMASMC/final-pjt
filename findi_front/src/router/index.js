@@ -15,6 +15,7 @@ import ArticleView from '@/views/articles/ArticleView.vue'
 import ArticleDetailView from '@/views/articles/ArticleDetailView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import BankMapsView from '@/views/bankmaps/BankMapsView.vue'
+import ProductsView from '@/views/products/ProductsView.vue'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -79,6 +80,12 @@ const publicRoutes = [
     path: '/bankmaps',
     name: 'BankMaps',
     component: BankMapsView,
+    meta: { public: true }
+  },
+  {
+    path: '/products',
+    name: 'Products',
+    component: ProductsView,
     meta: { public: true }
   },
 ]

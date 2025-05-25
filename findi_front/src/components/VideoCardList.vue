@@ -1,3 +1,4 @@
+<!-- src/components/VideoCardList.vue -->
 <template>
   <div
     v-if="videos && videos.length"
