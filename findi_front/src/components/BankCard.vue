@@ -1,13 +1,24 @@
+<!-- BankCard.vue 수정 필요 -->
 <template>
-  <div class="scene">
-    <!-- 앞면 -->
-    <div class="card">
-      <img :src="logo" :alt="name" class="h-16 object-contain" />
-    </div>
+  <div class="p-4 pt-20">
+    <div class="scene">
+      <div class="card">
+        <img :src="logo" :alt="name" class="h-16 object-contain" />
+      </div>
 
-    <!-- 뒷면 -->
-    <div class="card-back">
-      <span>{{ name }}</span>
+      <div class="card-back">
+        <span class="font-bold">{{ name }}</span>
+        <div v-if="hasProfile && products.length">
+          <ul class="text-sm mt-2 text-black text-left">
+            <li v-for="(item, index) in products" :key="index">
+              • {{ item.productName || '상품명 없음' }} ({{ item.interestRate }}%)
+            </li>
+          </ul>
+        </div>
+        <div v-else-if="hasProfile">
+          <p class="text-xs">아직 추천 항목이 없습니다.</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -15,14 +26,16 @@
 <script setup>
 defineProps({
   logo: String,
-  name: String
+  name: String,
+  hasProfile: Boolean,
+  products: Array
 })
 </script>
 
 <style scoped>
 .scene {
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 240px;
   perspective: 1000px;
   position: relative;
 }
@@ -30,7 +43,7 @@ defineProps({
 .card,
 .card-back {
   position: absolute;
-  top: 100px;
+  top: 0;
   width: 100%;
   height: 100%;
   border-radius: 12px;
@@ -61,5 +74,7 @@ defineProps({
   background: linear-gradient(135deg, #f7971e, #ffd200);
   transform: rotateX(0deg);
   z-index: 0;
+  flex-direction: column;
+  padding: 1rem;
 }
 </style>

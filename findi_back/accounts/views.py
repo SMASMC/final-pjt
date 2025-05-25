@@ -22,8 +22,8 @@ from dj_rest_auth.registration.views import RegisterView
 from rest_framework import status
 from dj_rest_auth.views import LoginView
 from rest_framework.parsers import MultiPartParser, FormParser
-
-
+from .models import UserPortfolio
+from .serializers import UserPortfolioSerializer
 
 
 # CustomLoginView의 선언 이유는?
@@ -248,6 +248,64 @@ def user_profile(request):
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)
+
+
+# 사용자 포트폴리오 관련 view
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+def user_portfolio(request):
+    if request.method == 'GET':
+        portfolios = UserPortfolio.objects.filter(user=request.user)
+        serializer = UserPortfolioSerializer(portfolios, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        product_id = request.data.get('product_id')
+        if not product_id:
+            return Response({'error': '상품 ID가 필요합니다.'}, status=400)
+
+        try:
+            product = FinancialProduct.objects.get(id=product_id)
+        except FinancialProduct.DoesNotExist:
+            return Response({'error': '해당 상품이 존재하지 않습니다.'}, status=404)
+
+        portfolio, created = UserPortfolio.objects.get_or_create(
+            user=request.user,
+            product=product,
+        )
+        if not created:
+            return Response({'message': '이미 가입한 상품입니다.'}, status=200)
+
+        return Response({'message': '상품 가입 완료'}, status=201)
+
+@api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
+def user_portfolio_detail_and_update(request, fin_prdt_cd):
+    try:
+        portfolio = UserPortfolio.objects.get(user=request.user, fin_prdt_cd=fin_prdt_cd)
+    except UserPortfolio.DoesNotExist:
+        return Response({'error': '포트폴리오를 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = UserPortfolioSerializer(portfolio)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = UserPortfolioSerializer(portfolio, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def user_portfolio_delete(request, fin_prdt_cd):
+    try:
+        portfolio = UserPortfolio.objects.get(user=request.user, fin_prdt_cd=fin_prdt_cd)
+    except UserPortfolio.DoesNotExist:
+        return Response({'error': '포트폴리오를 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+
+    portfolio.delete()
+    return Response({'message': '포트폴리오가 삭제되었습니다.'}, status=status.HTTP_200_OK)
 
 
 

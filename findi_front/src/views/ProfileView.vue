@@ -71,6 +71,33 @@
     </button>
   </form>
 
+  <!-- 가입한 금융 상품 리스트 -->
+  <div class="max-w-5xl mx-auto px-6 pb-12">
+    <h3 class="text-lg font-bold mt-10 mb-4">📌 가입한 금융 상품</h3>
+    <table class="w-full border text-sm">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="p-2 border">은행</th>
+          <th class="p-2 border">상품명</th>
+          <th class="p-2 border">유형</th>
+          <th class="p-2 border">금리(%)</th>
+          <th class="p-2 border">중도상환수수료(%)</th>
+          <th class="p-2 border">가입일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="product in portfolios" :key="product.id">
+          <td class="p-2 border">{{ product.bankName }}</td>
+          <td class="p-2 border">{{ product.productName }}</td>
+          <td class="p-2 border">{{ product.productType }}</td>
+          <td class="p-2 border">{{ product.interestRate }}</td>
+          <td class="p-2 border">{{ product.prePaymentPenalty }}</td>
+          <td class="p-2 border">{{ formatDate(product.joinedAt) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <ConfirmModal
     :show="showModal"
     title="회원 탈퇴 확인"
@@ -99,6 +126,7 @@ const monthly_income = ref('')
 const savings = ref('')
 const profileImage = ref(null)
 const previewImage = ref(null)
+const portfolios = ref([])
 
 const showModal = ref(false)
 const toast = ref({ show: false, type: 'success', message: '' })
@@ -116,6 +144,12 @@ const handleImageUpload = (e) => {
   }
 }
 
+const formatDate = (date) => {
+  if (!date) return '-'
+  const d = new Date(date)
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
 const loadProfile = async () => {
   try {
     const res = await api.get('/accounts/profile/')
@@ -129,6 +163,8 @@ const loadProfile = async () => {
     previewImage.value = profile.profileImage
       ? import.meta.env.VITE_BACKEND_URL + profile.profileImage
       : null
+
+    portfolios.value = profile.portfolio || []
   } catch (error) {
     console.error('프로필 로딩 실패:', error)
     showToast('danger', '프로필 정보가 아직 없습니다. <br/>정보를 입력해주세요.')
