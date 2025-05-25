@@ -81,6 +81,7 @@ const menuItems = [
   { label: '예/적금 상품 조회', to: '/products' },
   { label: '주식 정보 영상 조회', to: '/videosearch' },
   { label: '상품 게시판', to: '/articles' },
+  { label: '금/은 가격 조회', to: '/commodities' },
   { label: '5대 금융 상품 맞춤 조회', to: '/recommend' }
 ]
 </script>

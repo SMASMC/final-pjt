@@ -37,5 +37,7 @@ urlpatterns = [
     path('articles/', include('articles.urls')),
     # 카카오맵
     path('kakaomap/', include('kakaomap.urls')),
+    # 금/은 데이터
+    path('commodities/', include('commodities.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
