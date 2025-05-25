@@ -23,7 +23,7 @@
     <!-- 필터 적용 버튼 -->
     <button
       @click="applyFilter"
-      class="bg-purple-500 text-white px-5 py-2 rounded hover:bg-purple-600 transition w-full"
+      class="bg-purple-500 text-white px-5 py-2 rounded hover:bg-purple-600 transition w-full cursor-pointer"
     >
       확인
     </button>

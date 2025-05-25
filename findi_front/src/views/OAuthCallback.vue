@@ -1,3 +1,8 @@
+<!-- src/views/OAuthCallback.vue -->
+<template>
+  <div>구글 로그인 처리 중입니다...</div>
+</template>
+
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -25,18 +30,12 @@ onMounted(async () => {
       }
     })
 
-    const { access_token: serverAccessToken, refresh_token: serverRefreshToken, user } = res.data
-
+    const user = res.data
     if (!user?.id) {
       throw new Error('사용자 정보 누락')
     }
 
-    // JWT 저장 및 유저 정보 저장
-    store.loginSuccess({
-      access: serverAccessToken || access_token,
-      refresh: serverRefreshToken || refresh_token,
-      user
-    })
+    store.loginSuccess({ access: access_token, refresh: refresh_token, user })
 
     router.replace({ name: 'home' })
   } catch (error) {

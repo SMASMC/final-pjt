@@ -10,7 +10,7 @@
       />
       <button
         @click="fetchArticles"
-        class="bg-purple-500 text-white px-4 py-1 rounded hover:bg-purple-600"
+        class="bg-[#8A69E1] text-white px-4 py-1 rounded hover:bg-purple-700 cursor-pointer"
       >
         검색
       </button>
@@ -31,15 +31,12 @@
         <tr
           v-for="(article, index) in articles"
           :key="article.id"
-          class="border-b border-purple-200"
+          class="border-b border-purple-200 hover:bg-gray-50 hover:scale-105 cursor-pointer duration-300"
         >
           <td class="p-2 text-center">
             {{ totalCount - ((currentPage - 1) * articlesPerPage + index) }}
           </td>
-          <td
-            class="p-2 hover:bg-gray-50 cursor-pointer"
-            @click="goToDetail(article.id)"
-          >
+          <td class="p-2" @click="goToDetail(article.id)">
             {{ article.title }}
           </td>
           <td class="p-2">{{ article.user?.userName || '알 수 없음' }}</td>
@@ -132,5 +129,4 @@ onMounted(() => {
 defineExpose({ fetchArticles })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

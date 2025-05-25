@@ -25,9 +25,8 @@ if (props.signType === 'signup') {
 
 const handleLogin = () => {
   if (props.provider === 'google') {
+    // 백엔드에 등록된 redirect_uri 사용
     window.location.href = import.meta.env.VITE_BACKEND_URL + '/accounts/google/login/'
-  } else if (props.provider === 'kakao') {
-    window.location.href = import.meta.env.VITE_BACKEND_URL + '/accounts/kakao/login/'
   }
 }
 </script>
