@@ -24,6 +24,8 @@ from dj_rest_auth.views import LoginView
 from rest_framework.parsers import MultiPartParser, FormParser
 from .models import UserPortfolio
 from .serializers import UserPortfolioSerializer
+import uuid
+from django.core.files.base import ContentFile
 
 
 # CustomLoginView의 선언 이유는?
@@ -84,7 +86,10 @@ GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI")
 FRONTEND_OAUTH_CALLBACK_URL = os.getenv("FRONTEND_OAUTH_CALLBACK_URL")
 
+KAKAO_CLIENT_ID = os.getenv("KAKAO_CLIENT_ID")
+KAKAO_REDIRECT_URI = os.getenv("KAKAO_REDIRECT_URI")
 
+# google oauth 구현
 def google_login(request):
     params = urlencode({
         "client_id": GOOGLE_CLIENT_ID,
@@ -146,10 +151,16 @@ def google_login_callback(request):
     if created:
         user.set_unusable_password()
         user.save()
-        UserProfile.objects.create(
-            user=user,
-            profileImage=profile_image,
-        )
+        profile = UserProfile(user=user)
+        # ✅ 프로필 이미지 다운로드 후 저장
+        if profile_image:
+            response = requests.get(profile_image)
+            if response.status_code == 200:
+                ext = profile_image.split('.')[-1].split('?')[0]
+                file_content = ContentFile(response.content)
+                # 여기서는 save()에서 filename은 자동으로 upload_to 함수에서 처리
+                profile.profileImage.save(f"temp.{ext}", file_content, save=False)  # 이름은 무시됨
+        profile.save()
 
     # 4. JWT 발급
     refresh = RefreshToken.for_user(user)
@@ -162,6 +173,92 @@ def google_login_callback(request):
         "refresh_token": refresh_token_jwt,
     })
     return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
+
+# kakao oauth 구현
+def kakao_login(request):
+    params = urlencode({
+        "client_id": KAKAO_CLIENT_ID,
+        "redirect_uri": KAKAO_REDIRECT_URI,
+        "response_type": "code",
+        "scope": "account_email profile_nickname profile_image",
+        "prompt": "login"
+    })
+    return redirect(f"https://kauth.kakao.com/oauth/authorize?{params}")
+
+
+@api_view(['GET'])
+@authentication_classes([])
+@transaction.atomic
+def kakao_login_callback(request):
+    code = request.GET.get("code")
+    if not code:
+        return Response({"error": "No code provided"}, status=400)
+
+    # 1. 액세스 토큰 요청
+    token_response = requests.post("https://kauth.kakao.com/oauth/token", data={
+        "grant_type": "authorization_code",
+        "client_id": KAKAO_CLIENT_ID,
+        "redirect_uri": KAKAO_REDIRECT_URI,
+        "code": code,
+    }, headers={"Content-Type": "application/x-www-form-urlencoded"})
+
+    if token_response.status_code != 200:
+        return Response({"error": "Failed to get token from Kakao"}, status=400)
+
+    access_token = token_response.json().get("access_token")
+    if not access_token:
+        return Response({"error": "No access token received"}, status=400)
+
+    # 2. 사용자 정보 요청
+    user_info_response = requests.get("https://kapi.kakao.com/v2/user/me", headers={
+        "Authorization": f"Bearer {access_token}"
+    })
+
+    user_info = user_info_response.json()
+    kakao_account = user_info.get("kakao_account", {})
+
+    email = kakao_account.get("email")
+    nickname = kakao_account.get("profile", {}).get("nickname")
+    profile_image_url = kakao_account.get("profile", {}).get("profile_image_url")
+
+    if not email:
+        return Response({"error": "이메일 동의가 필요합니다."}, status=400)
+
+    # 3. 사용자 생성 또는 조회
+    user, created = User.objects.get_or_create(email=email, defaults={
+        "userName": nickname,
+        "loginPlatform": "kakao",
+    })
+
+    if created:
+        user.set_unusable_password()
+        user.save()
+        profile = UserProfile(user=user)
+
+        # ✅ 프로필 이미지 다운로드 후 저장
+        if profile_image_url:
+            response = requests.get(profile_image_url)
+            if response.status_code == 200:
+                ext = profile_image_url.split('.')[-1].split('?')[0]
+                file_content = ContentFile(response.content)
+                # 여기서는 save()에서 filename은 자동으로 upload_to 함수에서 처리
+                profile.profileImage.save(f"temp.{ext}", file_content, save=False)  # 이름은 무시됨
+        profile.save()
+
+    # 4. JWT 발급
+    refresh = RefreshToken.for_user(user)
+    jwt_access = str(refresh.access_token)
+    jwt_refresh = str(refresh)
+
+    # 5. 프론트로 리디렉션
+    params = urlencode({
+        "access_token": jwt_access,
+        "refresh_token": jwt_refresh,
+    })
+
+    return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
+
+
 
 @api_view(['POST'])
 def send_code(request):
@@ -229,19 +326,43 @@ def reset_password(request):
         return Response({'error': '사용자를 찾을 수 없습니다.'}, status=404)
 
 # 사용자 Profile + user 조회
+# @api_view(['GET', 'PUT'])
+# @permission_classes([IsAuthenticated])
+# @parser_classes([MultiPartParser, FormParser])
+# def user_profile(request):
+#     # UserProfile이 없으면 생성
+#     profile, _ = UserProfile.objects.get_or_create(user=request.user)
+
+#     # GET: 프로필 정보 반환
+#     if request.method == 'GET':
+#         serializer = UserProfileUpdateSerializer(profile)
+#         return Response(serializer.data)
+
+#     # PUT: 프로필 정보 수정
+#     if request.method == 'PUT':
+#         serializer = UserProfileUpdateSerializer(profile, data=request.data, partial=True)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=200)
+#         return Response(serializer.errors, status=400)
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser, FormParser])
 def user_profile(request):
-    # UserProfile이 없으면 생성
-    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    user = request.user
+    profile, _ = UserProfile.objects.get_or_create(user=user)
 
-    # GET: 프로필 정보 반환
+    # ✅ GET: User + Profile 데이터 반환
     if request.method == 'GET':
-        serializer = UserProfileUpdateSerializer(profile)
-        return Response(serializer.data)
+        serializer = UserWithProfileSerializer(user)
+        refresh = RefreshToken.for_user(user)
+        return Response({
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh),
+            'user': serializer.data
+        }, status=200)
 
-    # PUT: 프로필 정보 수정
+    # ✅ PUT: UserProfile 정보 수정
     if request.method == 'PUT':
         serializer = UserProfileUpdateSerializer(profile, data=request.data, partial=True)
         if serializer.is_valid():

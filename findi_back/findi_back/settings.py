@@ -189,6 +189,12 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': os.getenv('GOOGLE_SECRET'),
             'key': ''
         }
+    },
+    'kakao': {
+        'APP': {
+            'client_id': os.getenv('KAKAO_CLIENT_ID'),
+            'key': ''
+        }
     }
 }
 

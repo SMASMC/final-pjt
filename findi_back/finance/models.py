@@ -45,21 +45,21 @@ class FinancialProduct(models.Model):
 
 # 예금
 class DepositProduct(models.Model):
-    dcls_month = models.CharField(max_length=6, null=True, blank=True)
-    fin_co_no = models.CharField(max_length=20, null=True, blank=True)
-    fin_prdt_cd = models.CharField(max_length=20,unique=True,null=True,blank=True)
-    kor_co_nm = models.CharField(max_length=50)
-    fin_prdt_nm = models.CharField(max_length=100)
-    join_way = models.TextField()
-    mtrt_int = models.TextField()
-    spcl_cnd = models.TextField()
-    join_deny = models.CharField(max_length=1, null=True, blank=True)
-    join_member = models.TextField()
-    etc_note = models.TextField()
-    max_limit = models.CharField(max_length=100, null=True, blank=True)
-    dcls_strt_day = models.CharField(max_length=8)
-    dcls_end_day = models.CharField(max_length=8, null=True, blank=True)
-    fin_co_subm_day = models.CharField(max_length=20)
+    dcls_month = models.CharField(max_length=6, null=True, blank=True)  # 공시일
+    fin_co_no = models.CharField(max_length=20, null=True, blank=True)  # 금융회사코드
+    fin_prdt_cd = models.CharField(max_length=20,unique=True,null=True,blank=True)  # 금융상품코드
+    kor_co_nm = models.CharField(max_length=50)  # 금융회사명
+    fin_prdt_nm = models.CharField(max_length=100)  # 금융상품명
+    join_way = models.TextField()  # 가입방법
+    mtrt_int = models.TextField()  # 이자율
+    spcl_cnd = models.TextField()  # 특이사항
+    join_deny = models.CharField(max_length=1, null=True, blank=True)  # 가입금지
+    join_member = models.TextField()  # 가입대상
+    etc_note = models.TextField()  # 기타사항
+    max_limit = models.CharField(max_length=100, null=True, blank=True)  # 최대한도
+    dcls_strt_day = models.CharField(max_length=8)  # 공시시작일
+    dcls_end_day = models.CharField(max_length=8, null=True, blank=True)  # 공시종료일
+    fin_co_subm_day = models.CharField(max_length=20)  # 제출일
     save_trm = models.CharField(max_length=10, null=True, blank=True)
     intr_rate_type = models.CharField(max_length=10, null=True, blank=True)
     intr_rate_type_nm = models.CharField(max_length=50, null=True, blank=True)
@@ -68,17 +68,17 @@ class DepositProduct(models.Model):
 
 # 적금
 class SavingProduct(models.Model):
-    dcls_month = models.CharField(max_length=6, null=True, blank=True)
+    dcls_month = models.CharField(max_length=6, null=True, blank=True) # 공시일
     fin_co_no = models.CharField(max_length=20, null=True, blank=True)
     fin_prdt_cd = models.CharField(max_length=20,unique=True,null=True,blank=True)
     kor_co_nm = models.CharField(max_length=50)
     fin_prdt_nm = models.CharField(max_length=100)
-    join_way = models.TextField()
-    mtrt_int = models.TextField()
-    spcl_cnd = models.TextField()
-    join_deny = models.CharField(max_length=1, null=True, blank=True)
-    join_member = models.TextField()
-    etc_note = models.TextField()
+    join_way = models.TextField()  # 가입방법
+    mtrt_int = models.TextField()  # 이자율
+    spcl_cnd = models.TextField()  # 특이사항
+    join_deny = models.CharField(max_length=1, null=True, blank=True)  # 가입금지
+    join_member = models.TextField()  # 가입대상
+    etc_note = models.TextField()  # 기타사항
     max_limit = models.CharField(max_length=100, null=True, blank=True)
     dcls_strt_day = models.CharField(max_length=8)
     dcls_end_day = models.CharField(max_length=8, null=True, blank=True)
@@ -92,15 +92,15 @@ class SavingProduct(models.Model):
 
 # 개인신용대출
 class CreditLoanProduct(models.Model):
-    dcls_month = models.CharField(max_length=6, null=True, blank=True)
+    dcls_month = models.CharField(max_length=6, null=True, blank=True) # 공시일
     fin_co_no = models.CharField(max_length=20, null=True, blank=True)
     fin_prdt_cd = models.CharField(max_length=50,unique=True,null=True,blank=True)
     crdt_prdt_type = models.CharField(max_length=10)
     crdt_prdt_type_nm = models.CharField(max_length=50)
     kor_co_nm = models.CharField(max_length=50)
     fin_prdt_nm = models.CharField(max_length=100)
-    join_way = models.TextField()
-    cb_name = models.CharField(max_length=50)
+    join_way = models.TextField()  # 가입방법
+    cb_name = models.CharField(max_length=50)  # 공시일
     dcls_strt_day = models.CharField(max_length=8)
     dcls_end_day = models.CharField(max_length=8, null=True, blank=True)
     fin_co_subm_day = models.CharField(max_length=20)
@@ -110,13 +110,13 @@ class CreditLoanProduct(models.Model):
 
 # 전세자금대출
 class RentHouseLoanProduct(models.Model):
-    dcls_month = models.CharField(max_length=6, null=True, blank=True)
+    dcls_month = models.CharField(max_length=6, null=True, blank=True) # 공시일
     fin_co_no = models.CharField(max_length=20, null=True, blank=True)
     fin_prdt_cd = models.CharField(max_length=20,unique=True,null=True,blank=True)
     kor_co_nm = models.CharField(max_length=50)
     fin_prdt_nm = models.CharField(max_length=100)
-    join_way = models.TextField()
-    loan_inci_expn = models.TextField()
+    join_way = models.TextField()  # 가입방법
+    loan_inci_expn = models.TextField()  # 공시일
     erly_rpay_fee = models.TextField()
     dly_rate = models.TextField()
     loan_lmt = models.CharField(max_length=100)
