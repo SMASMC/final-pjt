@@ -26,7 +26,7 @@
   }
 
   .menu-link-active {
-    @apply bg-[#8A69E1] text-white font-normal;
+    @apply bg-[#8A69E1] text-white font-bold;
   }
 
   .menu-link-inactive {

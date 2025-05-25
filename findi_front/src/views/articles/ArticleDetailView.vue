@@ -1,7 +1,7 @@
 <!-- /src/views/articles/ArticleDetailView.vue -->
 
 <template>
-  <div class="max-w-3xl mx-auto pt-40">
+  <div class="max-w-3xl mx-auto pt-20">
     <h1 class="text-2xl font-bold mb-4">{{ article.title }}</h1>
     <p class="text-sm text-gray-500 mb-4">
       작성자: {{ article.user?.userName || '알 수 없음' }} |

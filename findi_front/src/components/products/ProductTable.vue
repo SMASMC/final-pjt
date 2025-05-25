@@ -1,7 +1,7 @@
 <!-- src/components/products/ProductTable.vue -->
 
 <template>
-  <div class="overflow-x-auto flex-1 shadow-xl">
+  <div class="overflow-x-auto flex-1">
     <table class="min-w-full table-fixed border border-gray-200 text-sm">
       <thead class="bg-blue-50 text-gray-700">
         <tr>
@@ -24,7 +24,7 @@
           v-for="product in sortedProducts"
           :key="product.fin_prdt_cd + '-' + product.save_trm"
           @click="$emit('row-click', product)"
-          class="hover:bg-gray-100 cursor-pointer text-center hover:scale-105 duration-400"
+          class="hover:bg-gray-100 cursor-pointer text-center"
         >
           <td class="p-2">{{ product.dcls_month }}</td>
           <td class="p-2">{{ product.kor_co_nm }}</td>
