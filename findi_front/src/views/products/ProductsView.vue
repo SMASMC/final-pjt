@@ -55,7 +55,7 @@ const pagination = ref({
 })
 
 const sort = ref({
-  field: 'intr_rate2', // 기본 정렬 필드
+  field: 'intr_rate2',
   order: 'desc'
 })
 
@@ -66,7 +66,7 @@ const tabClass = (type) =>
     ? 'bg-purple-600 text-white px-4 py-2 rounded'
     : 'bg-gray-100 px-4 py-2 rounded'
 
-// 🔧 API 호출 함수
+// API 호출 함수
 const fetchProducts = async () => {
   const endpoint = selectedTab.value === 'deposit' ? '/finance/deposit/' : '/finance/saving/'
 

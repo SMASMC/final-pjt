@@ -139,6 +139,7 @@ class UserPortfolioSerializer(serializers.ModelSerializer):
             'save_trm',
             'interest_rate',
             'special_rate',
+            'etc_note', 
             'joined_at',
         ]
 

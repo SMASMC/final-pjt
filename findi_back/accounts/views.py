@@ -409,6 +409,7 @@ def user_portfolio(request):
                 save_trm=save_trm,
                 interest_rate=product.intr_rate,
                 special_rate=product.intr_rate2,
+                etc_note=product.etc_note,
             )
 
         elif product_type == 'saving':
@@ -428,6 +429,7 @@ def user_portfolio(request):
                 save_trm=save_trm,
                 interest_rate=product.intr_rate,
                 special_rate=product.intr_rate2,
+                etc_note=product.etc_note,
             )
         else:
             return Response({'error': '알 수 없는 product_type입니다.'}, status=400)

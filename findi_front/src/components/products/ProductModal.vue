@@ -12,12 +12,18 @@
 
       <template v-else>
         <label class="block mt-2 text-sm text-gray-600">기본 금리</label>
-        <input v-model="editForm.intr_rate" type="number" step="0.01" class="w-full border p-2 rounded" />
+        <input v-model="editForm.intr_rate" type="number" step="0.01" class="w-full border p-2 rounded text-gray-800" />
         <label class="block mt-2 text-sm text-gray-600">우대 금리</label>
-        <input v-model="editForm.intr_rate2" type="number" step="0.01" class="w-full border p-2 rounded" />
+        <input v-model="editForm.intr_rate2" type="number" step="0.01"
+          class="w-full border p-2 rounded text-gray-700" />
       </template>
 
-      <p class="mt-2 whitespace-pre-line"><strong>우대조건:</strong> {{ product.spcl_cnd }}</p>
+      <strong>우대조건:</strong>
+      <p class="mt-2 whitespace-pre-line text-gray-700"> {{ product.spcl_cnd }}</p>
+      <p v-if="product.etc_note" class="mt-2 whitespace-pre-line text-sm text-gray-700">
+        <strong>기타: </strong><br />
+        {{ product.etc_note }}
+      </p>
 
       <!-- 버튼 영역 -->
       <div class="flex justify-end mt-4 flex-wrap gap-2">
@@ -124,6 +130,7 @@ const joinProduct = async () => {
       save_trm: parseInt(props.product.save_trm),
       interest_rate: props.product.intr_rate,
       special_rate: props.product.intr_rate2,
+
     }
     console.log('[DEBUG] payload:', payload)
     const res = await api.post('/accounts/portfolio/', payload)

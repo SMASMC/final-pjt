@@ -108,6 +108,7 @@ class UserPortfolio(models.Model):
     save_trm = models.PositiveIntegerField()
     interest_rate = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     special_rate = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    etc_note = models.TextField(null=True, blank=True)
     joined_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
