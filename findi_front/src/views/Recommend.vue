@@ -12,11 +12,17 @@
       />
     </div>
     <!-- 사용자 프로필 상태 확인 -->
-    <div v-if="!profileLoaded">
+    <div v-if="!profileLoaded" class="flex flex-col items-center gap-4 mt-8">
       <p class="text-center text-red-600 font-semibold">
         더 정확한 맞춤 상품을 찾기 위해<br />
         <span class="text-purple-700">프로필에서 {{ userName }}님의 정보를 입력하세요!</span>
       </p>
+      <button
+        @click="goToProfile"
+        class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition"
+      >
+        프로필로 가기
+      </button>
     </div>
 
     <!-- AI 추천 카드 출력 -->
@@ -25,10 +31,6 @@
         <h3 class="text-lg font-bold mb-2">{{ categoryToLabel(key) }} 상품 추천</h3>
         <p><strong>상품명:</strong> {{ product.name }}</p>
         <p><strong>금리:</strong> {{ product.rate }}%</p>
-        <!-- <p>
-          <strong>상품 바로가기:</strong>
-          <a :href="product.url" target="_blank">{{ product.url }}</a>
-        </p> -->
         <p class="text-sm text-gray-600 mt-2">
           {{ product.details || '설명 없음' }}
         </p>
@@ -69,6 +71,13 @@ import nhLogo from '@/assets/bank_logos/nh.png'
 import shinhanLogo from '@/assets/bank_logos/shinhan.png'
 import wooriLogo from '@/assets/bank_logos/woori.png'
 import hanaLogo from '@/assets/bank_logos/hana.png'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToProfile = () => {
+  router.push('/profile')
+}
 
 const banks = ref({})
 // ✅ 은행명과 로고 경로 매핑

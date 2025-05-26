@@ -1,7 +1,10 @@
 <template>
   <div
     v-if="visible"
-    class="fixed top-4 left-4 z-50 flex items-center w-full max-w-xs p-4 mb-4 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg shadow-lg"
+    :class="[
+      'fixed top-4 left-4 z-50 flex items-center w-full max-w-xs p-4 mb-4 text-sm bg-white rounded-lg shadow-lg',
+      borderClass
+    ]"
     role="alert"
   >
     <div
@@ -48,4 +51,11 @@ const iconPath =
     warning:
       'M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z'
   }[props.type] || ''
+
+const borderClass =
+  {
+    success: 'border-2 border-green-500',
+    danger: 'border-2 border-red-500',
+    warning: 'border-2 border-orange-500'
+  }[props.type] || 'border border-gray-300'
 </script>
