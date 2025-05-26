@@ -1,3 +1,5 @@
+<!-- src/views/ProfileView.vue -->
+
 <template>
   <form @submit.prevent="submitProfile" class="max-w-5xl mx-auto px-6 pt-28 pb-12">
     <h2 class="text-xl font-bold mb-4">내 프로필</h2>
@@ -73,29 +75,47 @@
 
   <!-- 가입한 금융 상품 리스트 -->
   <div class="max-w-5xl mx-auto px-6 pb-12">
-    <h3 class="text-lg font-bold mt-10 mb-4">📌 가입한 금융 상품</h3>
-    <table class="w-full border text-sm">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="p-2 border">은행</th>
-          <th class="p-2 border">상품명</th>
-          <th class="p-2 border">유형</th>
-          <th class="p-2 border">금리(%)</th>
-          <th class="p-2 border">중도상환수수료(%)</th>
-          <th class="p-2 border">가입일</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="product in portfolios" :key="product.id">
-          <td class="p-2 border">{{ product.bankName }}</td>
-          <td class="p-2 border">{{ product.productName }}</td>
-          <td class="p-2 border">{{ product.productType }}</td>
-          <td class="p-2 border">{{ product.interestRate }}</td>
-          <td class="p-2 border">{{ product.prePaymentPenalty }}</td>
-          <td class="p-2 border">{{ formatDate(product.joinedAt) }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <h3 class="text-lg font-bold mt-10 mb-4">가입한 금융 상품</h3>
+    
+      <div class="w-full mt-10 bg-white shadow-md rounded-xl overflow-hidden">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-purple-100 text-purple-800">
+            <tr>
+              <th class="py-3 px-5">은행</th>
+              <th class="py-3 px-5">상품명</th>
+              <th class="py-3 px-5">유형</th>
+              <th class="py-3 px-5">기본 금리</th>
+              <th class="py-3 px-5">우대 금리</th>
+              <th class="py-3 px-5">가입일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="product in portfolios"
+              :key="product.id"
+              class="hover:bg-purple-50 transition-colors duration-200"
+            >
+              <td class="py-3 px-5 border-t border-gray-100">{{ product.bank_name }}</td>
+              <td
+                class="py-3 px-5 border-t border-gray-100 text-purple-700 font-medium hover:text-purple-900 cursor-pointer"
+                @click="openProductModal(product.deposit_product || product.saving_product)"
+              >
+                {{ product.product_name }}
+              </td>
+              <td class="py-3 px-5 border-t border-gray-100">{{ product.product_type === 'deposit' ? '예금' : '적금' }}</td>
+              <td class="py-3 px-5 border-t border-gray-100">{{ product.interest_rate ? product.interest_rate + '%' : '-' }}</td>
+              <td class="py-3 px-5 border-t border-gray-100">{{ product.special_rate ? product.special_rate + '%' : '-' }}</td>
+              <td class="py-3 px-5 border-t border-gray-100">{{ formatDate(product.joined_at) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+
+  <!-- 상품 금리 차트 -->
+  <div class="w-[90%] mx-auto mt-8">
+  <ProductChart :portfolios="portfolios" />
   </div>
 
   <ConfirmModal
@@ -107,6 +127,14 @@
     @confirm="deleteAccount"
     @cancel="showModal = false"
   />
+
+  <ProductModal
+  v-if="showProductModal"
+  :product="selectedProduct"
+  @close="showProductModal = false"
+  />
+
+
   <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
 </template>
 
@@ -116,6 +144,8 @@ import api from '@/api/axios'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 import ToastMessage from '@/components/ToastMessage.vue'
 import { useAuthStore } from '@/stores/auth'
+import ProductModal from '@/components/products/ProductModal.vue'
+import ProductChart from '@/components/products/ProductChart.vue'
 
 const age = ref('')
 const risk_tolerance = ref('medium')
@@ -126,6 +156,10 @@ const savings = ref('')
 const profileImage = ref(null)
 const previewImage = ref(null)
 const portfolios = ref([])
+const selectedProduct = ref(null)
+const showProductModal = ref(false)
+
+
 const showModal = ref(false)
 const toast = ref({ show: false, type: 'success', message: '' })
 
@@ -221,7 +255,28 @@ const deleteAccount = async () => {
   }
 }
 
-onMounted(() => loadProfile())
+// Portfolio 상품가입 로직
+const loadPortfolios = async () => {
+  try {
+    const res = await api.get('/accounts/portfolio/')
+    portfolios.value = res.data
+  } catch (err) {
+    console.error('가입 상품 불러오기 실패:', err)
+    showToast('danger', '가입한 금융 상품 정보를 불러오지 못했습니다.')
+  }
+}
+
+// 상품 상세모달
+const openProductModal = (product) => {
+  selectedProduct.value = product
+  showProductModal.value = true
+}
+
+onMounted(() => {
+  loadProfile()
+  loadPortfolios()
+})
+
 </script>
 
 <style scoped>
