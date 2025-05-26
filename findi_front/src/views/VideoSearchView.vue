@@ -10,7 +10,7 @@
       />
 
       <button
-        class="h-10 px-4 bg-purple-400 text-white rounded hover:bg-purple-700 text-sm whitespace-nowrap"
+        class="h-10 px-4 bg-[#8A69E1] text-white rounded hover:bg-[#9300ff] text-sm whitespace-nowrap cursor-pointer"
         @click="fetchVideos"
       >
         검색

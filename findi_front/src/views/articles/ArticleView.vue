@@ -1,13 +1,13 @@
 <!-- src/views/articles/ArticleView.vue -->
 <template>
-  <div class="max-w-6xl mx-auto p-4 pt-20">
+  <div class="max-w-6xl mx-auto p-4 pt-40">
     <h1 class="text-2xl font-bold mb-4">자유 게시판</h1>
 
     <!-- 글 생성 버튼 -->
     <div class="flex justify-end mb-4">
       <button
         @click="handleCreateClick"
-        class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-pink-400"
+        class="px-4 py-2 bg-[#8A69E1] text-white rounded hover:bg-purple-500 cursor-pointer"
       >
         글 생성
       </button>
