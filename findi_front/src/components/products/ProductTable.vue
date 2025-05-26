@@ -20,21 +20,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="product in sortedProducts"
-          :key="product.fin_prdt_cd + '-' + product.save_trm"
+        <tr v-for="product in sortedProducts" :key="product.fin_prdt_cd + '-' + product.save_trm"
           @click="$emit('row-click', product)"
-          class="hover:bg-gray-100 cursor-pointer text-center hover:scale-105 duration-400"
-        >
+          class="hover:bg-gray-100 cursor-pointer text-center hover:scale-105 duration-400">
           <td class="p-2">{{ product.dcls_month }}</td>
           <td class="p-2">{{ product.kor_co_nm }}</td>
           <td class="p-2 text-left">{{ product.fin_prdt_nm }}</td>
           <td class="p-2">{{ product.save_trm }}개월</td>
           <td class="p-2">
-            {{ product.intr_rate != null && product.intr_rate !== '' ? Number(product.intr_rate).toFixed(2) + '%' : '-' }}
+            {{ product.intr_rate != null && product.intr_rate !== '' ? Number(product.intr_rate).toFixed(2) + '%' : '-'
+            }}
           </td>
           <td class="p-2">
-            {{ product.intr_rate2 != null && product.intr_rate2 !== '' ? Number(product.intr_rate2).toFixed(2) + '%' : '-' }}
+            {{ product.intr_rate2 != null && product.intr_rate2 !== '' ? Number(product.intr_rate2).toFixed(2) + '%' :
+            '-' }}
           </td>
         </tr>
       </tbody>
@@ -84,7 +83,11 @@ const sortBy = (field) => {
     sortOrder.value = 'asc'
   }
 
-  emit('sort-changed', { field: sortField.value, order: sortOrder.value })
+  // 정렬된 결과를 직접 계산하지 않음
+  emit('sort-changed', {
+    field: sortField.value,
+    order: sortOrder.value
+  })
 }
 
 // SortIcon 컴포넌트

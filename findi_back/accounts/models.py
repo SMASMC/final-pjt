@@ -5,6 +5,8 @@ from django.conf import settings
 import os
 from django.contrib.auth.base_user import BaseUserManager
 from finance.models import FinancialProduct
+from finance.models import DepositProduct, SavingProduct
+
 class CustomUserManager(BaseUserManager):
     use_in_migrations = True
 
@@ -96,10 +98,27 @@ class UserProfile(models.Model):
 
 class UserPortfolio(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='portfolio')
-    product = models.ForeignKey(FinancialProduct, on_delete=models.CASCADE, related_name='portfolios', null=True, blank=True)
-    joinedAt = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='portfolio')
+    product_type = models.CharField(max_length=20, choices=[
+        ('deposit', '예금'),
+        ('saving', '적금'),
+    ])
+    deposit_product = models.ForeignKey(DepositProduct, on_delete=models.SET_NULL, null=True, blank=True)
+    saving_product = models.ForeignKey(SavingProduct, on_delete=models.SET_NULL, null=True, blank=True)
+    save_trm = models.PositiveIntegerField()
+    interest_rate = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    special_rate = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    joined_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.user.userName} - {self.product.name}"
+    class Meta:
+        ordering = ['-joined_at']
+
+    def save(self, *args, **kwargs):
+        if self.product_type == 'deposit':
+            if not self.deposit_product or self.saving_product:
+                raise ValueError('예금 상품 등록 시 deposit_product만 채워야 합니다.')
+        elif self.product_type == 'saving':
+            if not self.saving_product or self.deposit_product:
+                raise ValueError('적금 상품 등록 시 saving_product만 채워야 합니다.')
+        super().save(*args, **kwargs)
     

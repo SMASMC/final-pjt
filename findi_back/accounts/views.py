@@ -26,6 +26,8 @@ from .models import UserPortfolio
 from .serializers import UserPortfolioSerializer
 import uuid
 from django.core.files.base import ContentFile
+from finance.models import DepositProduct, SavingProduct
+
 
 
 # CustomLoginView의 선언 이유는?
@@ -378,33 +380,68 @@ def user_portfolio(request):
     if request.method == 'GET':
         portfolios = UserPortfolio.objects.filter(user=request.user)
         serializer = UserPortfolioSerializer(portfolios, many=True)
+        # print(serializer.data)
         return Response(serializer.data)
+
     elif request.method == 'POST':
+        product_type = request.data.get('product_type')
         product_id = request.data.get('product_id')
-        if not product_id:
-            return Response({'error': '상품 ID가 필요합니다.'}, status=400)
+        save_trm = request.data.get('save_trm')
 
-        try:
-            product = FinancialProduct.objects.get(id=product_id)
-        except FinancialProduct.DoesNotExist:
-            return Response({'error': '해당 상품이 존재하지 않습니다.'}, status=404)
+        if not product_type or not product_id or not save_trm:
+            return Response({'error': 'product_type, product_id, save_trm 모두 필요합니다.'}, status=400)
 
-        portfolio, created = UserPortfolio.objects.get_or_create(
-            user=request.user,
-            product=product,
-        )
-        if not created:
-            return Response({'message': '이미 가입한 상품입니다.'}, status=200)
+        # 상품 종류별 분기
+        if product_type == 'deposit':
+            try:
+                product = DepositProduct.objects.get(id=product_id)
+            except DepositProduct.DoesNotExist:
+                return Response({'error': '해당 예금 상품이 존재하지 않습니다.'}, status=404)
+
+            exists = UserPortfolio.objects.filter(user=request.user, deposit_product=product).exists()
+            if exists:
+                return Response({'message': '이미 가입한 예금 상품입니다.'}, status=200)
+
+            portfolio = UserPortfolio.objects.create(
+                user=request.user,
+                product_type='deposit',
+                deposit_product=product,
+                save_trm=save_trm,
+                interest_rate=product.intr_rate,
+                special_rate=product.intr_rate2,
+            )
+
+        elif product_type == 'saving':
+            try:
+                product = SavingProduct.objects.get(id=product_id)
+            except SavingProduct.DoesNotExist:
+                return Response({'error': '해당 적금 상품이 존재하지 않습니다.'}, status=404)
+
+            exists = UserPortfolio.objects.filter(user=request.user, saving_product=product).exists()
+            if exists:
+                return Response({'message': '이미 가입한 적금 상품입니다.'}, status=200)
+
+            portfolio = UserPortfolio.objects.create(
+                user=request.user,
+                product_type='saving',
+                saving_product=product,
+                save_trm=save_trm,
+                interest_rate=product.intr_rate,
+                special_rate=product.intr_rate2,
+            )
+        else:
+            return Response({'error': '알 수 없는 product_type입니다.'}, status=400)
 
         return Response({'message': '상품 가입 완료'}, status=201)
 
+
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
-def user_portfolio_detail_and_update(request, fin_prdt_cd):
+def user_portfolio_detail_and_update(request, portfolio_id):
     try:
-        portfolio = UserPortfolio.objects.get(user=request.user, fin_prdt_cd=fin_prdt_cd)
+        portfolio = UserPortfolio.objects.get(id=portfolio_id, user=request.user)
     except UserPortfolio.DoesNotExist:
-        return Response({'error': '포트폴리오를 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': '해당 포트폴리오를 찾을 수 없습니다.'}, status=404)
 
     if request.method == 'GET':
         serializer = UserPortfolioSerializer(portfolio)
@@ -414,20 +451,20 @@ def user_portfolio_detail_and_update(request, fin_prdt_cd):
         serializer = UserPortfolioSerializer(portfolio, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=200)
+            return Response(serializer.data)
         return Response(serializer.errors, status=400)
+
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
-def user_portfolio_delete(request, fin_prdt_cd):
+def user_portfolio_delete(request, portfolio_id):
     try:
-        portfolio = UserPortfolio.objects.get(user=request.user, fin_prdt_cd=fin_prdt_cd)
+        portfolio = UserPortfolio.objects.get(id=portfolio_id, user=request.user)
     except UserPortfolio.DoesNotExist:
-        return Response({'error': '포트폴리오를 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': '해당 포트폴리오를 찾을 수 없습니다.'}, status=404)
 
     portfolio.delete()
-    return Response({'message': '포트폴리오가 삭제되었습니다.'}, status=status.HTTP_200_OK)
-
+    return Response({'message': '포트폴리오가 삭제되었습니다.'}, status=200)
 
 
 # 회원 탈퇴

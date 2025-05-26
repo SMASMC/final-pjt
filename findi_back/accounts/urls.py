@@ -28,8 +28,8 @@ urlpatterns = [
 
     # 사용자 포트폴리오 관련 URL
     path('portfolio/', views.user_portfolio, name='user_portfolio'),
-    path('portfolio/<str:fin_prdt_cd>/', views.user_portfolio_detail_and_update, name='user_portfolio_detail_and_update'),
-    path('portfolio/<str:fin_prdt_cd>/delete/', views.user_portfolio_delete, name='user_portfolio_delete'),
+    path('portfolio/<uuid:portfolio_id>/', views.user_portfolio_detail_and_update, name='user_portfolio_detail'),
+    path('portfolio/<uuid:portfolio_id>/delete/', views.user_portfolio_delete, name='user_portfolio_delete'),
 
     # 회원 탈퇴
     path('delete-account/', views.delete_account, name='delete_account'),

@@ -5,6 +5,8 @@ from dj_rest_auth.registration.serializers import RegisterSerializer
 from .models import UserProfile, CustomUser, UserPortfolio
 from dj_rest_auth.serializers import LoginSerializer
 from django.contrib.auth import authenticate
+from accounts.models import UserPortfolio
+from finance.models import DepositProduct, SavingProduct
 
 User = get_user_model()
 
@@ -81,12 +83,12 @@ class UserWithProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'userName', 'loginPlatform', 'profile']
+        fields = ['id', 'email', 'userName', 'loginPlatform', 'profile','role']
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'userName')
+        fields = ('id', 'userName', 'email', 'role', 'loginPlatform')
 
 # 프로필 업데이트 serializer
 class UserProfileUpdateSerializer(serializers.ModelSerializer):
@@ -98,9 +100,59 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
         ]
         
 
+# 예적금 serializer
+class DepositProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DepositProduct
+        fields = [
+            'fin_prdt_cd', 'fin_prdt_nm', 'kor_co_nm', 'save_trm',
+            'intr_rate', 'intr_rate2','spcl_cnd'
+        ]
+
+
+class SavingProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SavingProduct
+        fields = [
+            'fin_prdt_cd', 'fin_prdt_nm', 'kor_co_nm', 'save_trm',
+            'intr_rate', 'intr_rate2','spcl_cnd'
+        ]
+
 
 # 사용자 포트폴리오 serializer
 class UserPortfolioSerializer(serializers.ModelSerializer):
+    deposit_product = DepositProductSerializer(read_only=True)
+    saving_product = SavingProductSerializer(read_only=True)
+
+    bank_name = serializers.SerializerMethodField()
+    product_name = serializers.SerializerMethodField()
+
     class Meta:
         model = UserPortfolio
-        fields = ['fin_prdt_cd', 'fin_prdt_nm', 'join_way', 'cb_name', 'fin_co_nm', 'fin_co_no', 'fin_co_subm_day', 'dcls_month', 'dcls_strt_day', 'dcls_end_day', 'crdt_prdt_type', 'crdt_prdt_type_nm']
+        fields = [
+            'id',
+            'product_type',
+            'deposit_product',
+            'saving_product',
+            'bank_name',
+            'product_name',
+            'save_trm',
+            'interest_rate',
+            'special_rate',
+            'joined_at',
+        ]
+
+    def get_bank_name(self, obj):
+        if obj.product_type == 'deposit' and obj.deposit_product:
+            return obj.deposit_product.kor_co_nm
+        elif obj.product_type == 'saving' and obj.saving_product:
+            return obj.saving_product.kor_co_nm
+        return '[상품 없음]'
+
+    def get_product_name(self, obj):
+        if obj.product_type == 'deposit' and obj.deposit_product:
+            return obj.deposit_product.fin_prdt_nm
+        elif obj.product_type == 'saving' and obj.saving_product:
+            return obj.saving_product.fin_prdt_nm
+        return '[상품 없음]'
+    
