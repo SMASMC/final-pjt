@@ -4,11 +4,14 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 import os
 from dotenv import load_dotenv
-from accounts.models import UserProfile
+from .models import DepositProduct, SavingProduct
+from accounts.models import UserProfile, UserPortfolio
 from finance.models import FinancialCompany,FinancialProduct, DepositProduct, SavingProduct, CreditLoanProduct, RentHouseLoanProduct
 from finance.serializers import DepositProductSerializer, SavingProductSerializer, CreditLoanProductSerializer, RentHouseLoanProductSerializer
 from rest_framework.pagination import PageNumberPagination
-
+from django.core.mail import EmailMultiAlternatives
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 from openai import OpenAI
 load_dotenv()
@@ -235,3 +238,68 @@ def rent_get(request):
         queryset = queryset.filter(kor_co_nm__icontains=bank)
     serializer = RentHouseLoanProductSerializer(queryset, many=True)
     return Response(serializer.data)
+
+# 관리자 금리 정보 수정 요청
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_product_interest(request, product_type, product_id):
+    if request.user.role != 'admin':
+        return Response({'error': '관리자만 수정할 수 있습니다.'}, status=403)
+
+    if product_type == 'deposit':
+        model = DepositProduct
+        portfolio_filter = {'deposit_product__id': product_id}
+    elif product_type == 'saving':
+        model = SavingProduct
+        portfolio_filter = {'saving_product__id': product_id}
+    else:
+        return Response({'error': 'product_type은 deposit 또는 saving 이어야 합니다.'}, status=400)
+
+    try:
+        product = model.objects.get(id=product_id)
+    except model.DoesNotExist:
+        return Response({'error': '상품이 존재하지 않습니다.'}, status=404)
+
+    from .serializers import DepositProductSerializer, SavingProductSerializer
+    serializer_class = DepositProductSerializer if product_type == 'deposit' else SavingProductSerializer
+
+    serializer = serializer_class(product, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+
+        portfolios = UserPortfolio.objects.filter(**portfolio_filter)
+        try:
+            for portfolio in portfolios:
+                email = portfolio.user.email
+                if not email:
+                    continue  # 이메일 없음 → 전송 생략
+
+                try:
+                    validate_email(email)  # 이메일 유효성 검사
+                except ValidationError:
+                    continue  # 유효하지 않은 이메일 → 전송 생략
+
+                subject = f'Findi "{product.fin_prdt_nm}" 상품 금리가 변경되었습니다.'
+                from_email = 'msoko89@gmail.com'
+                to = [email]
+                text_content = f'"{product.fin_prdt_nm}" 상품의 금리가 변경되었습니다. Findi에서 확인해 주세요.'
+                html_content = f"""
+                    <html>
+                    <body>
+                        <h2 style="color:#8A69E1;">Findi 금리 변경 안내</h2>
+                        <p><strong>{product.fin_prdt_nm}</strong> 상품의 금리가 변경되었습니다.</p>
+                        <p>Findi에서 최신 금리를 확인해보세요!</p>
+                    </body>
+                    </html>
+                """
+                msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+        except Exception as e:
+            # 이메일 오류는 로직 중단 없이 콘솔 출력만
+            print('[이메일 전송 실패]', str(e))
+
+        return Response(serializer.data)
+
+    # serializer 오류 응답
+    return Response(serializer.errors, status=400)

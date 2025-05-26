@@ -83,12 +83,12 @@ class UserWithProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'userName', 'loginPlatform', 'profile']
+        fields = ['id', 'email', 'userName', 'loginPlatform', 'profile','role']
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'userName')
+        fields = ('id', 'userName', 'email', 'role', 'loginPlatform')
 
 # 프로필 업데이트 serializer
 class UserProfileUpdateSerializer(serializers.ModelSerializer):

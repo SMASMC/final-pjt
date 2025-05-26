@@ -15,4 +15,5 @@ urlpatterns = [
     path('saving/', views.saving_get, name="saving_get"),
     path('rent/', views.rent_get, name="rent_get"),
     path('credit/', views.credit_get, name="credit_get"),
+    path('<str:product_type>/<int:product_id>/update/', views.update_product_interest), # 금리 수정
 ]

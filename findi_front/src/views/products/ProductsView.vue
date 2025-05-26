@@ -8,36 +8,34 @@
       <button class="cursor-pointer" @click="selectTab('saving')" :class="tabClass('saving')">정기적금</button>
     </div>
 
-    <!-- 필터 + 테이블 영역 -->
+    <!-- 필터 + 테이블 -->
     <div class="flex gap-6">
-      <!-- 좌측: 필터 패널 -->
       <div class="w-64 shrink-0 bg-purple-50 border border-purple-200 p-4 rounded-lg shadow">
         <ProductFilter :selectedTab="selectedTab" @filter-changed="onFilterChanged" />
       </div>
 
-      <!-- 우측: 상품 테이블 -->
       <div class="flex-1">
-        <ProductTable 
-          :products="products" 
-          @row-click="openModal"
-        />
+        <ProductTable :products="products" @row-click="openModal" @sort-changed="onSortChanged" />
 
         <!-- 페이지네이션 -->
         <div v-if="pagination.count > pagination.page_size" class="flex justify-between mt-4">
-          <button @click="prevPage" :disabled="!pagination.previous" class="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 cursor-pointer">이전</button>
+          <button @click="prevPage" :disabled="!pagination.previous"
+            class="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 cursor-pointer">이전</button>
           <span class="text-sm text-gray-600">{{ pagination.page }} / {{ totalPages }} 페이지</span>
-          <button @click="nextPage" :disabled="!pagination.next" class="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 cursor-pointer">다음</button>
+          <button @click="nextPage" :disabled="!pagination.next"
+            class="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 cursor-pointer">다음</button>
         </div>
       </div>
     </div>
 
     <!-- 모달 -->
-    <ProductModal v-if="selectedProduct" :product="selectedProduct" @close="selectedProduct = null" />
+    <ProductModal v-if="selectedProduct" :product="selectedProduct" @updated="fetchProducts"
+      @close="selectedProduct = null" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import ProductFilter from '@/components/products/ProductFilter.vue'
 import ProductTable from '@/components/products/ProductTable.vue'
 import ProductModal from '@/components/products/ProductModal.vue'
@@ -56,6 +54,11 @@ const pagination = ref({
   previous: null,
 })
 
+const sort = ref({
+  field: 'intr_rate2', // 기본 정렬 필드
+  order: 'desc'
+})
+
 const totalPages = computed(() => Math.ceil(pagination.value.count / pagination.value.page_size))
 
 const tabClass = (type) =>
@@ -63,13 +66,20 @@ const tabClass = (type) =>
     ? 'bg-purple-600 text-white px-4 py-2 rounded'
     : 'bg-gray-100 px-4 py-2 rounded'
 
+// 🔧 API 호출 함수
 const fetchProducts = async () => {
   const endpoint = selectedTab.value === 'deposit' ? '/finance/deposit/' : '/finance/saving/'
+
+  // 정렬 파라미터 준비
+  const ordering =
+    sort.value.order === 'asc' ? sort.value.field : `-${sort.value.field}`
+
   try {
     const res = await api.get(endpoint, {
       params: {
         ...filters.value,
-        page: pagination.value.page
+        ordering,
+        page: pagination.value.page,
       }
     })
     products.value = res.data.results || []
@@ -85,6 +95,7 @@ const fetchProducts = async () => {
   }
 }
 
+// 탭 변경
 const selectTab = (tab) => {
   selectedTab.value = tab
   pagination.value.page = 1
@@ -92,16 +103,26 @@ const selectTab = (tab) => {
   fetchProducts()
 }
 
+// 필터 변경 시
 const onFilterChanged = (newFilters) => {
   filters.value = newFilters
   pagination.value.page = 1
   fetchProducts()
 }
 
+// 정렬 기준 변경 시
+const onSortChanged = (newSort) => {
+  sort.value = newSort
+  pagination.value.page = 1
+  fetchProducts()
+}
+
+// 모달 열기
 const openModal = (product) => {
   selectedProduct.value = product
 }
 
+// 페이지 이동
 const nextPage = () => {
   if (pagination.value.next) {
     pagination.value.page++

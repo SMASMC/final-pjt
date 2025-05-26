@@ -6,32 +6,24 @@
 
     <!-- 프로필 이미지 업로드 -->
     <div class="flex items-center mb-4">
-      <img
-        v-if="previewImage"
-        :src="previewImage"
-        alt="Profile"
-        class="w-24 h-24 rounded-full object-cover border mr-4"
-      />
+      <img v-if="previewImage" :src="previewImage" alt="Profile"
+        class="w-24 h-24 rounded-full object-cover border mr-4" />
       <input type="file" @change="handleImageUpload" accept="image/*" />
     </div>
 
-    <label class="block mb-2"
-      >나이:
+    <label class="block mb-2">나이:
       <input v-model="age" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-2"
-      >월 수입 (만원):
+    <label class="block mb-2">월 수입 (만원):
       <input v-model="monthly_income" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-4"
-      >모아둔 돈 (만원):
+    <label class="block mb-4">모아둔 돈 (만원):
       <input v-model="savings" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-2"
-      >위험 선호도:
+    <label class="block mb-2">위험 선호도:
       <select v-model="risk_tolerance" class="w-full p-2 border rounded">
         <option value="low">낮음</option>
         <option value="medium">중간</option>
@@ -39,8 +31,7 @@
       </select>
     </label>
 
-    <label class="block mb-2"
-      >재무 목표:
+    <label class="block mb-2">재무 목표:
       <select v-model="financial_goal" class="w-full p-2 border rounded">
         <option value="saving">저축</option>
         <option value="investment">투자</option>
@@ -48,14 +39,11 @@
       </select>
     </label>
 
-    <label class="block mb-4"
-      >관심 금융 상품:
+    <label class="block mb-4">관심 금융 상품:
       <div class="flex gap-2 mt-1">
         <label><input type="checkbox" value="deposit" v-model="interested_products" /> 예금</label>
         <label><input type="checkbox" value="loan" v-model="interested_products" /> 대출</label>
-        <label
-          ><input type="checkbox" value="insurance" v-model="interested_products" /> 보험</label
-        >
+        <label><input type="checkbox" value="insurance" v-model="interested_products" /> 보험</label>
         <label><input type="checkbox" value="fund" v-model="interested_products" /> 펀드</label>
       </div>
     </label>
@@ -64,11 +52,7 @@
       저장
     </button>
 
-    <button
-      type="button"
-      @click="showModal = true"
-      class="mt-4 w-full text-sm text-red-500 underline"
-    >
+    <button type="button" @click="showModal = true" class="mt-4 w-full text-sm text-red-500 underline">
       회원 탈퇴
     </button>
   </form>
@@ -76,63 +60,20 @@
   <!-- 가입한 금융 상품 리스트 -->
   <div class="max-w-5xl mx-auto px-6 pb-12">
     <h3 class="text-lg font-bold mt-10 mb-4">가입한 금융 상품</h3>
-    
-      <div class="w-full mt-10 bg-white shadow-md rounded-xl overflow-hidden">
-        <table class="w-full text-sm text-left">
-          <thead class="bg-purple-100 text-purple-800">
-            <tr>
-              <th class="py-3 px-5">은행</th>
-              <th class="py-3 px-5">상품명</th>
-              <th class="py-3 px-5">유형</th>
-              <th class="py-3 px-5">기본 금리</th>
-              <th class="py-3 px-5">우대 금리</th>
-              <th class="py-3 px-5">가입일</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="product in portfolios"
-              :key="product.id"
-              class="hover:bg-purple-50 transition-colors duration-200"
-            >
-              <td class="py-3 px-5 border-t border-gray-100">{{ product.bank_name }}</td>
-              <td
-                class="py-3 px-5 border-t border-gray-100 text-purple-700 font-medium hover:text-purple-900 cursor-pointer"
-                @click="openProductModal(product.deposit_product || product.saving_product)"
-              >
-                {{ product.product_name }}
-              </td>
-              <td class="py-3 px-5 border-t border-gray-100">{{ product.product_type === 'deposit' ? '예금' : '적금' }}</td>
-              <td class="py-3 px-5 border-t border-gray-100">{{ product.interest_rate ? product.interest_rate + '%' : '-' }}</td>
-              <td class="py-3 px-5 border-t border-gray-100">{{ product.special_rate ? product.special_rate + '%' : '-' }}</td>
-              <td class="py-3 px-5 border-t border-gray-100">{{ formatDate(product.joined_at) }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
+    <ProductJoined :portfolios="portfolios" @product-click="openProductModal" />
   </div>
+
 
   <!-- 상품 금리 차트 -->
   <div class="w-[90%] mx-auto mt-8">
-  <ProductChart :portfolios="portfolios" />
+    <ProductChart :portfolios="portfolios" />
   </div>
 
-  <ConfirmModal
-    :show="showModal"
-    title="회원 탈퇴 확인"
-    content="정말로 회원 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다."
-    confirmText="탈퇴하기"
-    cancelText="취소"
-    @confirm="deleteAccount"
-    @cancel="showModal = false"
-  />
+  <ConfirmModal :show="showModal" title="회원 탈퇴 확인" content="정말로 회원 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다." confirmText="탈퇴하기"
+    cancelText="취소" @confirm="deleteAccount" @cancel="showModal = false" />
 
-  <ProductModal
-  v-if="showProductModal"
-  :product="selectedProduct"
-  @close="showProductModal = false"
-  />
+  <ProductModal v-if="showProductModal" :product="selectedProduct" @close="showProductModal = false"
+    @updated="loadPortfolios" />
 
 
   <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
@@ -146,6 +87,7 @@ import ToastMessage from '@/components/ToastMessage.vue'
 import { useAuthStore } from '@/stores/auth'
 import ProductModal from '@/components/products/ProductModal.vue'
 import ProductChart from '@/components/products/ProductChart.vue'
+import ProductJoined from '@/components/products/ProductJoined.vue'
 
 const age = ref('')
 const risk_tolerance = ref('medium')
