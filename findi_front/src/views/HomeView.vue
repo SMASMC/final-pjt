@@ -217,6 +217,11 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 
+// 챗봇이 열려있는지 확인
+const isChatbotOpen = () => {
+  return !!document.querySelector('.chat-box')
+}
+
 const router = useRouter()
 
 // Section refs
@@ -254,6 +259,7 @@ const colors = ['#8A69E1', '#CBADF7', '#F6FBEA', '#CBADF7', '#8A69E1']
 // 휠 스크롤 이벤트 처리
 let scrollTimeout = null
 const handleWheel = (event) => {
+  if (isChatbotOpen()) return
   if (scrollTimeout) return
 
   scrollTimeout = setTimeout(() => {
@@ -270,6 +276,7 @@ const handleWheel = (event) => {
 
 // 클릭 위치 기반 스크롤 이동
 const handleClickPosition = (event) => {
+  if (isChatbotOpen()) return
   // 클릭한 요소가 버튼 또는 버튼 내부일 경우 무시
   const tag = event.target.tagName.toLowerCase()
   if (tag === 'button' || event.target.closest('button')) return

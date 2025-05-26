@@ -21,6 +21,8 @@
     <NavBar v-if="!hideNav.includes(route.path)" />
     <RouterView />
   </div>
+  <!-- Floating Button -->
+  <FloatingButton />
 </template>
 
 <script setup>
@@ -28,6 +30,7 @@ import { RouterView } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
+import FloatingButton from '@/components/chatbot/FloatingButton.vue'
 
 const route = useRoute()
 

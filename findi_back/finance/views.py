@@ -93,7 +93,6 @@ def find_fit_product(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def find_ai_fit_product(request):
-    from openai import OpenAI
 
     user = request.user
 
