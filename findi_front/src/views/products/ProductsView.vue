@@ -29,7 +29,7 @@
     </div>
 
     <!-- 모달 -->
-    <ProductModal v-if="selectedProduct" :product="selectedProduct" @updated="fetchProducts"
+    <ProductModal v-if="selectedProduct" :product="selectedProduct" :productType="selectedTab" @updated="handleUpdated"
       @close="selectedProduct = null" />
   </div>
 </template>
