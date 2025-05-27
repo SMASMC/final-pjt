@@ -1,0 +1,2402 @@
+[
+{
+  "model": "finance.financialproduct",
+  "pk": "0337d78b-1279-4dcd-a6f3-98d86124fa1f",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "iM행복파트너예금(일반형)",
+    "product_type": "deposit",
+    "intr_rate2": "2.91",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10511008001004000",
+    "details": "계좌당 가입 최저한도 : 100만원",
+    "createdAt": "2025-05-27T13:55:53.869Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "05fa2c99-febf-4b6a-97c3-3fb8bc2f7c91",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "내가만든 보너스적금",
+    "product_type": "saving",
+    "intr_rate2": "3.90",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10527001001272000",
+    "details": "1계좌당 가입한도 : 월20만원\n(최저 1만원 이상)",
+    "createdAt": "2025-05-27T13:55:54.992Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "06974baa-9dfb-476c-8668-9ad9a9e56328",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "The든든예금(시즌2)",
+    "product_type": "deposit",
+    "intr_rate2": "2.75",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001280",
+    "details": "1. 이 예금의 계약기간은 3개월, 6개월, 12개월로 한다.\n2. 가입좌수 제한없으며, 가입금액은 1인당 최소 100만원 이상 10억원 이하이다.",
+    "createdAt": "2025-05-27T13:55:53.984Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "08d66727-78f0-4814-8dad-2d6ecd84de8d",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 먼저 이자 받는 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1001202000002",
+    "details": "· 계약기간 : 3개월, 6개월 \n· 가입금액 : 최소 1백만원 최대 10억원",
+    "createdAt": "2025-05-27T13:55:54.095Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "0ea277aa-1c4c-4974-8539-de00b6244654",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "일반신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.106Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "0f0bd322-a45f-4a23-b6c0-0a2ed4430450",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "iM스마트적금",
+    "product_type": "saving",
+    "intr_rate2": "3.20",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10527001001278000",
+    "details": "1계좌당 가입한도 : 월 100만원(최저 5만원 이상)",
+    "createdAt": "2025-05-27T13:55:54.997Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "12c76e2d-ce19-4348-abb6-128853953d32",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "헤이(Hey)정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.72",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10120114700011",
+    "details": "-1인 다계좌 가능.\n 단, 합산금액 최대 10억원 이내\n-최저 10만원 이상",
+    "createdAt": "2025-05-27T13:55:54.076Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "15f44e3d-d998-4683-b5b1-f60fa61631d0",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK탄소제로적금(자유적립식)",
+    "product_type": "saving",
+    "intr_rate2": "4.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211210121",
+    "details": "1인당 1계좌 가입 가능하며, 계좌당 최소 1만원 이상 1백만원까지 납입 가능",
+    "createdAt": "2025-05-27T13:55:55.100Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "1634eefb-8d6c-47ee-ba6d-de0fc6d3dc63",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh해양플라스틱Zero!예금\n(만기일시지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10120114300011",
+    "details": "- 1인 다계좌 가능. \n  단,  합산금액 5억원 이내 \n- 최저 100만원 이상",
+    "createdAt": "2025-05-27T13:55:54.072Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "18276276-63bc-49d6-aab5-7fd8a1ad577c",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB 특★한 적금",
+    "product_type": "saving",
+    "intr_rate2": "6.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010200100104",
+    "details": "개인사업자, 임의단체 및\n공동명의 가입 불가\n(1인 최대 3계좌)",
+    "createdAt": "2025-05-27T13:55:55.147Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "1a090f85-8526-4743-92bb-b7324a95243c",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH직장인월복리적금",
+    "product_type": "saving",
+    "intr_rate2": "3.45",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-059-1264-0001",
+    "details": "초입금 및 매회 입금 1만원 이상 원 단위,  1인당 분기별 3백만원 이내 적립 가능\n(단,계약기간 3/4 경과 후 적립할 수 있는 금액은 이전 적립누계액의 1/2이내)",
+    "createdAt": "2025-05-27T13:55:55.179Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "1b048951-6d06-410d-b076-710d0c8994fe",
+  "fields": {
+    "company": "b4e014b4-af47-4dcd-9708-d7aa51fccfc1",
+    "name": "개인신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "2",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.112Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "1b5d9f6b-fc8a-4902-a825-20ee20ff2d13",
+  "fields": {
+    "company": "22172289-3015-443b-89db-2870b9c13e57",
+    "name": "퍼스트가계적금",
+    "product_type": "saving",
+    "intr_rate2": "3.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "00266451",
+    "details": "해당없음",
+    "createdAt": "2025-05-27T13:55:54.974Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "1bdf3df5-f685-4123-8418-d637842d29a1",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH내가Green초록세상예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.80",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-003-1381-0001",
+    "details": "1. 300만원이상 가입\n2. 온실가스 줄이기 실천서약서 동의시 가입가능\n3. 신규가입 계좌당 2천원씩 녹색환경기금 적립\n※ 자세한 사항은 상품설명서 참조",
+    "createdAt": "2025-05-27T13:55:54.034Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "1f80e94e-f89c-4777-ba7a-3130d9bfdd43",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 굴비 적금",
+    "product_type": "saving",
+    "intr_rate2": "4.30",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1001303001003",
+    "details": "· 1인 1계좌 (단, 이벤트 등으로 토스뱅크가 복수의 계좌개설을 허용하는 경우 추가 개설 가능)\n· 가입금액 : 0원\n· 우대금리는 만기 해지하는 경우에만 제공됨",
+    "createdAt": "2025-05-27T13:55:55.248Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "260a291f-a612-4983-9973-75353a7979f3",
+  "fields": {
+    "company": "6c7a8b66-e53b-48ec-9961-43ca9f0e7d10",
+    "name": "우리전세론(주택금융보증)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "10561",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.544Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "28e80c02-0c04-4d4e-ab1e-9481732d90c5",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "MZ 플랜적금",
+    "product_type": "saving",
+    "intr_rate2": "5.40",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "220002501",
+    "details": "월 납입한도 30만원 이하",
+    "createdAt": "2025-05-27T13:55:55.041Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "2a6d9d65-1d9c-4c12-96b6-4ea9190d31a2",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh전세보증대출(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "1151",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.758Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "2f66d5e7-f8be-465e-a08a-81805b025225",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "DGB POWER 전세보증대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "20466201000001001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.584Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "318a192d-0a72-4f13-be9d-49d28b9db188",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "HF 전월세보증금 대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "030040004",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.770Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "32d90dfc-d87b-47d5-bc1a-45475a4db2d9",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 마이너스 통장대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "20-01-03-021-0001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.289Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "34048555-40e4-44bb-93b9-08164cb442aa",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "공공주택임차보증금담보대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "1130",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.752Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "3417f0d9-a3ff-41bf-85d3-a491525726c8",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH고향사랑기부적금",
+    "product_type": "saving",
+    "intr_rate2": "3.75",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-047-1387-0001",
+    "details": "1.초입금1만원 이상 및 매회 1천원 이상, 매월50만원이내\n\n2. 고향사랑기부금 우대금리는 농협은행/농축협 영업점 또는 고향사랑e음 홈페이지를 통한 고향사랑기부금 납부실적이 확인되는 경우 제공\n\n3. 연간 판매액의 0.1% 공익기금 적립\n\n※자세한 사항은 상품설명서 참조",
+    "createdAt": "2025-05-27T13:55:55.172Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "36595e29-4748-4658-8b8b-ec686a36c75e",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK더굴리기통장(실세금리정기예금)",
+    "product_type": "deposit",
+    "intr_rate2": "2.29",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211310130",
+    "details": "계좌 수 제한 없으며, 최소 1백만원 이상 납입한도 제한 없음",
+    "createdAt": "2025-05-27T13:55:53.996Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "38bf2057-2a2b-4c30-9119-4029fb3f665e",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "DGB 전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "20460801000001001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.571Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "39379cd6-62df-4dec-a30a-d7ec77095743",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB주택전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "KB200331500005",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.698Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "3cc72505-837d-41e7-b1f9-b8fae0f23e6b",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "iM주거래우대예금(첫만남고객형)",
+    "product_type": "deposit",
+    "intr_rate2": "2.91",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10511008000996000",
+    "details": "계좌당 가입 최저한도 : 100만원",
+    "createdAt": "2025-05-27T13:55:53.863Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "3e1e3c0b-a8f3-40c0-a0ae-269f93810940",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "스마트모아Dream정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.40",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11300031000",
+    "details": "1. 가입기간 : 1개월이상 3년제\n2. 최소가입금액 : 100만원이상",
+    "createdAt": "2025-05-27T13:55:53.921Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "41ce43a2-3054-4d1c-b5b8-606ff0dd12b1",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "스마일드림 \n정기예금\n(개인/선이자\n지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.60",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "101272000058",
+    "details": "가입금액 : 1백만원 이상",
+    "createdAt": "2025-05-27T13:55:53.954Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "43c12152-ad70-40c5-bd56-ebee231596b2",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH내가Green초록세상적금",
+    "product_type": "saving",
+    "intr_rate2": "3.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-047-1381-0001",
+    "details": "초입금5만원 이상 및 매회 1만원 이상, 매월50만원이내\n(단, 만기일 전 3개월 이내에는 이전 적립금 합계액을 초과하여 입금불가)\n\n※자세한 사항은 상품설명서 참조",
+    "createdAt": "2025-05-27T13:55:55.168Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "4c02f589-f5d9-4ba3-bb01-40dda9936b73",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "행복 DREAM 적금",
+    "product_type": "saving",
+    "intr_rate2": "3.90",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21000111",
+    "details": "1. 계약기간은 1년 이상 3년 이하 월단위로 한다.\n2. 적립금액은 5만원 이상, 최고금액은 제한없음",
+    "createdAt": "2025-05-27T13:55:55.061Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "4cb824d9-0158-43cb-a652-c6cf0b5676a0",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh해양플라스틱Zero!적금\n(정액적립식)",
+    "product_type": "saving",
+    "intr_rate2": "4.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10140114300011",
+    "details": "- 1인 1계좌 \n- 월 가입한도 : 100만원",
+    "createdAt": "2025-05-27T13:55:55.212Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "4d525acb-f06d-4f9e-8226-fd697ecfdbf2",
+  "fields": {
+    "company": "6c7a8b66-e53b-48ec-9961-43ca9f0e7d10",
+    "name": "우리전세론(서울보증)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "10562",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.555Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "4d6606b7-3810-4392-86da-339a509523dd",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK D-day적금(자유적립식)",
+    "product_type": "saving",
+    "intr_rate2": "4.35",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211210113",
+    "details": "1인당 3계좌 가입 가능하며, 계좌당 20만원 이내 납입 가능",
+    "createdAt": "2025-05-27T13:55:55.094Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "4efa3830-026d-4877-92b3-72cd494d43a2",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "하나의정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "4",
+    "details": "1. 가입금액: 1백만원이상\n2. 1인 최대가입한도 : 제한 없음",
+    "createdAt": "2025-05-27T13:55:54.051Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "510ab6a8-7436-4b9b-8c9f-ed77aaecb9b9",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "전세자금대출(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "30002152",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.664Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "5142dd11-28da-41b1-9b51-6703aa4e4a28",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "청년맞춤형 전월세보증금 대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "LN11010001072",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.616Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "523b684b-d19c-4c81-b03f-1cd84181f166",
+  "fields": {
+    "company": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+    "name": "JB전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "WR0001B",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:53.838Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "54238115-9c89-480f-89f1-381d1b61433c",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "The플러스예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11300036000",
+    "details": "1. 가입기간 : 3개월,6개월,1년제\n2. 가입금액 : 10백만원이상 고객당 10억원한도",
+    "createdAt": "2025-05-27T13:55:53.934Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "54d24c64-e68b-4b8c-8752-5f152226150e",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "개인신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "WR0001F",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:54.950Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "55f2e8ba-e739-43ae-90d0-b2925ce975d1",
+  "fields": {
+    "company": "22172289-3015-443b-89db-2870b9c13e57",
+    "name": "개인신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "SC001217",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.054Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "568302d2-315f-467b-acb9-90993c424e46",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "코드K 자유적금",
+    "product_type": "saving",
+    "intr_rate2": "3.30",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01012000200000000003",
+    "details": "가입금액: 1만원 이상 30만원 이하\n가입기간: 6개월, 1년, 2년, 3년 \n(1인 최대 15계좌)",
+    "createdAt": "2025-05-27T13:55:55.194Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "5745e1ce-5775-410f-9aca-87bfc211daba",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "jbank 저금통적금",
+    "product_type": "saving",
+    "intr_rate2": "4.95",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "220002101",
+    "details": "월 납입한도 50만원 이하",
+    "createdAt": "2025-05-27T13:55:55.035Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "57c162f8-b8de-44d6-b3ba-71c6dfe56ac3",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "BNK전세안심대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "1029",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.597Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "589f1cd9-f8cb-481a-868d-f697713d61b5",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "ONE신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1300",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.091Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "5a8f8f68-c248-4e51-9478-b243dd424b98",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "전세대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "01021000700000000001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.744Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "5be86e73-22dd-4118-b8b7-bb0a32ca3cba",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "오늘도세이브적금",
+    "product_type": "saving",
+    "intr_rate2": "4.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001259",
+    "details": "1. 계약기간은 1개월 이상 6개월 이내 월단위로 한다.\n2. 초입금 일 1천원 이상 10만원 이하 자유롭게 저축\n3. 최대 저축횟수는 999회 이내",
+    "createdAt": "2025-05-27T13:55:55.083Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "5defaf09-ebca-44e1-909a-62429a3e7ae8",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "가계신용대출(일반)",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "CR0001A",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.043Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "5eade556-5cff-412e-9d5d-171a714f7120",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "내손안에 적금",
+    "product_type": "saving",
+    "intr_rate2": "3.31",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10521001000846001",
+    "details": "1계좌당 가입한도 : 월 100만원(최저 10만원 이상)",
+    "createdAt": "2025-05-27T13:55:54.982Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "60d5d3d1-1ad9-4ee1-87fe-b8ee505b50b5",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "영플러스적금",
+    "product_type": "saving",
+    "intr_rate2": "3.51",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10527001000925000",
+    "details": "1계좌당 가입한도 : 월 50만원(최저 1만원 이상)",
+    "createdAt": "2025-05-27T13:55:54.987Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6334241e-8cad-4935-bb75-401d25e633e5",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 자유 적금",
+    "product_type": "saving",
+    "intr_rate2": "3.30",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1001303001004",
+    "details": "· 1인 1계좌 (단, 이벤트 등으로 토스뱅크가 복수의 계좌개설을 허용하는 경우 추가 개설 가능)\n· 가입금액 : 0원 이상 300만원 이하\n· 우대금리는 만기 해지하는 경우에만 제공됨",
+    "createdAt": "2025-05-27T13:55:55.253Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "64a8366b-ee27-4e4b-bf35-ebd78b284c88",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "주거래우대 자유적금",
+    "product_type": "saving",
+    "intr_rate2": "3.80",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01012000210000000000",
+    "details": "가입금액: 1천원 이상 300만원 이하\n가입기간: 6개월 ~ 36개월\n(1인 최대 3계좌)",
+    "createdAt": "2025-05-27T13:55:55.205Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "64d007f0-29bf-437a-b077-3ab887747d01",
+  "fields": {
+    "company": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+    "name": "내맘 쏙 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.85",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-20-024-0063-0000",
+    "details": "가입금액 : 계좌당 10만원 이상\n예금의 신규 : 모바일뱅킹, 모바일Web\n예금의 해지 : 모바일뱅킹, 인터넷뱅킹, 영업점\n계약기간 : 1개월이상 12개월이내(월단위)",
+    "createdAt": "2025-05-27T13:55:53.972Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "65cf47dd-768c-4171-b365-a3500a7943cf",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "우량주택전세론",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "0300326201001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.734Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "665dca88-5614-4ebe-8902-111d6e52d98e",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "마이너스한도대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "030020003",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.283Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "670ec8f5-41c9-4551-a686-dc37c1d6bbd4",
+  "fields": {
+    "company": "22172289-3015-443b-89db-2870b9c13e57",
+    "name": "전세담보대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "SC002013SC002003",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.563Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "67f18de8-9d2f-49c7-bbf0-62675ea13ff3",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "주택전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "14201126",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.633Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "680f6f4d-9633-440e-8556-b1e4704d7a78",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "BNK더조은자유적금",
+    "product_type": "saving",
+    "intr_rate2": "4.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001116",
+    "details": "1. 계약기간은 6개월 이상 2년 이내 월단위로 한다.\n2. 초입금 1만원 이상 월별 500만원 이내에서 자유롭게 저축\n3. 최대 저축횟수는 999회 이내",
+    "createdAt": "2025-05-27T13:55:55.066Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6b12f149-d903-4d9e-89b2-7de49f3f86be",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "SGI 전월세보증금 대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "030270004",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.776Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6bf96737-5289-4683-8bd6-ab03f7d5e65b",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "마이너스한도대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "3",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.243Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6c648b3f-ebc1-4fa6-8d0f-a6a004663eaa",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010200010000000001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.250Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6c6e76a6-b3ac-4aed-a584-24d9d7406daa",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH전세대출(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "2001108330001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.721Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6cea457b-7155-4a7d-ad93-09ae4ea86da6",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK평생한가족통장(실세금리정기예금)",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211310121",
+    "details": "계좌 수 제한 없으며, 최소 1백만원 이상 통합한도 1억원 이내 가입 가능",
+    "createdAt": "2025-05-27T13:55:53.991Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6eb41d0e-80b4-48b4-802b-f6a6d021483e",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "저탄소 실천\n적금",
+    "product_type": "saving",
+    "intr_rate2": "2.60",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01020400510001",
+    "details": "1. 가입한도: 월 1만원 이상 1천만원 이하 원단위 (월 1천만원 이하 불입 가능)\n2. 자유적립식",
+    "createdAt": "2025-05-27T13:55:55.007Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "6f6d5828-157d-498c-8d0a-ee5eb6055ef4",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "20-01-03-311-0001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.295Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "725cdd37-9fec-493c-b4b5-797710f2083e",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "임차자금",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "212020007",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.684Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "75c9768f-da02-4647-88c4-8348dfc1ec60",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "BNK더조은정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001115",
+    "details": "1. 이 예금의 계약기간은 3개월 이상 2년 이내 월단위로 한다.\n2. 가입금액은 1인당 최소 100만원 이상 5억원 이하이다.",
+    "createdAt": "2025-05-27T13:55:53.979Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "7822d01f-0414-4891-a99a-b0e3dca54b58",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "BNK행복스케치전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "126",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.603Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "782c448a-0c5b-4e00-b1e9-6cde843004d4",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "카카오뱅크 26주적금",
+    "product_type": "saving",
+    "intr_rate2": "5.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-30-355-0005",
+    "details": "1. 가입방법 : 스마트폰\n2. 가입금액 : 1천원, 2천원, 3천원, 5천원, 1만원\n3. 가입기간 : 6개월\n4. 26주적금서비스(자동이체)를 통해서 납입이 가능하며, 그 외의 입금은 모두 제한됨\n(단, 26주적금 서비스를 통한 납입 실패 시 빈자리 채우기로 납입 가능)",
+    "createdAt": "2025-05-27T13:55:55.233Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "785d1aac-233b-4989-81ef-515fb800e933",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "모바일전세자금대출\n(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "30002257",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.669Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "79f93182-2957-4f70-83d0-f111404e9320",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "제주Dream\n정기예금\n(개인/만기\n지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.40",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "101272000006",
+    "details": "가입금액 : 1백만원 이상",
+    "createdAt": "2025-05-27T13:55:53.945Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "7c3f0fa8-3d6a-4fbb-8718-c8ed5409cf13",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "LIVE정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01030500510002",
+    "details": "1. 가입금액 :\n   1천만원 이상\n2. 가입기간 : \n1개월 이상 60개월 이하(일단위)\n3. 월이자지급식/만기일시지급식",
+    "createdAt": "2025-05-27T13:55:53.893Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "7c7f2db0-6235-42b2-9814-c4079c647518",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH올원e 미니적금",
+    "product_type": "saving",
+    "intr_rate2": "4.15",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-047-1360-0002",
+    "details": "가입기간 1개월 이상 6개월 이하(일 단위)\n\n초입금 및 매일 1천원이상  5만원이내(천원 단위)",
+    "createdAt": "2025-05-27T13:55:55.156Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "7ce8f52a-51fc-44a6-b0a1-75355fc7243f",
+  "fields": {
+    "company": "b4e014b4-af47-4dcd-9708-d7aa51fccfc1",
+    "name": "KDB 기업정기적금",
+    "product_type": "saving",
+    "intr_rate2": "1.57",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "03101",
+    "details": "해당없음",
+    "createdAt": "2025-05-27T13:55:55.118Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "7ec307f2-b0b3-4eab-b78d-a7b6f0b8cd81",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "주거래 프리미엄 적금",
+    "product_type": "saving",
+    "intr_rate2": "4.35",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001236",
+    "details": "1.계악기간은 1년제, 2년제, 3년제로 한다.\n2. 적립금액은 매월 1만원이상, 최고금액은 제한없음",
+    "createdAt": "2025-05-27T13:55:55.077Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "7fa6ae5d-5df6-4cc7-b7f4-6d34c8e66a0b",
+  "fields": {
+    "company": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+    "name": "JB 123 정기예금\n (만기일시지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.85",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-20-024-0059-0000",
+    "details": "예금의 신규 : 인터넷뱅킹, 모바일뱅킹, 모바일웹, BDT\n예금의 해지 : 인터넷뱅킹, 모바일뱅킹, 영업점\n가입금액 최저 1백만원이상 고객별 5억원 이상 (다만 자동재예치시 이자 원가로 인한 5억원 초과는 가능), 계좌수 관계없이 가입가능",
+    "createdAt": "2025-05-27T13:55:53.967Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "80a1481f-b37a-4a8c-be8c-de8168fedc0d",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "J정기예금\n(만기지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "101272000057",
+    "details": "가입금액 : 30만원 이상",
+    "createdAt": "2025-05-27T13:55:53.951Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "86b32f34-fe30-4a14-8dd7-eeb9fbbd1a89",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "일반신용\n대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.169Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "885221da-5345-47ad-afbe-f8fabbfd4aca",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "카카오뱅크 한달적금",
+    "product_type": "saving",
+    "intr_rate2": "7.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-30-355-0006",
+    "details": "1. 가입방법 : 스마트폰\n2. 납입금액 : 1회 100원 이상 3만원 이하(원단위)\n3. 가입기간 : 31일\n4. 직접 납입을 통해서 1일 1회만 입금 가능하며, 그 외의 입금은 모두 제한됨",
+    "createdAt": "2025-05-27T13:55:55.237Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "89297e99-f135-416e-bafc-832323106a33",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 아이 적금",
+    "product_type": "saving",
+    "intr_rate2": "5.30",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1001303001005",
+    "details": "· 1인 1계좌 \n· 가입금액 : 0원\n· 우대금리는 만기 해지하는 경우에만 제공됨",
+    "createdAt": "2025-05-27T13:55:55.259Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "8a3a18d5-791d-40db-9fbb-e338d0568dba",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "BNK 위더스자유적금",
+    "product_type": "saving",
+    "intr_rate2": "4.60",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001199",
+    "details": "1.계약기간은 1개월 이상 36개월 이하 월단위로 한다.\n2..1인 1계좌로 가입가능\n2.매월 최소 1만원 이상, 최고 월 100만원 이하 (천원 단위)",
+    "createdAt": "2025-05-27T13:55:55.071Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "8a753406-bddb-4289-a8ef-43cb5632233d",
+  "fields": {
+    "company": "b6302827-11a9-4641-bfe8-30026f2766e9",
+    "name": "신한 알.쏠 적금",
+    "product_type": "saving",
+    "intr_rate2": "3.95",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "230-0119-85",
+    "details": "1. 가입한도: \n월300만원 이하\n2. 1인 다계좌",
+    "createdAt": "2025-05-27T13:55:55.151Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "8b78281d-61d5-4c21-ad60-4362320638c4",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "해피라이프_여행스케치적금V",
+    "product_type": "saving",
+    "intr_rate2": "3.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11330029000",
+    "details": "1. 가입기간 : 6개월이상 3년제\n2. 가입금액 : 월5만원 이상 5백만원 이하 (1인1계좌)",
+    "createdAt": "2025-05-27T13:55:55.021Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "8b7efc42-e765-4ef4-b386-1461d81aacc0",
+  "fields": {
+    "company": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+    "name": "JB 다이렉트적금(정액적립식)",
+    "product_type": "saving",
+    "intr_rate2": "3.20",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-30-031-0036",
+    "details": "1. 초회불입금 1만원이상, 1인당 월별 최고 5백만원이내\n2. 인터넷뱅킹/스마트폰뱅킹 가입상품",
+    "createdAt": "2025-05-27T13:55:55.055Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "8cda7784-5d3f-4e88-a305-d6923326fee3",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh월복리자유적금",
+    "product_type": "saving",
+    "intr_rate2": "2.90",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10141109800021",
+    "details": "- 1인 1계좌\n- 월 가입한도 : 100만원",
+    "createdAt": "2025-05-27T13:55:55.217Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "8fe95500-0eb5-4580-b906-f2271ad7bb6c",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH1934월복리적금",
+    "product_type": "saving",
+    "intr_rate2": "6.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-047-1365-0001",
+    "details": "초입금 및 매회 1만원 이상, 월 50만원 이내 자유적립\n\n급여이체 실적과 개인사업자 계좌 실적 우대금리는 중복 적용 불가\n\n * 급여입금실적 인정기준\n  - 가입기간 12개월 이하 : 3개월 이상 급여이체\n  - 가입기간 24개월 이하 : 12개월 이상 급여이체",
+    "createdAt": "2025-05-27T13:55:55.163Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "9686e176-da1d-4fb6-a2fa-be1dcbed8cff",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "마이너스 통장 대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010200040000000001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.257Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "98ebc3bd-968e-47dd-8d8a-924ce8842692",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "개인신용마이너스한도대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "804",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.270Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "9b4aecc7-0603-4558-b6f7-b8523d8b9295",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "사장님 걱정 ZERO 자유적금",
+    "product_type": "saving",
+    "intr_rate2": "5.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "21001284",
+    "details": "1.계악기간은 1년제로 한다.\n2. 적립금액은 최소 1천원 이상 최대3백만원 이하 1원단위\n3. 최대 저축횟수는 999회 이내",
+    "createdAt": "2025-05-27T13:55:55.088Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "9c6b305f-a975-4266-9607-ac455a5e89ab",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "모바일전세자금대출(서울보증보험)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "30002608",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.680Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "9d021b13-7bdb-45c3-a31c-1232581117e2",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "더(The) 특판 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01030500560002",
+    "details": "1. 가입금액 : 1백만원 이상 제한없음 (원단위)\n2. 가입기간 : 1개월, 3개월, 6개월, 1년, 2년, 3년\n3. 이자지급방식 : 만기일시지급식",
+    "createdAt": "2025-05-27T13:55:53.897Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "9ed78de6-248b-433f-a143-869b1571eb9b",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "고정금리 전세자금대출(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "30002573",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.674Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "a34982e2-48d1-4cac-ad19-e12dd29f359e",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "가계신용대출(마이너스대출)",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "CR0001B",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.159Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "a617083c-d427-4950-8dd3-20ffcb3aaeea",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "내맘적금",
+    "product_type": "saving",
+    "intr_rate2": "3.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "53",
+    "details": "1. 1인 다계좌 가능\n2. 가입금액\n   - 1천원 이상~1,000만원 이하(원단위)\n3. 적립한도\n    - 자유적립식 : 매월 1원 이상~1,000만원 이하(원단위)\n    - 정액적립식 : 매월 1천원 이상~1,000만원 이하(원단위)",
+    "createdAt": "2025-05-27T13:55:55.188Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "a6579422-a396-4f9d-b934-cf7ac8311db9",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH전세대출(서울보증보험)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "2001105030002",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.717Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "a72bd634-fafe-46d2-a26a-cbe815695138",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "iM스마트예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.75",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10511008001278000",
+    "details": "계좌당 가입 최저한도 : 100만원",
+    "createdAt": "2025-05-27T13:55:53.882Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "aa6f9757-2a47-44a1-b7bb-d182780fe118",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB Star 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.60",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010300100335",
+    "details": "- 가입금액 : 1백만원 이상",
+    "createdAt": "2025-05-27T13:55:54.015Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ab211167-c79d-4919-b9e8-1ffd1b3661c8",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "부산이라 좋다\nBig적금",
+    "product_type": "saving",
+    "intr_rate2": "4.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01020400660001",
+    "details": "1. 가입한도: 월 1천원 이상 100만원 이하 원단위\n2. 자유적립식",
+    "createdAt": "2025-05-27T13:55:55.016Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ab35e2b4-3034-4448-bc5b-6f48a1648069",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "장기카드대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "WR0002F",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.068Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ac4bac1b-9e8c-41e1-aad7-3128eefb4247",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "여행스케치_남도투어적금",
+    "product_type": "saving",
+    "intr_rate2": "4.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11330030000",
+    "details": "1. 가입기간 :12개월제,18개월제\n2. 가입금액 : 월 5만원 이상 1백만원 이하 (1인1계좌)\n※ 18개월 정액식 기본금리 3.3%, 최고금리 5.2%",
+    "createdAt": "2025-05-27T13:55:55.026Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "b486e9d7-29d9-4727-a2cb-f007aa32e366",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "미즈월복리정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11300027000",
+    "details": "1. 가입기간 : 1년이상 3년제\n2. 가입금액 : 5백만원이상 최고 50백만원",
+    "createdAt": "2025-05-27T13:55:53.914Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "b629c46e-e96c-4b79-af30-eab4d48157be",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh첫만남우대예금",
+    "product_type": "deposit",
+    "intr_rate2": "3.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10120116100011",
+    "details": "-1인 1계좌\n-최저 100만원 이상",
+    "createdAt": "2025-05-27T13:55:54.081Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "b6ff3691-da77-4437-8a3e-52338accc0e5",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB플러스전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "KB200400000001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.703Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "b8f128b3-009c-4ccf-ba4c-f23216d3932d",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "전월세보증금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "2001040010001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.780Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "b96a35ff-3890-43b3-a73b-370cb1f16dff",
+  "fields": {
+    "company": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+    "name": "JB 다이렉트예금통장\n(만기일시지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.80",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-20-024-0046-0000",
+    "details": "가입금액 1계좌당 1백만원이상 10억원이하,\n1인당  총 10억원 이하,\n인터넷/스마트폰뱅킹 가입상품",
+    "createdAt": "2025-05-27T13:55:53.962Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ba63a1c3-0c91-4bba-8e75-7ed22b98fefd",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB내맘대로적금",
+    "product_type": "saving",
+    "intr_rate2": "3.55",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010200100070",
+    "details": "인터넷뱅킹/KB스타뱅킹 전용상품",
+    "createdAt": "2025-05-27T13:55:55.135Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "bc5a976c-4403-47ca-bd13-0f8a3433265e",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "개인신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "601",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.264Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "bc71261d-8d68-4d35-943d-09f172a0e35d",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "탐이나요적금",
+    "product_type": "saving",
+    "intr_rate2": "4.60",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "220002701",
+    "details": "월 납입한도 100만원 이하",
+    "createdAt": "2025-05-27T13:55:55.046Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "bcfffdf7-f1ff-4403-b63d-59c853e55d10",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "일반신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "KB200200000001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.197Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "be258e1a-18b8-44af-aaa7-7d1a76e09953",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "하나전세금안심대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "0300373201001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.738Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "be375942-e83e-47b7-9fa1-5ab9260fbb8e",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK모으기통장(자유적립식)",
+    "product_type": "saving",
+    "intr_rate2": "2.75",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211210129",
+    "details": "1인당 5계좌 가입 가능하며, 계좌당 최소 1천원 이상 3백만원까지 납입 가능",
+    "createdAt": "2025-05-27T13:55:55.111Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "bf1edc70-f674-48c5-a1ff-79aca11ff5a9",
+  "fields": {
+    "company": "b6302827-11a9-4641-bfe8-30026f2766e9",
+    "name": "개인신용대출(마이너스한도대출)",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "CR0001C",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.049Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "bfef6356-da5f-4d5a-91f7-b9859594d7a0",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "무방문전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "20466201000001002",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.591Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c0238c66-315f-48df-b253-a388d7b717d6",
+  "fields": {
+    "company": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+    "name": "JB 다이렉트적금(자유적립식)",
+    "product_type": "saving",
+    "intr_rate2": "3.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-30-031-0018-0000",
+    "details": "1. 초회불입금 1만원이상, 1인당 월별 최고 1천만원이내\n2. 만기직전 1개월간 적립합계는 이전기간 적립금액을 초과할 수 없음\n3. 인터넷뱅킹/스마트폰뱅킹 가입상품",
+    "createdAt": "2025-05-27T13:55:55.051Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c0273f92-1818-452a-bce2-01453c7709cf",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "코드K 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.80",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01013000110000000001",
+    "details": "가입금액 : 1백만원 이상\n가입기간 : 1개월~36개월",
+    "createdAt": "2025-05-27T13:55:54.060Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c2342c84-59ee-45cc-a3af-1ef1159f3736",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH왈츠회전예금 II",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-003-1225-0001",
+    "details": "※ 기본금리 및 최고 우대금리 항목은 가입기간이 아닌 ‘회전주기’기간별 금리를 공시\n - 회전주기는 1개월 이상 12개월 이내 월단위로 선택 가능\n※ 전월취급평균금리는 본 홈페이지에 공시되지 않는 회전기간 6개월 미만의 계좌들도 포함하여 산출하기 때문에 회전기간별로 공시된 기본금리보다 낮게 보여질 수 있음",
+    "createdAt": "2025-05-27T13:55:54.030Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c2562cef-9e8a-42ae-a451-3819a2f6ca4c",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "무방문전세자금대출(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "20460801000001002",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.578Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c34bc9e7-cfc6-4e65-bd48-aea80dbec914",
+  "fields": {
+    "company": "b6302827-11a9-4641-bfe8-30026f2766e9",
+    "name": "신한전세대출(주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "WR0001A",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.647Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c48a50b6-b4a0-41b0-804a-7466c5fa4fed",
+  "fields": {
+    "company": "22172289-3015-443b-89db-2870b9c13e57",
+    "name": "e-그린세이브예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.95",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "00320342",
+    "details": "디지털채널 전용상품 (인터넷, 모바일뱅킹)",
+    "createdAt": "2025-05-27T13:55:53.852Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c5dcdca2-b4cd-48d6-b7ef-9c94b6847c91",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB국민프리미엄적금(정액)",
+    "product_type": "saving",
+    "intr_rate2": "4.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010200100051",
+    "details": "1인 1계좌",
+    "createdAt": "2025-05-27T13:55:55.129Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c60249c1-5713-46fc-98eb-d3e1561252b4",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh전세보증대출(서울보증보험)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "1170",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.762Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c818801d-ba2b-4be5-b6a3-03a5f9f901d3",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "ONE신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1301",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.096Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c88d91ed-4358-4298-8c71-3be24b7ceadf",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "궁금한 적금",
+    "product_type": "saving",
+    "intr_rate2": "7.20",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01012000200000000004",
+    "details": "가입금액: 0원\n가입기간: 31일\n(1인 최대 1계좌)\n적립방법 : 연결계좌를 통한 직접 입금만 가능하며, 입금은 신규일부터 만기일 전일까지 1일 1회 가능\n납입금액 : 1일(1회) 최소 100원, 최대 5만원",
+    "createdAt": "2025-05-27T13:55:55.200Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "c8e83673-ba34-4978-afc7-584289cb2df6",
+  "fields": {
+    "company": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+    "name": "토스뱅크 키워봐요 적금",
+    "product_type": "saving",
+    "intr_rate2": "3.80",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "1001303001001",
+    "details": "· 1인 1계좌 (단, 이벤트 등으로 토스뱅크가 복수의 계좌개설을 허용하는 경우 추가 개설 가능)\n· 가입금액 : 0원\n· 우대금리는 우대조건을 달성하고 만기 해지하는 경우에만 제공됨",
+    "createdAt": "2025-05-27T13:55:55.243Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "cc37a989-cc15-4d65-9263-4b54e06142ef",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "마이너스한도대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "KB200200000002",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.201Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "cc7338a4-35ba-4bca-8f0c-f0c503cf72b0",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "일반신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "030020001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.278Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "cc9411e5-51e1-4802-bf49-4ba2c0ee64ec",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "펫 적금",
+    "product_type": "saving",
+    "intr_rate2": "2.90",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01020400490002",
+    "details": "1. 가입한도: 월 1만원 이상 50만원 이하 원단위\n2. 정기적립식",
+    "createdAt": "2025-05-27T13:55:55.002Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ccb12109-1dd1-428c-b978-41d0975c1c0e",
+  "fields": {
+    "company": "b6302827-11a9-4641-bfe8-30026f2766e9",
+    "name": "신한전세대출(서울보증)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "WR0002B",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.713Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "cdca0463-da7e-464a-96e3-c9ec79386c5c",
+  "fields": {
+    "company": "b6302827-11a9-4641-bfe8-30026f2766e9",
+    "name": "쏠편한 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.60",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "200-0135-12",
+    "details": "1. 가입한도 :\n 1만원 이상",
+    "createdAt": "2025-05-27T13:55:54.022Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "cf6a408e-3538-47e9-b541-4b0ce6597860",
+  "fields": {
+    "company": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+    "name": "고정금리 전세대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "01021000700000000003",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.748Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "d121d737-0d40-4331-8fd9-1ac50d5a6137",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "KJB모바일 전세대출(한국주택금융공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "LN11010001542",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.621Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "d15a94e5-6679-43bd-9b1c-fd438e36ec3c",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "주거래하나 월복리적금",
+    "product_type": "saving",
+    "intr_rate2": "4.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "52",
+    "details": "1. 1인 1계좌만 가능\n(급여하나월복리적금,연금하나 월복리적금과 중복가입 불가)\n2. 가입금액 \n - 최저1만원~300만원이하\n3. 적립한도\n 분기당 1만원이상 300만원\n (자유적립식)",
+    "createdAt": "2025-05-27T13:55:55.183Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "d3bb6053-6ed7-4ed4-9c8b-0ff5d2513ac3",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "BNK내맘대로 \n적금",
+    "product_type": "saving",
+    "intr_rate2": "2.45",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01020400530001",
+    "details": "1. 가입금액 :\n   1천원 이상\n2. 가입기간 : \n6개월 이상 60개월 이하(일단위)",
+    "createdAt": "2025-05-27T13:55:55.012Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "d899e1bd-6d4d-4361-8398-354aa8f7decf",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH올원e예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-003-1384-0001",
+    "details": "1. 10만원 이상 10억원 이내 가입",
+    "createdAt": "2025-05-27T13:55:54.038Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "d91c5a4f-d113-48ea-8e13-bbb7affaa53d",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "VIP플러스적금",
+    "product_type": "saving",
+    "intr_rate2": "3.00",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11330031000",
+    "details": "1. 가입기간 : 1년제\n2. 가입금액 : 월10만원 이상 5백만원 이하 (1인1계좌)",
+    "createdAt": "2025-05-27T13:55:55.030Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "d9443b57-bbad-4697-9373-1ddbc98c5f03",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "BNK프리미엄전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "486",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.612Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "dc85e5e8-7957-4c14-8e74-5ffcc4ee27f9",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH전세대출(주택도시보증공사)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "2001109030001",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.725Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "def95541-5b2c-4893-a434-2b953c4ce7b5",
+  "fields": {
+    "company": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+    "name": "더(The) 레벨업 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01030500600002",
+    "details": "1. 가입금액 : 1백만원 이상 제한없음 (원단위)\n2. 가입기간 : 6개월, 1년\n3. 이자지급방식 : 만기일시지급식",
+    "createdAt": "2025-05-27T13:55:53.903Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "e247ae3f-fad8-404e-b864-1ac949117346",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "마이너스\n한도대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "31",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.176Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "e553879f-33c9-40b1-bc8b-24cfa5dbb39b",
+  "fields": {
+    "company": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+    "name": "주택신보위탁발행보증서담보대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "0300123202302",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.731Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "e9205de5-e48e-499e-8de8-92b51486cf3f",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "카카오뱅크 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-20-388-0002",
+    "details": "1. 가입방법 : 스마트폰\n2. 가입금액 : 100만원 이상(원단위)\n3. 가입기간 : 1개월 이상 ~ 36개월 이하(월, 일단위 지정 가능)",
+    "createdAt": "2025-05-27T13:55:54.087Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "e9356591-9d08-4894-88ff-98c31983b659",
+  "fields": {
+    "company": "b4e014b4-af47-4dcd-9708-d7aa51fccfc1",
+    "name": "KDB 자유적금",
+    "product_type": "saving",
+    "intr_rate2": "2.05",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "03700",
+    "details": "해당없음",
+    "createdAt": "2025-05-27T13:55:55.123Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "e99c1272-36db-4c5f-b42c-6b02f2ea3ba4",
+  "fields": {
+    "company": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+    "name": "전세자금대출(서울보증)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "30001272",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.659Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ea054bb0-de48-46c7-a624-e24796666037",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK안심전세대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "212020112",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.693Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "ea7a7efa-45b0-4dda-ae82-cec18bf1142c",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh전세금안심대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "1188",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.766Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "efaca4c6-e833-4e87-bc9c-99005b28fa74",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK굴리기통장(정기예금)",
+    "product_type": "deposit",
+    "intr_rate2": "2.37",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211310142",
+    "details": "계좌 수 제한 없으며, 최소 1백만원 이상 통합한도 3억원 이내 가입 가능",
+    "createdAt": "2025-05-27T13:55:54.000Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f0a79fbb-85df-4c04-bf15-48bc352bb05b",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh평생주거래우대예금\n(만기일시지급식)",
+    "product_type": "deposit",
+    "intr_rate2": "2.50",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10120110400011",
+    "details": "- 1인 1계좌\n- 최저 100만원 이상",
+    "createdAt": "2025-05-27T13:55:54.066Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f101d632-0d6d-4711-963c-ae7190f987c9",
+  "fields": {
+    "company": "11875a96-bd13-4459-8287-be6604b51077",
+    "name": "Sh해양플라스틱Zero!적금\n(자유적립식)",
+    "product_type": "saving",
+    "intr_rate2": "3.65",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10141114300011",
+    "details": "- 1인 1계좌 \n- 월 가입한도 : 20만원",
+    "createdAt": "2025-05-27T13:55:55.221Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f1b35f0a-0b3a-4e8d-8cd7-8ac5daa87412",
+  "fields": {
+    "company": "6c7a8b66-e53b-48ec-9961-43ca9f0e7d10",
+    "name": "WON적금",
+    "product_type": "saving",
+    "intr_rate2": "3.35",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "WR0001L",
+    "details": "1. 가입기간 : 1년\n2. 가입금액 : 월 50만원 이내",
+    "createdAt": "2025-05-27T13:55:54.963Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f34738cf-cef2-4a6a-a11e-a6960e73d79f",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK전세대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "212020111",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.688Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f46e3096-b7f2-478a-a4c9-d71dd995bcc4",
+  "fields": {
+    "company": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+    "name": "iM함께예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.85",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10511008001166004",
+    "details": "계좌당 가입 최저한도 : 100만원",
+    "createdAt": "2025-05-27T13:55:53.876Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f483867b-a4b6-451e-bd3c-669b9a87951c",
+  "fields": {
+    "company": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+    "name": "KB맑은하늘적금",
+    "product_type": "saving",
+    "intr_rate2": "3.85",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "010200100084",
+    "details": "공동명의 불가\n(1인 최대 3계좌)",
+    "createdAt": "2025-05-27T13:55:55.141Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f559c96a-2a0c-47bb-99cd-794d3eebb6ba",
+  "fields": {
+    "company": "22172289-3015-443b-89db-2870b9c13e57",
+    "name": "개인신용대출",
+    "product_type": "credit",
+    "intr_rate2": null,
+    "lend_rate_avg": "0.00",
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "SC001217_1",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:56.059Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f6b56f97-56fd-401b-a00a-8471d27f73cb",
+  "fields": {
+    "company": "b4e014b4-af47-4dcd-9708-d7aa51fccfc1",
+    "name": "KDB 정기예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.70",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "06492",
+    "details": "해당없음",
+    "createdAt": "2025-05-27T13:55:54.007Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f78bc72b-28a1-49eb-b543-3d110540d38a",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "KJB모바일 전세대출(서울보증보험)",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "LN11010001543",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.628Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f797b0a9-894c-4363-b616-89727a2842a3",
+  "fields": {
+    "company": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+    "name": "굿스타트예금",
+    "product_type": "deposit",
+    "intr_rate2": "2.59",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "TD11300035000",
+    "details": "1. 가입기간 : 1년제\n2. 가입금액 : 1백만원이상 최고 1억원(1인1계좌)",
+    "createdAt": "2025-05-27T13:55:53.927Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f8f44abc-8910-4dfe-8b5b-f28d181577a4",
+  "fields": {
+    "company": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+    "name": "NH고향사랑기부예금",
+    "product_type": "deposit",
+    "intr_rate2": "3.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-003-1387-0001",
+    "details": "1. 100만원 이상 가입\n2. 고향사랑기부금 우대금리는 농협은행/농축협 영업점 또는 고향사랑e음 홈페이지를 통한 고향사랑기부금 납부실적이 확인되는 경우 제공\n3. 연간 판매액의 0.1% 공익기금 적립\n\n※ 우대조건 관련 자세한 사항은 상품설명서 참조",
+    "createdAt": "2025-05-27T13:55:54.045Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "f9814547-a8a6-41e8-9abe-fd50ecb43420",
+  "fields": {
+    "company": "f51a6016-99f6-4788-a16e-4602901d35da",
+    "name": "카카오뱅크 자유적금",
+    "product_type": "saving",
+    "intr_rate2": "3.10",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "10-01-30-355-0002",
+    "details": "1. 가입방법 : 스마트폰\n2. 가입금액 : 1천원 이상(원단위)\n3. 가입기간 : 6개월 이상 ~ 36개월 이하(월, 일단위 지정 가능)\n4. 월 적립한도 : 1천원 이상 월 300만원 이하 원단위(단, 자동연장된 원리금은 월 적립한도에 포함되지 않음)",
+    "createdAt": "2025-05-27T13:55:55.227Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "fa1e5946-6c07-4bf7-98a5-f1d9d2a556c8",
+  "fields": {
+    "company": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+    "name": "IBK중기근로자우대적금\n(자유적립식)",
+    "product_type": "saving",
+    "intr_rate2": "4.95",
+    "lend_rate_avg": null,
+    "crdt_grad_avg": null,
+    "fin_prdt_cd": "01211210122",
+    "details": "1인당 1계좌 가입 가능하며, 계좌당 100만원까지 납입 가능",
+    "createdAt": "2025-05-27T13:55:55.104Z"
+  }
+},
+{
+  "model": "finance.financialproduct",
+  "pk": "fca4725a-fd5b-4f6a-a3e0-51e8e7c8477c",
+  "fields": {
+    "company": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+    "name": "JJB일반전세자금대출",
+    "product_type": "rent",
+    "intr_rate2": null,
+    "lend_rate_avg": null,
+    "crdt_grad_avg": "0.00",
+    "fin_prdt_cd": "14201127",
+    "details": "",
+    "createdAt": "2025-05-27T13:55:55.641Z"
+  }
+}
+]

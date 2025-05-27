@@ -1,0 +1,2485 @@
+[
+{
+  "model": "commodities.commodities",
+  "pk": 1,
+  "fields": {
+    "date": "2023-01-09",
+    "metal_type": "gold",
+    "close": 1967.1,
+    "open": 1966.4,
+    "high": 1980.2,
+    "low": 1960.7,
+    "volume": 158.269
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 2,
+  "fields": {
+    "date": "2023-01-11",
+    "metal_type": "gold",
+    "close": 1987.5,
+    "open": 1993.3,
+    "high": 2005.9,
+    "low": 1978.2,
+    "volume": 190.094
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 3,
+  "fields": {
+    "date": "2023-01-12",
+    "metal_type": "gold",
+    "close": 2089.7,
+    "open": 2056.5,
+    "high": 2095.7,
+    "low": 2052.6,
+    "volume": 230.877
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 4,
+  "fields": {
+    "date": "2023-02-10",
+    "metal_type": "gold",
+    "close": 1847.2,
+    "open": 1864.4,
+    "high": 1864.7,
+    "low": 1842.7,
+    "volume": 191.599
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 5,
+  "fields": {
+    "date": "2023-02-11",
+    "metal_type": "gold",
+    "close": 1993.5,
+    "open": 1992.0,
+    "high": 1999.2,
+    "low": 1986.3,
+    "volume": 150.476
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 6,
+  "fields": {
+    "date": "2023-03-10",
+    "metal_type": "gold",
+    "close": 1841.5,
+    "open": 1844.9,
+    "high": 1849.3,
+    "low": 1830.9,
+    "volume": 208.11
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 7,
+  "fields": {
+    "date": "2023-03-11",
+    "metal_type": "gold",
+    "close": 1999.2,
+    "open": 1993.5,
+    "high": 2011.9,
+    "low": 1989.3,
+    "volume": 211.154
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 8,
+  "fields": {
+    "date": "2023-04-10",
+    "metal_type": "gold",
+    "close": 1834.8,
+    "open": 1838.7,
+    "high": 1846.8,
+    "low": 1831.6,
+    "volume": 187.267
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 9,
+  "fields": {
+    "date": "2023-04-12",
+    "metal_type": "gold",
+    "close": 2042.2,
+    "open": 2094.4,
+    "high": 2092.8,
+    "low": 2038.4,
+    "volume": 368.688
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 10,
+  "fields": {
+    "date": "2023-05-09",
+    "metal_type": "gold",
+    "close": 1952.6,
+    "open": 1966.7,
+    "high": 1972.6,
+    "low": 1950.6,
+    "volume": 187.935
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 11,
+  "fields": {
+    "date": "2023-05-10",
+    "metal_type": "gold",
+    "close": 1831.8,
+    "open": 1837.6,
+    "high": 1843.5,
+    "low": 1826.2,
+    "volume": 163.68
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 12,
+  "fields": {
+    "date": "2023-05-12",
+    "metal_type": "gold",
+    "close": 2036.3,
+    "open": 2049.0,
+    "high": 2059.6,
+    "low": 2027.6,
+    "volume": 202.003
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 13,
+  "fields": {
+    "date": "2023-06-09",
+    "metal_type": "gold",
+    "close": 1944.2,
+    "open": 1951.5,
+    "high": 1954.5,
+    "low": 1940.0,
+    "volume": 145.271
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 14,
+  "fields": {
+    "date": "2023-06-10",
+    "metal_type": "gold",
+    "close": 1845.2,
+    "open": 1834.3,
+    "high": 1849.0,
+    "low": 1823.5,
+    "volume": 224.544
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 15,
+  "fields": {
+    "date": "2023-06-11",
+    "metal_type": "gold",
+    "close": 1988.6,
+    "open": 1999.4,
+    "high": 1991.5,
+    "low": 1984.2,
+    "volume": 142.515
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 16,
+  "fields": {
+    "date": "2023-06-12",
+    "metal_type": "gold",
+    "close": 2047.9,
+    "open": 2037.8,
+    "high": 2053.4,
+    "low": 2035.3,
+    "volume": 150.192
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 17,
+  "fields": {
+    "date": "2023-07-09",
+    "metal_type": "gold",
+    "close": 1942.5,
+    "open": 1942.2,
+    "high": 1947.9,
+    "low": 1940.3,
+    "volume": 114.097
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 18,
+  "fields": {
+    "date": "2023-07-11",
+    "metal_type": "gold",
+    "close": 1973.5,
+    "open": 1984.8,
+    "high": 1985.2,
+    "low": 1962.8,
+    "volume": 200.482
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 19,
+  "fields": {
+    "date": "2023-07-12",
+    "metal_type": "gold",
+    "close": 2046.4,
+    "open": 2043.4,
+    "high": 2057.2,
+    "low": 2036.6,
+    "volume": 165.566
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 20,
+  "fields": {
+    "date": "2023-08-09",
+    "metal_type": "gold",
+    "close": 1942.7,
+    "open": 1943.8,
+    "high": 1954.0,
+    "low": 1940.8,
+    "volume": 136.235
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 21,
+  "fields": {
+    "date": "2023-08-11",
+    "metal_type": "gold",
+    "close": 1957.8,
+    "open": 1975.3,
+    "high": 1977.5,
+    "low": 1953.2,
+    "volume": 170.367
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 22,
+  "fields": {
+    "date": "2023-08-12",
+    "metal_type": "gold",
+    "close": 2014.5,
+    "open": 2045.7,
+    "high": 2050.4,
+    "low": 2010.6,
+    "volume": 227.831
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 23,
+  "fields": {
+    "date": "2023-08-18",
+    "metal_type": "gold",
+    "close": 1916.5,
+    "open": 1919.2,
+    "high": 1926.0,
+    "low": 1915.9,
+    "volume": 110.337
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 24,
+  "fields": {
+    "date": "2023-08-21",
+    "metal_type": "gold",
+    "close": 1923.0,
+    "open": 1918.4,
+    "high": 1927.9,
+    "low": 1913.6,
+    "volume": 135.415
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 25,
+  "fields": {
+    "date": "2023-08-22",
+    "metal_type": "gold",
+    "close": 1926.0,
+    "open": 1924.0,
+    "high": 1933.2,
+    "low": 1917.5,
+    "volume": 126.226
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 26,
+  "fields": {
+    "date": "2023-08-23",
+    "metal_type": "gold",
+    "close": 1948.1,
+    "open": 1926.8,
+    "high": 1949.7,
+    "low": 1926.2,
+    "volume": 162.315
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 27,
+  "fields": {
+    "date": "2023-08-24",
+    "metal_type": "gold",
+    "close": 1947.1,
+    "open": 1944.9,
+    "high": 1951.3,
+    "low": 1939.2,
+    "volume": 133.727
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 28,
+  "fields": {
+    "date": "2023-08-25",
+    "metal_type": "gold",
+    "close": 1939.9,
+    "open": 1944.9,
+    "high": 1950.4,
+    "low": 1931.0,
+    "volume": 163.733
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 29,
+  "fields": {
+    "date": "2023-08-28",
+    "metal_type": "gold",
+    "close": 1946.8,
+    "open": 1944.0,
+    "high": 1954.2,
+    "low": 1940.1,
+    "volume": 113.565
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 30,
+  "fields": {
+    "date": "2023-08-29",
+    "metal_type": "gold",
+    "close": 1965.1,
+    "open": 1948.1,
+    "high": 1966.5,
+    "low": 1941.7,
+    "volume": 169.333
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 31,
+  "fields": {
+    "date": "2023-08-30",
+    "metal_type": "gold",
+    "close": 1973.0,
+    "open": 1966.0,
+    "high": 1977.1,
+    "low": 1962.8,
+    "volume": 138.398
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 32,
+  "fields": {
+    "date": "2023-08-31",
+    "metal_type": "gold",
+    "close": 1965.9,
+    "open": 1970.2,
+    "high": 1974.9,
+    "low": 1965.5,
+    "volume": 125.945
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 33,
+  "fields": {
+    "date": "2023-09-10",
+    "metal_type": "gold",
+    "close": 1864.3,
+    "open": 1861.0,
+    "high": 1877.3,
+    "low": 1857.5,
+    "volume": 183.451
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 34,
+  "fields": {
+    "date": "2023-09-11",
+    "metal_type": "gold",
+    "close": 1969.8,
+    "open": 1955.5,
+    "high": 1971.5,
+    "low": 1948.3,
+    "volume": 185.574
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 35,
+  "fields": {
+    "date": "2023-09-13",
+    "metal_type": "gold",
+    "close": 1932.5,
+    "open": 1935.2,
+    "high": 1938.4,
+    "low": 1927.2,
+    "volume": 156.209
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 36,
+  "fields": {
+    "date": "2023-09-14",
+    "metal_type": "gold",
+    "close": 1932.8,
+    "open": 1930.7,
+    "high": 1934.5,
+    "low": 1921.7,
+    "volume": 196.22
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 37,
+  "fields": {
+    "date": "2023-09-15",
+    "metal_type": "gold",
+    "close": 1946.2,
+    "open": 1932.5,
+    "high": 1952.4,
+    "low": 1931.2,
+    "volume": 195.342
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 38,
+  "fields": {
+    "date": "2023-09-18",
+    "metal_type": "gold",
+    "close": 1953.4,
+    "open": 1945.7,
+    "high": 1955.7,
+    "low": 1943.8,
+    "volume": 134.529
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 39,
+  "fields": {
+    "date": "2023-09-19",
+    "metal_type": "gold",
+    "close": 1953.7,
+    "open": 1955.3,
+    "high": 1958.9,
+    "low": 1950.9,
+    "volume": 126.871
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 40,
+  "fields": {
+    "date": "2023-09-20",
+    "metal_type": "gold",
+    "close": 1967.1,
+    "open": 1953.0,
+    "high": 1968.9,
+    "low": 1948.6,
+    "volume": 212.731
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 41,
+  "fields": {
+    "date": "2023-09-21",
+    "metal_type": "gold",
+    "close": 1939.6,
+    "open": 1952.0,
+    "high": 1952.2,
+    "low": 1933.1,
+    "volume": 218.211
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 42,
+  "fields": {
+    "date": "2023-09-22",
+    "metal_type": "gold",
+    "close": 1945.6,
+    "open": 1939.6,
+    "high": 1949.1,
+    "low": 1939.6,
+    "volume": 135.193
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 43,
+  "fields": {
+    "date": "2023-09-25",
+    "metal_type": "gold",
+    "close": 1936.6,
+    "open": 1944.7,
+    "high": 1946.8,
+    "low": 1933.8,
+    "volume": 155.517
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 44,
+  "fields": {
+    "date": "2023-09-26",
+    "metal_type": "gold",
+    "close": 1919.8,
+    "open": 1935.1,
+    "high": 1935.5,
+    "low": 1917.2,
+    "volume": 202.105
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 45,
+  "fields": {
+    "date": "2023-09-27",
+    "metal_type": "gold",
+    "close": 1890.9,
+    "open": 1918.8,
+    "high": 1921.7,
+    "low": 1890.3,
+    "volume": 221.139
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 46,
+  "fields": {
+    "date": "2023-09-28",
+    "metal_type": "gold",
+    "close": 1878.6,
+    "open": 1893.3,
+    "high": 1896.8,
+    "low": 1874.5,
+    "volume": 217.353
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 47,
+  "fields": {
+    "date": "2023-09-29",
+    "metal_type": "gold",
+    "close": 1866.1,
+    "open": 1882.3,
+    "high": 1896.7,
+    "low": 1862.3,
+    "volume": 234.756
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 48,
+  "fields": {
+    "date": "2023-10-10",
+    "metal_type": "gold",
+    "close": 1875.3,
+    "open": 1875.4,
+    "high": 1879.1,
+    "low": 1866.1,
+    "volume": 152.865
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 49,
+  "fields": {
+    "date": "2023-10-11",
+    "metal_type": "gold",
+    "close": 1937.7,
+    "open": 1964.1,
+    "high": 1965.6,
+    "low": 1936.9,
+    "volume": 210.158
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 50,
+  "fields": {
+    "date": "2023-10-13",
+    "metal_type": "gold",
+    "close": 1941.5,
+    "open": 1881.7,
+    "high": 1946.2,
+    "low": 1881.5,
+    "volume": 298.561
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 51,
+  "fields": {
+    "date": "2023-10-16",
+    "metal_type": "gold",
+    "close": 1934.3,
+    "open": 1941.3,
+    "high": 1943.0,
+    "low": 1921.2,
+    "volume": 174.742
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 52,
+  "fields": {
+    "date": "2023-10-17",
+    "metal_type": "gold",
+    "close": 1935.7,
+    "open": 1933.3,
+    "high": 1944.5,
+    "low": 1924.6,
+    "volume": 159.43
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 53,
+  "fields": {
+    "date": "2023-10-18",
+    "metal_type": "gold",
+    "close": 1968.3,
+    "open": 1936.7,
+    "high": 1975.8,
+    "low": 1935.9,
+    "volume": 261.064
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 54,
+  "fields": {
+    "date": "2023-10-19",
+    "metal_type": "gold",
+    "close": 1980.5,
+    "open": 1960.1,
+    "high": 1990.2,
+    "low": 1957.0,
+    "volume": 253.69
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 55,
+  "fields": {
+    "date": "2023-10-20",
+    "metal_type": "gold",
+    "close": 1994.4,
+    "open": 1988.0,
+    "high": 2009.2,
+    "low": 1983.7,
+    "volume": 279.162
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 56,
+  "fields": {
+    "date": "2023-10-23",
+    "metal_type": "gold",
+    "close": 1987.8,
+    "open": 1987.7,
+    "high": 1990.9,
+    "low": 1982.6,
+    "volume": 204.959
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 57,
+  "fields": {
+    "date": "2023-10-24",
+    "metal_type": "gold",
+    "close": 1986.1,
+    "open": 1984.1,
+    "high": 1989.0,
+    "low": 1970.0,
+    "volume": 191.586
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 58,
+  "fields": {
+    "date": "2023-10-25",
+    "metal_type": "gold",
+    "close": 1994.9,
+    "open": 1982.7,
+    "high": 1998.6,
+    "low": 1973.6,
+    "volume": 235.699
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 59,
+  "fields": {
+    "date": "2023-10-26",
+    "metal_type": "gold",
+    "close": 1997.4,
+    "open": 1991.2,
+    "high": 2003.7,
+    "low": 1981.6,
+    "volume": 208.597
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 60,
+  "fields": {
+    "date": "2023-10-27",
+    "metal_type": "gold",
+    "close": 1998.5,
+    "open": 1995.0,
+    "high": 2019.7,
+    "low": 1986.4,
+    "volume": 206.932
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 61,
+  "fields": {
+    "date": "2023-10-30",
+    "metal_type": "gold",
+    "close": 2005.6,
+    "open": 2013.5,
+    "high": 2012.4,
+    "low": 1999.7,
+    "volume": 177.834
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 62,
+  "fields": {
+    "date": "2023-10-31",
+    "metal_type": "gold",
+    "close": 1994.3,
+    "open": 2005.6,
+    "high": 2017.7,
+    "low": 1987.4,
+    "volume": 205.951
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 63,
+  "fields": {
+    "date": "2023-11-09",
+    "metal_type": "gold",
+    "close": 1947.2,
+    "open": 1943.3,
+    "high": 1947.6,
+    "low": 1944.6,
+    "volume": 128.75
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 64,
+  "fields": {
+    "date": "2023-11-10",
+    "metal_type": "gold",
+    "close": 1887.3,
+    "open": 1873.7,
+    "high": 1890.9,
+    "low": 1871.7,
+    "volume": 162.914
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 65,
+  "fields": {
+    "date": "2023-11-12",
+    "metal_type": "gold",
+    "close": 1993.7,
+    "open": 2020.0,
+    "high": 2023.7,
+    "low": 1991.2,
+    "volume": 151.409
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 66,
+  "fields": {
+    "date": "2023-11-13",
+    "metal_type": "gold",
+    "close": 1950.2,
+    "open": 1943.4,
+    "high": 1953.5,
+    "low": 1935.6,
+    "volume": 164.985
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 67,
+  "fields": {
+    "date": "2023-11-14",
+    "metal_type": "gold",
+    "close": 1966.5,
+    "open": 1950.3,
+    "high": 1975.3,
+    "low": 1938.8,
+    "volume": 174.844
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 68,
+  "fields": {
+    "date": "2023-11-15",
+    "metal_type": "gold",
+    "close": 1964.3,
+    "open": 1966.9,
+    "high": 1979.2,
+    "low": 1958.8,
+    "volume": 138.956
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 69,
+  "fields": {
+    "date": "2023-11-16",
+    "metal_type": "gold",
+    "close": 1987.3,
+    "open": 1963.0,
+    "high": 1984.5,
+    "low": 1983.9,
+    "volume": 182.935
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 70,
+  "fields": {
+    "date": "2023-11-17",
+    "metal_type": "gold",
+    "close": 1984.7,
+    "open": 1984.2,
+    "high": 1983.6,
+    "low": 1982.5,
+    "volume": 129.52
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 71,
+  "fields": {
+    "date": "2023-11-20",
+    "metal_type": "gold",
+    "close": 1980.3,
+    "open": 1980.9,
+    "high": 1987.8,
+    "low": 1967.2,
+    "volume": 172.046
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 72,
+  "fields": {
+    "date": "2023-11-21",
+    "metal_type": "gold",
+    "close": 2001.6,
+    "open": 1980.0,
+    "high": 2009.8,
+    "low": 1979.9,
+    "volume": 223.873
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 73,
+  "fields": {
+    "date": "2023-11-22",
+    "metal_type": "gold",
+    "close": 1992.8,
+    "open": 2000.3,
+    "high": 2008.3,
+    "low": 1988.6,
+    "volume": 194.093
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 74,
+  "fields": {
+    "date": "2023-11-24",
+    "metal_type": "gold",
+    "close": 2003.0,
+    "open": 1991.2,
+    "high": 2004.5,
+    "low": 1990.9,
+    "volume": 211.252
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 75,
+  "fields": {
+    "date": "2023-11-27",
+    "metal_type": "gold",
+    "close": 2012.4,
+    "open": 2002.5,
+    "high": 2018.9,
+    "low": 2001.4,
+    "volume": 247.411
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 76,
+  "fields": {
+    "date": "2023-11-28",
+    "metal_type": "gold",
+    "close": 2040.0,
+    "open": 2014.3,
+    "high": 2044.1,
+    "low": 2011.5,
+    "volume": 172.968
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 77,
+  "fields": {
+    "date": "2023-11-29",
+    "metal_type": "gold",
+    "close": 2067.1,
+    "open": 2062.0,
+    "high": 2072.7,
+    "low": 2055.9,
+    "volume": 189.494
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 78,
+  "fields": {
+    "date": "2023-11-30",
+    "metal_type": "gold",
+    "close": 2057.2,
+    "open": 2065.4,
+    "high": 2067.4,
+    "low": 2051.2,
+    "volume": 143.605
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 79,
+  "fields": {
+    "date": "2023-12-09",
+    "metal_type": "gold",
+    "close": 1935.1,
+    "open": 1945.6,
+    "high": 1947.5,
+    "low": 1929.9,
+    "volume": 155.034
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 80,
+  "fields": {
+    "date": "2023-12-10",
+    "metal_type": "gold",
+    "close": 1883.0,
+    "open": 1888.1,
+    "high": 1898.3,
+    "low": 1880.6,
+    "volume": 158.089
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 81,
+  "fields": {
+    "date": "2023-12-12",
+    "metal_type": "gold",
+    "close": 1993.2,
+    "open": 1997.8,
+    "high": 2012.5,
+    "low": 1992.3,
+    "volume": 140.257
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 82,
+  "fields": {
+    "date": "2023-12-13",
+    "metal_type": "gold",
+    "close": 1997.3,
+    "open": 1995.1,
+    "high": 2043.3,
+    "low": 1987.9,
+    "volume": 183.78
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 83,
+  "fields": {
+    "date": "2023-12-14",
+    "metal_type": "gold",
+    "close": 2044.9,
+    "open": 2043.2,
+    "high": 2062.9,
+    "low": 2039.1,
+    "volume": 222.776
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 84,
+  "fields": {
+    "date": "2023-12-15",
+    "metal_type": "gold",
+    "close": 2035.7,
+    "open": 2051.3,
+    "high": 2059.6,
+    "low": 2029.2,
+    "volume": 166.565
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 85,
+  "fields": {
+    "date": "2023-12-18",
+    "metal_type": "gold",
+    "close": 2040.5,
+    "open": 2033.3,
+    "high": 2048.0,
+    "low": 2029.5,
+    "volume": 137.436
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 86,
+  "fields": {
+    "date": "2023-12-19",
+    "metal_type": "gold",
+    "close": 2052.1,
+    "open": 2041.1,
+    "high": 2061.0,
+    "low": 2034.8,
+    "volume": 130.031
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 87,
+  "fields": {
+    "date": "2023-12-20",
+    "metal_type": "gold",
+    "close": 2047.7,
+    "open": 2053.8,
+    "high": 2056.9,
+    "low": 2040.6,
+    "volume": 119.394
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 88,
+  "fields": {
+    "date": "2023-12-21",
+    "metal_type": "gold",
+    "close": 2051.3,
+    "open": 2044.4,
+    "high": 2058.0,
+    "low": 2043.3,
+    "volume": 115.184
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 89,
+  "fields": {
+    "date": "2023-12-22",
+    "metal_type": "gold",
+    "close": 2069.1,
+    "open": 2061.2,
+    "high": 2083.0,
+    "low": 2058.2,
+    "volume": 162.292
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 90,
+  "fields": {
+    "date": "2023-12-26",
+    "metal_type": "gold",
+    "close": 2069.8,
+    "open": 2066.0,
+    "high": 2080.5,
+    "low": 2065.1,
+    "volume": 76.492
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 91,
+  "fields": {
+    "date": "2023-12-27",
+    "metal_type": "gold",
+    "close": 2093.1,
+    "open": 2079.3,
+    "high": 2095.8,
+    "low": 2072.8,
+    "volume": 124.021
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 92,
+  "fields": {
+    "date": "2023-12-28",
+    "metal_type": "gold",
+    "close": 2083.5,
+    "open": 2089.5,
+    "high": 2098.2,
+    "low": 2074.6,
+    "volume": 126.411
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 93,
+  "fields": {
+    "date": "2023-12-29",
+    "metal_type": "gold",
+    "close": 2071.8,
+    "open": 2076.1,
+    "high": 2084.1,
+    "low": 2067.6,
+    "volume": 102.741
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 94,
+  "fields": {
+    "date": "2024-01-16",
+    "metal_type": "gold",
+    "close": 2030.2,
+    "open": 2053.4,
+    "high": 2062.8,
+    "low": 2027.6,
+    "volume": 277.995
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 95,
+  "fields": {
+    "date": "2024-01-17",
+    "metal_type": "gold",
+    "close": 2006.5,
+    "open": 2031.7,
+    "high": 2036.1,
+    "low": 2004.6,
+    "volume": 245.194
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 96,
+  "fields": {
+    "date": "2024-01-18",
+    "metal_type": "gold",
+    "close": 2021.6,
+    "open": 2009.1,
+    "high": 2025.6,
+    "low": 2007.7,
+    "volume": 167.013
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 97,
+  "fields": {
+    "date": "2024-01-19",
+    "metal_type": "gold",
+    "close": 2029.3,
+    "open": 2027.4,
+    "high": 2041.9,
+    "low": 2022.2,
+    "volume": 166.078
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 98,
+  "fields": {
+    "date": "2024-01-22",
+    "metal_type": "gold",
+    "close": 2022.2,
+    "open": 2031.8,
+    "high": 2034.1,
+    "low": 2017.4,
+    "volume": 141.963
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 99,
+  "fields": {
+    "date": "2024-02-01",
+    "metal_type": "gold",
+    "close": 2073.4,
+    "open": 2072.7,
+    "high": 2088.1,
+    "low": 2064.3,
+    "volume": 149.926
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 100,
+  "fields": {
+    "date": "2024-03-01",
+    "metal_type": "gold",
+    "close": 2042.8,
+    "open": 2067.9,
+    "high": 2074.3,
+    "low": 2038.3,
+    "volume": 214.132
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 101,
+  "fields": {
+    "date": "2024-04-01",
+    "metal_type": "gold",
+    "close": 2050.0,
+    "open": 2049.3,
+    "high": 2058.1,
+    "low": 2043.3,
+    "volume": 125.573
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 102,
+  "fields": {
+    "date": "2024-05-01",
+    "metal_type": "gold",
+    "close": 2049.8,
+    "open": 2051.4,
+    "high": 2071.1,
+    "low": 2030.8,
+    "volume": 208.861
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 103,
+  "fields": {
+    "date": "2024-08-01",
+    "metal_type": "gold",
+    "close": 2033.5,
+    "open": 2052.6,
+    "high": 2053.3,
+    "low": 2022.7,
+    "volume": 199.325
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 104,
+  "fields": {
+    "date": "2024-09-01",
+    "metal_type": "gold",
+    "close": 2033.0,
+    "open": 2034.5,
+    "high": 2048.6,
+    "low": 2031.9,
+    "volume": 194.61
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 105,
+  "fields": {
+    "date": "2024-10-01",
+    "metal_type": "gold",
+    "close": 2027.8,
+    "open": 2036.0,
+    "high": 2046.2,
+    "low": 2025.9,
+    "volume": 183.625
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 106,
+  "fields": {
+    "date": "2024-11-01",
+    "metal_type": "gold",
+    "close": 2019.2,
+    "open": 2029.4,
+    "high": 2056.1,
+    "low": 2017.3,
+    "volume": 270.624
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 107,
+  "fields": {
+    "date": "2024-12-01",
+    "metal_type": "gold",
+    "close": 2051.6,
+    "open": 2033.2,
+    "high": 2067.3,
+    "low": 2033.1,
+    "volume": 250.946
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 108,
+  "fields": {
+    "date": "2023-01-09",
+    "metal_type": "silver",
+    "close": 24.562,
+    "open": 24.82,
+    "high": 25.22,
+    "low": 24.52,
+    "volume": 60.053
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 109,
+  "fields": {
+    "date": "2023-01-11",
+    "metal_type": "silver",
+    "close": 22.79,
+    "open": 22.955,
+    "high": 23.13,
+    "low": 22.645,
+    "volume": 52.76
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 110,
+  "fields": {
+    "date": "2023-01-12",
+    "metal_type": "silver",
+    "close": 25.857,
+    "open": 25.695,
+    "high": 25.94,
+    "low": 25.48,
+    "volume": 68.016
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 111,
+  "fields": {
+    "date": "2023-02-10",
+    "metal_type": "silver",
+    "close": 21.421,
+    "open": 22.41,
+    "high": 22.41,
+    "low": 21.215,
+    "volume": 93.21
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 112,
+  "fields": {
+    "date": "2023-03-10",
+    "metal_type": "silver",
+    "close": 21.377,
+    "open": 21.31,
+    "high": 21.595,
+    "low": 20.87,
+    "volume": 77.913
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 113,
+  "fields": {
+    "date": "2023-03-11",
+    "metal_type": "silver",
+    "close": 23.285,
+    "open": 22.875,
+    "high": 23.415,
+    "low": 22.675,
+    "volume": 75.137
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 114,
+  "fields": {
+    "date": "2023-04-10",
+    "metal_type": "silver",
+    "close": 21.146,
+    "open": 21.375,
+    "high": 21.57,
+    "low": 20.85,
+    "volume": 65.061
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 115,
+  "fields": {
+    "date": "2023-04-12",
+    "metal_type": "silver",
+    "close": 24.907,
+    "open": 25.945,
+    "high": 25.73,
+    "low": 24.785,
+    "volume": 110.364
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 116,
+  "fields": {
+    "date": "2023-05-09",
+    "metal_type": "silver",
+    "close": 23.873,
+    "open": 24.565,
+    "high": 24.655,
+    "low": 23.815,
+    "volume": 89.314
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 117,
+  "fields": {
+    "date": "2023-05-10",
+    "metal_type": "silver",
+    "close": 21.019,
+    "open": 21.18,
+    "high": 21.455,
+    "low": 20.855,
+    "volume": 56.587
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 118,
+  "fields": {
+    "date": "2023-06-09",
+    "metal_type": "silver",
+    "close": 23.503,
+    "open": 23.88,
+    "high": 23.935,
+    "low": 23.315,
+    "volume": 65.61
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 119,
+  "fields": {
+    "date": "2023-06-11",
+    "metal_type": "silver",
+    "close": 23.234,
+    "open": 23.335,
+    "high": 23.245,
+    "low": 23.085,
+    "volume": 40.317
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 120,
+  "fields": {
+    "date": "2023-06-12",
+    "metal_type": "silver",
+    "close": 24.228,
+    "open": 24.53,
+    "high": 24.715,
+    "low": 24.21,
+    "volume": 57.163
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 121,
+  "fields": {
+    "date": "2023-07-09",
+    "metal_type": "silver",
+    "close": 23.24,
+    "open": 23.5,
+    "high": 23.5,
+    "low": 23.13,
+    "volume": 49.499
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 122,
+  "fields": {
+    "date": "2023-07-11",
+    "metal_type": "silver",
+    "close": 22.589,
+    "open": 23.125,
+    "high": 23.17,
+    "low": 22.505,
+    "volume": 73.393
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 123,
+  "fields": {
+    "date": "2023-07-12",
+    "metal_type": "silver",
+    "close": 24.059,
+    "open": 24.23,
+    "high": 24.35,
+    "low": 23.905,
+    "volume": 56.304
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 124,
+  "fields": {
+    "date": "2023-08-09",
+    "metal_type": "silver",
+    "close": 23.174,
+    "open": 23.26,
+    "high": 23.455,
+    "low": 23.13,
+    "volume": 51.199
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 125,
+  "fields": {
+    "date": "2023-08-11",
+    "metal_type": "silver",
+    "close": 22.728,
+    "open": 22.705,
+    "high": 22.935,
+    "low": 22.375,
+    "volume": 62.026
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 126,
+  "fields": {
+    "date": "2023-08-12",
+    "metal_type": "silver",
+    "close": 23.276,
+    "open": 24.14,
+    "high": 24.225,
+    "low": 23.245,
+    "volume": 83.188
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 127,
+  "fields": {
+    "date": "2023-08-22",
+    "metal_type": "silver",
+    "close": 23.763,
+    "open": 23.71,
+    "high": 23.83,
+    "low": 23.59,
+    "volume": 18.265
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 128,
+  "fields": {
+    "date": "2023-08-23",
+    "metal_type": "silver",
+    "close": 24.71,
+    "open": 23.795,
+    "high": 24.75,
+    "low": 23.79,
+    "volume": 30.462
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 129,
+  "fields": {
+    "date": "2023-08-24",
+    "metal_type": "silver",
+    "close": 24.575,
+    "open": 24.7,
+    "high": 24.74,
+    "low": 24.45,
+    "volume": 37.411
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 130,
+  "fields": {
+    "date": "2023-08-25",
+    "metal_type": "silver",
+    "close": 24.583,
+    "open": 24.53,
+    "high": 24.785,
+    "low": 24.31,
+    "volume": 31.825
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 131,
+  "fields": {
+    "date": "2023-08-28",
+    "metal_type": "silver",
+    "close": 24.605,
+    "open": 24.62,
+    "high": 24.75,
+    "low": 24.45,
+    "volume": 32.274
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 132,
+  "fields": {
+    "date": "2023-08-29",
+    "metal_type": "silver",
+    "close": 25.139,
+    "open": 24.62,
+    "high": 25.195,
+    "low": 24.555,
+    "volume": 48.857
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 133,
+  "fields": {
+    "date": "2023-08-30",
+    "metal_type": "silver",
+    "close": 25.104,
+    "open": 25.135,
+    "high": 25.425,
+    "low": 24.92,
+    "volume": 63.636
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 134,
+  "fields": {
+    "date": "2023-09-10",
+    "metal_type": "silver",
+    "close": 21.924,
+    "open": 21.94,
+    "high": 22.18,
+    "low": 21.705,
+    "volume": 57.208
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 135,
+  "fields": {
+    "date": "2023-09-13",
+    "metal_type": "silver",
+    "close": 23.181,
+    "open": 23.375,
+    "high": 23.39,
+    "low": 23.025,
+    "volume": 48.15
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 136,
+  "fields": {
+    "date": "2023-09-14",
+    "metal_type": "silver",
+    "close": 22.994,
+    "open": 23.14,
+    "high": 23.265,
+    "low": 22.555,
+    "volume": 81.585
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 137,
+  "fields": {
+    "date": "2023-09-15",
+    "metal_type": "silver",
+    "close": 23.386,
+    "open": 22.93,
+    "high": 23.585,
+    "low": 22.91,
+    "volume": 65.79
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 138,
+  "fields": {
+    "date": "2023-09-18",
+    "metal_type": "silver",
+    "close": 23.498,
+    "open": 23.32,
+    "high": 23.54,
+    "low": 23.235,
+    "volume": 45.368
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 139,
+  "fields": {
+    "date": "2023-09-19",
+    "metal_type": "silver",
+    "close": 23.456,
+    "open": 23.53,
+    "high": 23.705,
+    "low": 23.365,
+    "volume": 39.112
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 140,
+  "fields": {
+    "date": "2023-09-20",
+    "metal_type": "silver",
+    "close": 23.836,
+    "open": 23.48,
+    "high": 23.88,
+    "low": 23.325,
+    "volume": 56.524
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 141,
+  "fields": {
+    "date": "2023-09-25",
+    "metal_type": "silver",
+    "close": 23.385,
+    "open": 23.81,
+    "high": 23.925,
+    "low": 23.29,
+    "volume": 54.792
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 142,
+  "fields": {
+    "date": "2023-09-28",
+    "metal_type": "silver",
+    "close": 22.741,
+    "open": 22.8,
+    "high": 22.955,
+    "low": 22.61,
+    "volume": 65.852
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 143,
+  "fields": {
+    "date": "2023-09-29",
+    "metal_type": "silver",
+    "close": 22.45,
+    "open": 22.84,
+    "high": 23.805,
+    "low": 22.325,
+    "volume": 109.554
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 144,
+  "fields": {
+    "date": "2023-10-11",
+    "metal_type": "silver",
+    "close": 22.281,
+    "open": 22.705,
+    "high": 22.8,
+    "low": 22.23,
+    "volume": 58.708
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 145,
+  "fields": {
+    "date": "2023-10-13",
+    "metal_type": "silver",
+    "close": 22.895,
+    "open": 21.985,
+    "high": 22.99,
+    "low": 21.96,
+    "volume": 74.419
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 146,
+  "fields": {
+    "date": "2023-10-16",
+    "metal_type": "silver",
+    "close": 22.765,
+    "open": 22.91,
+    "high": 22.91,
+    "low": 22.635,
+    "volume": 35.125
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 147,
+  "fields": {
+    "date": "2023-10-17",
+    "metal_type": "silver",
+    "close": 23.024,
+    "open": 22.78,
+    "high": 23.18,
+    "low": 22.535,
+    "volume": 47.657
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 148,
+  "fields": {
+    "date": "2023-10-18",
+    "metal_type": "silver",
+    "close": 23.099,
+    "open": 22.975,
+    "high": 23.49,
+    "low": 22.84,
+    "volume": 65.24
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 149,
+  "fields": {
+    "date": "2023-10-19",
+    "metal_type": "silver",
+    "close": 23.031,
+    "open": 23.015,
+    "high": 23.23,
+    "low": 22.785,
+    "volume": 57.408
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 150,
+  "fields": {
+    "date": "2023-10-20",
+    "metal_type": "silver",
+    "close": 23.53,
+    "open": 23.19,
+    "high": 23.88,
+    "low": 23.015,
+    "volume": 78.838
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 151,
+  "fields": {
+    "date": "2023-10-23",
+    "metal_type": "silver",
+    "close": 23.21,
+    "open": 23.235,
+    "high": 23.3,
+    "low": 23.065,
+    "volume": 50.916
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 152,
+  "fields": {
+    "date": "2023-10-24",
+    "metal_type": "silver",
+    "close": 23.116,
+    "open": 23.095,
+    "high": 23.16,
+    "low": 22.9,
+    "volume": 46.43
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 153,
+  "fields": {
+    "date": "2023-10-26",
+    "metal_type": "silver",
+    "close": 22.908,
+    "open": 23.005,
+    "high": 23.275,
+    "low": 22.565,
+    "volume": 58.346
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 154,
+  "fields": {
+    "date": "2023-10-27",
+    "metal_type": "silver",
+    "close": 22.887,
+    "open": 22.935,
+    "high": 23.255,
+    "low": 22.775,
+    "volume": 45.217
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 155,
+  "fields": {
+    "date": "2023-10-30",
+    "metal_type": "silver",
+    "close": 23.396,
+    "open": 23.245,
+    "high": 23.75,
+    "low": 23.175,
+    "volume": 57.268
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 156,
+  "fields": {
+    "date": "2023-10-31",
+    "metal_type": "silver",
+    "close": 22.952,
+    "open": 23.455,
+    "high": 23.465,
+    "low": 22.84,
+    "volume": 53.422
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 157,
+  "fields": {
+    "date": "2023-11-09",
+    "metal_type": "silver",
+    "close": 23.383,
+    "open": 23.195,
+    "high": 23.4,
+    "low": 23.345,
+    "volume": 41.244
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 158,
+  "fields": {
+    "date": "2023-11-10",
+    "metal_type": "silver",
+    "close": 22.133,
+    "open": 22.015,
+    "high": 22.275,
+    "low": 21.955,
+    "volume": 43.371
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 159,
+  "fields": {
+    "date": "2023-11-12",
+    "metal_type": "silver",
+    "close": 23.058,
+    "open": 23.3,
+    "high": 23.4,
+    "low": 23.015,
+    "volume": 54.773
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 160,
+  "fields": {
+    "date": "2023-11-13",
+    "metal_type": "silver",
+    "close": 22.358,
+    "open": 22.31,
+    "high": 22.405,
+    "low": 21.925,
+    "volume": 59.134
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 161,
+  "fields": {
+    "date": "2023-11-14",
+    "metal_type": "silver",
+    "close": 23.132,
+    "open": 22.37,
+    "high": 23.255,
+    "low": 22.15,
+    "volume": 75.657
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 162,
+  "fields": {
+    "date": "2023-11-15",
+    "metal_type": "silver",
+    "close": 23.538,
+    "open": 23.16,
+    "high": 23.71,
+    "low": 23.095,
+    "volume": 70.517
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 163,
+  "fields": {
+    "date": "2023-11-16",
+    "metal_type": "silver",
+    "close": 23.933,
+    "open": 23.51,
+    "high": 23.83,
+    "low": 23.8,
+    "volume": 81.399
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 164,
+  "fields": {
+    "date": "2023-11-17",
+    "metal_type": "silver",
+    "close": 23.775,
+    "open": 23.825,
+    "high": 23.805,
+    "low": 23.76,
+    "volume": 52.717
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 165,
+  "fields": {
+    "date": "2023-11-21",
+    "metal_type": "silver",
+    "close": 24.221,
+    "open": 23.825,
+    "high": 24.43,
+    "low": 23.82,
+    "volume": 22.761
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 166,
+  "fields": {
+    "date": "2023-11-22",
+    "metal_type": "silver",
+    "close": 24.033,
+    "open": 24.145,
+    "high": 24.355,
+    "low": 23.935,
+    "volume": 23.588
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 167,
+  "fields": {
+    "date": "2023-11-27",
+    "metal_type": "silver",
+    "close": 25.038,
+    "open": 24.75,
+    "high": 25.29,
+    "low": 24.68,
+    "volume": 53.321
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 168,
+  "fields": {
+    "date": "2023-11-28",
+    "metal_type": "silver",
+    "close": 25.302,
+    "open": 25.065,
+    "high": 25.445,
+    "low": 24.94,
+    "volume": 62.437
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 169,
+  "fields": {
+    "date": "2023-11-29",
+    "metal_type": "silver",
+    "close": 25.443,
+    "open": 25.43,
+    "high": 25.68,
+    "low": 25.245,
+    "volume": 65.823
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 170,
+  "fields": {
+    "date": "2023-11-30",
+    "metal_type": "silver",
+    "close": 25.66,
+    "open": 25.41,
+    "high": 25.7,
+    "low": 25.325,
+    "volume": 49.428
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 171,
+  "fields": {
+    "date": "2023-12-10",
+    "metal_type": "silver",
+    "close": 21.959,
+    "open": 22.205,
+    "high": 22.39,
+    "low": 21.88,
+    "volume": 49.432
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 172,
+  "fields": {
+    "date": "2023-12-12",
+    "metal_type": "silver",
+    "close": 23.016,
+    "open": 23.125,
+    "high": 23.45,
+    "low": 22.975,
+    "volume": 54.186
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 173,
+  "fields": {
+    "date": "2023-12-13",
+    "metal_type": "silver",
+    "close": 22.921,
+    "open": 23.075,
+    "high": 24.125,
+    "low": 22.785,
+    "volume": 77.775
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 174,
+  "fields": {
+    "date": "2023-12-18",
+    "metal_type": "silver",
+    "close": 24.107,
+    "open": 24.125,
+    "high": 24.355,
+    "low": 23.955,
+    "volume": 41.128
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 175,
+  "fields": {
+    "date": "2023-12-20",
+    "metal_type": "silver",
+    "close": 24.631,
+    "open": 24.36,
+    "high": 24.75,
+    "low": 24.245,
+    "volume": 45.871
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 176,
+  "fields": {
+    "date": "2023-12-21",
+    "metal_type": "silver",
+    "close": 24.585,
+    "open": 24.46,
+    "high": 24.79,
+    "low": 24.43,
+    "volume": 45.075
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 177,
+  "fields": {
+    "date": "2023-12-22",
+    "metal_type": "silver",
+    "close": 24.565,
+    "open": 24.705,
+    "high": 24.895,
+    "low": 24.37,
+    "volume": 47.671
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 178,
+  "fields": {
+    "date": "2023-12-26",
+    "metal_type": "silver",
+    "close": 24.396,
+    "open": 24.495,
+    "high": 24.7,
+    "low": 24.34,
+    "volume": 27.003
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 179,
+  "fields": {
+    "date": "2023-12-27",
+    "metal_type": "silver",
+    "close": 24.641,
+    "open": 24.505,
+    "high": 24.73,
+    "low": 24.22,
+    "volume": 42.321
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 180,
+  "fields": {
+    "date": "2023-12-28",
+    "metal_type": "silver",
+    "close": 24.372,
+    "open": 24.55,
+    "high": 24.74,
+    "low": 24.185,
+    "volume": 35.081
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 181,
+  "fields": {
+    "date": "2023-12-29",
+    "metal_type": "silver",
+    "close": 24.086,
+    "open": 24.225,
+    "high": 24.235,
+    "low": 23.76,
+    "volume": 45.455
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 182,
+  "fields": {
+    "date": "2024-01-16",
+    "metal_type": "silver",
+    "close": 23.093,
+    "open": 23.35,
+    "high": 23.5,
+    "low": 23.015,
+    "volume": 60.349
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 183,
+  "fields": {
+    "date": "2024-01-18",
+    "metal_type": "silver",
+    "close": 22.807,
+    "open": 22.715,
+    "high": 22.9,
+    "low": 22.52,
+    "volume": 45.111
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 184,
+  "fields": {
+    "date": "2024-01-19",
+    "metal_type": "silver",
+    "close": 22.711,
+    "open": 22.885,
+    "high": 22.98,
+    "low": 22.595,
+    "volume": 40.328
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 185,
+  "fields": {
+    "date": "2024-02-01",
+    "metal_type": "silver",
+    "close": 23.953,
+    "open": 24.045,
+    "high": 24.335,
+    "low": 23.875,
+    "volume": 45.478
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 186,
+  "fields": {
+    "date": "2024-03-01",
+    "metal_type": "silver",
+    "close": 23.157,
+    "open": 23.885,
+    "high": 23.95,
+    "low": 23.045,
+    "volume": 82.186
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 187,
+  "fields": {
+    "date": "2024-04-01",
+    "metal_type": "silver",
+    "close": 23.187,
+    "open": 23.19,
+    "high": 23.26,
+    "low": 22.88,
+    "volume": 50.503
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 188,
+  "fields": {
+    "date": "2024-05-01",
+    "metal_type": "silver",
+    "close": 23.315,
+    "open": 23.205,
+    "high": 23.715,
+    "low": 22.97,
+    "volume": 60.321
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 189,
+  "fields": {
+    "date": "2024-10-01",
+    "metal_type": "silver",
+    "close": 23.066,
+    "open": 23.16,
+    "high": 23.29,
+    "low": 22.935,
+    "volume": 41.065
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 190,
+  "fields": {
+    "date": "2024-11-01",
+    "metal_type": "silver",
+    "close": 22.705,
+    "open": 23.085,
+    "high": 23.4,
+    "low": 22.63,
+    "volume": 78.484
+  }
+},
+{
+  "model": "commodities.commodities",
+  "pk": 191,
+  "fields": {
+    "date": "2024-12-01",
+    "metal_type": "silver",
+    "close": 23.329,
+    "open": 22.92,
+    "high": 23.72,
+    "low": 22.915,
+    "volume": 70.306
+  }
+}
+]
