@@ -17,8 +17,6 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
   const loginSuccess = ({ access, refresh, user: userData }) => {
-    console.log('[loginSuccess] userData:', userData)  // ✅ 여기에 찍어보세요
-
     accessToken.value = access
     refreshToken.value = refresh
     user.value = userData

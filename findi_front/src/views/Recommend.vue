@@ -125,7 +125,6 @@ const showToast = (type, message) => {
 const fetchProfileStatus = async () => {
   try {
     const res = await api.get('/accounts/profile/')
-    console.log('profile:', JSON.stringify(res.data))
     profileLoaded.value = !!res.data.user.profile.age
   } catch (e) {
     profileLoaded.value = false
@@ -165,7 +164,6 @@ onMounted(async () => {
     }
 
     banks.value = rawData
-    console.log('banks:', banks.value)
   } catch (e) {
     console.error('은행 상품 로딩 실패:', e)
   }

@@ -407,8 +407,9 @@ def user_portfolio(request):
                 product_type='deposit',
                 deposit_product=product,
                 save_trm=save_trm,
-                interest_rate=product.intr_rate,
-                special_rate=product.intr_rate2,
+                interest_rate=product.intr_rate or 0,
+                special_rate=product.intr_rate2 or 0,
+                etc_note=product.etc_note or '',
             )
 
         elif product_type == 'saving':
@@ -426,8 +427,9 @@ def user_portfolio(request):
                 product_type='saving',
                 saving_product=product,
                 save_trm=save_trm,
-                interest_rate=product.intr_rate,
-                special_rate=product.intr_rate2,
+                interest_rate=product.intr_rate or 0,
+                special_rate=product.intr_rate2 or 0,
+                etc_note=product.etc_note or '',
             )
         else:
             return Response({'error': '알 수 없는 product_type입니다.'}, status=400)

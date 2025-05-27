@@ -33,7 +33,7 @@
           </td>
           <td class="p-2">
             {{ product.intr_rate2 != null && product.intr_rate2 !== '' ? Number(product.intr_rate2).toFixed(2) + '%' :
-            '-' }}
+              '-' }}
           </td>
         </tr>
       </tbody>
