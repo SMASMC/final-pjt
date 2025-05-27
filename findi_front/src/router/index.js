@@ -17,6 +17,7 @@ import ProfileView from '@/views/ProfileView.vue'
 import BankMapsView from '@/views/bankmaps/BankMapsView.vue'
 import ProductsView from '@/views/products/ProductsView.vue'
 import CommoditiesView from '@/views/commodities/CommoditiesView.vue'
+import { useToastStore } from '@/stores/toast'
 
 // 인증 없이 접근 가능한 라우트
 const publicRoutes = [
@@ -118,18 +119,6 @@ const protectedRoutes = [
     component: ProfileView,
     meta: { requiresAuth: true },
   },
-  // {
-  //   path: '/edit-profile',
-  //   name: 'edit-profile',
-  //   component: () => import('@/views/EditProfileView.vue'),
-  //   meta: { requiresAuth: true },
-  // },
-  //   {
-  //   path: '/calendar',
-  //   name: 'calendar',
-  //   component: CalendarView,
-  //   meta: { requiresAuth: true },
-  // }
 ]
 
 // 전체 라우트 합치기
@@ -145,6 +134,7 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const accessToken = authStore.accessToken
   const rawAuth = localStorage.getItem('auth')
+  const toastStore = useToastStore()
 
   let isLoggedIn = false
 
@@ -175,6 +165,7 @@ router.beforeEach((to, from, next) => {
 
   // 보호 라우트는 로그인되어야 허용
   if (!isLoggedIn) {
+    toastStore.showToast('danger', '로그인 후 이용해주세요.')
     return next({ name: 'login' })
   }
 

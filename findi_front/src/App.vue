@@ -20,6 +20,7 @@
   <div class="min-h-screen bg-[#f5f3f7] custom-cursor">
     <NavBar v-if="!hideNav.includes(route.path)" />
     <RouterView />
+    <ToastMessage v-if="toastStore.show" :type="toastStore.type" :message="toastStore.message" />
   </div>
   <!-- Floating Button -->
   <FloatingButton />
@@ -31,7 +32,10 @@ import NavBar from '@/components/NavBar.vue'
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import FloatingButton from '@/components/chatbot/FloatingButton.vue'
+import { useToastStore } from '@/stores/toast'
+import ToastMessage from '@/components/ToastMessage.vue'
 
+const toastStore = useToastStore()
 const route = useRoute()
 
 // 로그인/회원가입 페이지에서는 NavBar 숨김
