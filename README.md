@@ -1,6 +1,7 @@
 # Findi 
 
-<img src="https://github.com/user-attachments/assets/d8f2c2ea-5270-4541-a4d1-49eccaf0431c" width="10%" alt="findi logo"/>
+<img src="https://github.com/user-attachments/assets/bd3f111e-0826-4bdd-9ea9-72a0663a44bb" width="10%" alt="findi logo"/>
+
 
 🖥️ 본 프로젝트는 **SSAFY**(삼성 청년 SW 아카데미) 1학기 관통 프로젝트 결과물입니다
 
@@ -81,7 +82,7 @@
 
 
 ## ERD
-![Findi_ERD](https://github.com/user-attachments/assets/ac858fcf-f434-4746-b767-4b77adecb920)
+<img src="https://github.com/user-attachments/assets/50d07143-6885-42bc-999f-42b65cfb026c"/>
 
 <br>
 
@@ -192,11 +193,13 @@
 
 ## 📺 시연 영상
 > **메인페이지**
-![mainpage](https://github.com/user-attachments/assets/3a027177-8e22-430a-ad51-4667c5589a3f)
+
+![mainpage](https://github.com/user-attachments/assets/8c7228a2-00d0-40e5-a4db-97b4bfd80482)
 
 
 > **이메일 전송**
-![smtp (1)](https://github.com/user-attachments/assets/a692e417-47af-4c4b-882b-2d285142b3b0)
+![smtp (1)](https://github.com/user-attachments/assets/38e6e74a-125e-4f2b-9434-6b376482e40a)
+
 >사용자가 가입한 상품의 금리 정보를 관리자가 수정하면
 >사용자에게 금리가 변동됐음을 알리는 이메일이 발송된다
 
