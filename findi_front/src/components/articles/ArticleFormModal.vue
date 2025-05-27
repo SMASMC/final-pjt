@@ -5,39 +5,24 @@
 
       <form @submit.prevent="handleSubmit">
         <label class="block mb-2 text-sm font-medium">제목</label>
-        <input
-          v-model="title"
-          type="text"
-          class="w-full border border-gray-300 rounded px-3 py-2 mb-4"
-          required
-        />
+        <input v-model="title" type="text" class="w-full border border-gray-300 rounded px-3 py-2 mb-4" required />
 
         <label class="block mb-2 text-sm font-medium">내용</label>
-        <QuillEditor
-          v-model:content="content"
-          toolbar="full"
-          contentType="html"
-          :style="{ height: '200px' }"
-        />
+        <QuillEditor v-model:content="content" toolbar="full" contentType="html" :style="{ height: '200px' }" />
 
         <div class="mt-6 flex justify-end gap-2">
-          <button
-            type="button"
-            @click="$emit('close')"
-            class="px-4 py-2 border rounded hover:bg-gray-100"
-          >
+          <button type="button" @click="$emit('close')" class="px-4 py-2 border rounded hover:bg-gray-100">
             취소
           </button>
-          <button
-            type="submit"
-            class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
-          >
+          <button type="submit" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600">
             생성
           </button>
         </div>
       </form>
     </div>
   </div>
+  <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
+
 </template>
 
 <script setup>
@@ -45,11 +30,18 @@ import { ref } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import api from '@/api/axios'
+import ToastMessage from '../ToastMessage.vue'
 
 const emit = defineEmits(['close', 'created'])
 
 const title = ref('')
 const content = ref('')
+
+const toast = ref({ show: false, type: 'success', message: '' })
+const showToast = (type, message) => {
+  toast.value = { type, message, show: true }
+  setTimeout(() => (toast.value.show = false), 3000)
+}
 
 const handleSubmit = async () => {
   try {
@@ -59,7 +51,7 @@ const handleSubmit = async () => {
     })
     emit('created')
   } catch (err) {
-    alert('게시글 등록 실패')
+    showToast('danger', '내용을 채워주세요')
   }
 }
 </script>

@@ -9,13 +9,8 @@
       <!-- 메뉴 -->
       <ul class="menu-list font-bmjua">
         <li v-for="(item, index) in menuItems" :key="index">
-          <router-link
-            :to="item.to"
-            class="menu-link"
-            :class="
-              router.currentRoute.value.path === item.to ? 'menu-link-active' : 'menu-link-inactive'
-            "
-          >
+          <router-link :to="item.to" class="menu-link" :class="router.currentRoute.value.path === item.to ? 'menu-link-active' : 'menu-link-inactive'
+            ">
             {{ item.label }}
           </router-link>
         </li>
@@ -30,10 +25,8 @@
       <!-- 로그인이 된 경우 -->
       <div v-else class="flex items-center gap-3">
         <!-- 프로필 버튼 -->
-        <button
-          @click="goToProfile"
-          class="flex items-center bg-[#8A69E1] text-white hover:bg-[#8A69E1]/90 transition rounded-full space-x-1 pr-4 cursor-pointer"
-        >
+        <button @click="goToProfile"
+          class="flex items-center bg-[#8A69E1] text-white hover:bg-[#8A69E1]/90 transition rounded-full space-x-1 pr-4 cursor-pointer">
           <img :src="profileImage" alt="프로필" class="w-10 h-10 rounded-full object-cover" />
           <span class="w-full text-sm font-light font-bmjua">{{ userName }} 님</span>
         </button>
@@ -80,7 +73,7 @@ const menuItems = [
   { label: '은행 찾기', to: '/bankmaps' },
   { label: '예/적금 상품 조회', to: '/products' },
   { label: '주식 정보 영상 조회', to: '/videosearch' },
-  { label: '상품 게시판', to: '/articles' },
+  { label: '자유 게시판', to: '/articles' },
   { label: '금/은 가격 조회', to: '/commodities' },
   { label: '5대 금융 상품 & 맞춤 조회', to: '/recommend' }
 ]
