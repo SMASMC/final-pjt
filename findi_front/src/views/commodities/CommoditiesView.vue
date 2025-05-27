@@ -46,7 +46,7 @@ const showToast = (type, message) => {
   setTimeout(() => (toast.value.show = false), 3000)
 }
 
-// ✅ 금/은 버튼 클릭 또는 onMounted에서 호출
+//  금/은 버튼 클릭 또는 onMounted에서 호출
 const fetchData = async (metalType) => {
   errorMsg.value = ''
   chartData.value = null
@@ -57,7 +57,7 @@ const fetchData = async (metalType) => {
   const minDate = new Date(minDateStr)
   const maxDate = new Date(maxDateStr)
 
-  // ✅ 실제 요청에 사용할 날짜 (비어 있으면 기본값으로 대체)
+  //  실제 요청에 사용할 날짜 (비어 있으면 기본값으로 대체)
   const effectiveStart = start.value || minDateStr
   const effectiveEnd = end.value || maxDateStr
 

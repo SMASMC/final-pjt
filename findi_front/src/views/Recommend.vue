@@ -80,7 +80,7 @@ const goToProfile = () => {
 }
 
 const banks = ref({})
-// ✅ 은행명과 로고 경로 매핑
+//  은행명과 로고 경로 매핑
 const bankLogos = {
   국민은행: kbLogo,
   농협은행주식회사: nhLogo,

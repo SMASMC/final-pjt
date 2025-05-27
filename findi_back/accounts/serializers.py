@@ -23,7 +23,7 @@ class CustomLoginSerializer(LoginSerializer):
         if not user:
             raise serializers.ValidationError('이메일 또는 비밀번호가 올바르지 않습니다.')
 
-        self.user = user  # ✅ 명시적으로 self.user 지정
+        self.user = user  #  명시적으로 self.user 지정
         return attrs
 
 # 회원 가입시 필요한 serializer

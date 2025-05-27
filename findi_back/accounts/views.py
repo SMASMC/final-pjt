@@ -154,7 +154,7 @@ def google_login_callback(request):
         user.set_unusable_password()
         user.save()
         profile = UserProfile(user=user)
-        # ✅ 프로필 이미지 다운로드 후 저장
+        #  프로필 이미지 다운로드 후 저장
         if profile_image:
             response = requests.get(profile_image)
             if response.status_code == 200:
@@ -237,7 +237,7 @@ def kakao_login_callback(request):
         user.save()
         profile = UserProfile(user=user)
 
-        # ✅ 프로필 이미지 다운로드 후 저장
+        #  프로필 이미지 다운로드 후 저장
         if profile_image_url:
             response = requests.get(profile_image_url)
             if response.status_code == 200:
@@ -354,7 +354,7 @@ def user_profile(request):
     user = request.user
     profile, _ = UserProfile.objects.get_or_create(user=user)
 
-    # ✅ GET: User + Profile 데이터 반환
+    #  GET: User + Profile 데이터 반환
     if request.method == 'GET':
         serializer = UserWithProfileSerializer(user)
         refresh = RefreshToken.for_user(user)
@@ -364,7 +364,7 @@ def user_profile(request):
             'user': serializer.data
         }, status=200)
 
-    # ✅ PUT: UserProfile 정보 수정
+    #  PUT: UserProfile 정보 수정
     if request.method == 'PUT':
         serializer = UserProfileUpdateSerializer(profile, data=request.data, partial=True)
         if serializer.is_valid():

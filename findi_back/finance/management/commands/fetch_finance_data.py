@@ -138,4 +138,4 @@ class Command(BaseCommand):
             with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(merged_data, f, ensure_ascii=False, indent=2)
 
-            self.stdout.write(self.style.SUCCESS(f"✅ {category} 저장 완료"))
+            self.stdout.write(self.style.SUCCESS(f" {category} 저장 완료"))

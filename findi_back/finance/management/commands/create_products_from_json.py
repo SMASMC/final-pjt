@@ -26,4 +26,4 @@ class Command(BaseCommand):
         load_and_save(RentHouseLoanProduct, 'finance/data_cache/finance_cache_rent.json')
         load_and_save(CreditLoanProduct, 'finance/data_cache/finance_cache_credit.json')
 
-        self.stdout.write(self.style.SUCCESS('✅ 전체 금융 상품 데이터 저장 완료!'))
+        self.stdout.write(self.style.SUCCESS(' 전체 금융 상품 데이터 저장 완료!'))

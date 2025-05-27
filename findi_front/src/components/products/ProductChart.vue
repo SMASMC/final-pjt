@@ -21,7 +21,7 @@ import {
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 const props = defineProps({
-  portfolios: Array,
+  portfolios: Array
 })
 
 const chartData = computed(() => {
@@ -36,7 +36,7 @@ const chartData = computed(() => {
   let countBasic = 0
   let countSpecial = 0
 
-  props.portfolios.forEach(p => {
+  props.portfolios.forEach((p) => {
     labels.push(p.product_name)
 
     // Decimal 타입으로 들어오는 값은 toNumber 필요 없음
@@ -72,7 +72,7 @@ const chartData = computed(() => {
           '#FFB84C', // 평균 금리 색상
           ...Array(props.portfolios.length).fill('#9691B5') // 나머지
         ],
-        data: basicRates,
+        data: basicRates
       },
       {
         label: '최고 우대금리 금리',
@@ -80,24 +80,21 @@ const chartData = computed(() => {
           '#EBD04F', // 평균 우대 금리 색상
           ...Array(props.portfolios.length).fill('#D298FA')
         ],
-        data: specialRates,
-      },
+        data: specialRates
+      }
     ]
   }
-
 })
-
 
 const chartOptions = {
   responsive: true,
   plugins: {
     legend: { position: 'top' },
-    title: { display: true, text: '가입한 상품 금리', font: { size: 25 } },
+    title: { display: true, text: '가입한 상품 금리', font: { size: 25 } }
   },
   scales: {
     y: {
-      beginAtZero: true,
-      max: 5
+      beginAtZero: true
     }
   }
 }

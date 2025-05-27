@@ -2,7 +2,7 @@
 
 <template>
   <div class="max-w-5xl mx-auto px-6 pt-28 pb-12">
-    <!-- ✅ pt-28로 상단 여백 추가 -->
+    <!--  pt-28로 상단 여백 추가 -->
     <button class="text-purple-600 font-semibold mb-6 hover:underline" @click="goBack">
       ← 뒤로가기
     </button>
@@ -86,7 +86,7 @@ const fetchVideoDetail = async () => {
     }
     video.value = response.data.items[0]
 
-    // // ✅ 저장 여부 체크 로직 추가
+    // //  저장 여부 체크 로직 추가
     const check = await api.get(`/videos/later-videos/${videoId}/`)
     isSaved.value = check.data.isSaved
   } catch (error) {
@@ -99,7 +99,7 @@ const toggleSave = async () => {
 
   try {
     if (isSaved.value) {
-      await api.delete(`/videos/later-videos/${videoId}/`) // ✅ axios → api
+      await api.delete(`/videos/later-videos/${videoId}/`) //  axios → api
     } else {
       await api.post('/videos/later-videos/', {
         videoId,

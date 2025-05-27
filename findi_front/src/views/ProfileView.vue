@@ -6,24 +6,32 @@
 
     <!-- 프로필 이미지 업로드 -->
     <div class="flex items-center mb-4">
-      <img v-if="previewImage" :src="previewImage" alt="Profile"
-        class="w-24 h-24 rounded-full object-cover border mr-4" />
+      <img
+        v-if="previewImage"
+        :src="previewImage"
+        alt="Profile"
+        class="w-24 h-24 rounded-full object-cover border mr-4"
+      />
       <input type="file" @change="handleImageUpload" accept="image/*" />
     </div>
 
-    <label class="block mb-2">나이:
+    <label class="block mb-2"
+      >나이:
       <input v-model="age" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-2">월 수입 (만원):
+    <label class="block mb-2"
+      >월 수입 (만원):
       <input v-model="monthly_income" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-4">모아둔 돈 (만원):
+    <label class="block mb-4"
+      >모아둔 돈 (만원):
       <input v-model="savings" type="number" required class="w-full p-2 border rounded" />
     </label>
 
-    <label class="block mb-2">위험 선호도:
+    <label class="block mb-2"
+      >위험 선호도:
       <select v-model="risk_tolerance" class="w-full p-2 border rounded">
         <option value="low">낮음</option>
         <option value="medium">중간</option>
@@ -31,7 +39,8 @@
       </select>
     </label>
 
-    <label class="block mb-2">재무 목표:
+    <label class="block mb-2"
+      >재무 목표:
       <select v-model="financial_goal" class="w-full p-2 border rounded">
         <option value="saving">저축</option>
         <option value="investment">투자</option>
@@ -39,11 +48,14 @@
       </select>
     </label>
 
-    <label class="block mb-4">관심 금융 상품:
+    <label class="block mb-4"
+      >관심 금융 상품:
       <div class="flex gap-2 mt-1">
         <label><input type="checkbox" value="deposit" v-model="interested_products" /> 예금</label>
         <label><input type="checkbox" value="loan" v-model="interested_products" /> 대출</label>
-        <label><input type="checkbox" value="insurance" v-model="interested_products" /> 보험</label>
+        <label
+          ><input type="checkbox" value="insurance" v-model="interested_products" /> 보험</label
+        >
         <label><input type="checkbox" value="fund" v-model="interested_products" /> 펀드</label>
       </div>
     </label>
@@ -52,7 +64,11 @@
       저장
     </button>
 
-    <button type="button" @click="showModal = true" class="mt-4 w-full text-sm text-red-500 underline">
+    <button
+      type="button"
+      @click="showModal = true"
+      class="mt-4 w-full text-sm text-red-500 underline"
+    >
       회원 탈퇴
     </button>
   </form>
@@ -63,18 +79,26 @@
     <ProductJoined :portfolios="portfolios" @product-click="openProductModal" />
   </div>
 
-
+  <ProductModal
+    v-if="showProductModal"
+    :product="selectedProduct"
+    @close="showProductModal = false"
+    @updated="loadPortfolios"
+  />
   <!-- 상품 금리 차트 -->
-  <div class="w-[90%] mx-auto mt-8">
+  <div class="max-w-3xl mx-auto px-4 mt-12">
     <ProductChart :portfolios="portfolios" />
   </div>
 
-  <ConfirmModal :show="showModal" title="회원 탈퇴 확인" content="정말로 회원 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다." confirmText="탈퇴하기"
-    cancelText="취소" @confirm="deleteAccount" @cancel="showModal = false" />
-
-  <ProductModal v-if="showProductModal" :product="selectedProduct" @close="showProductModal = false"
-    @updated="loadPortfolios" />
-
+  <ConfirmModal
+    :show="showModal"
+    title="회원 탈퇴 확인"
+    content="정말로 회원 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+    confirmText="탈퇴하기"
+    cancelText="취소"
+    @confirm="deleteAccount"
+    @cancel="showModal = false"
+  />
 
   <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
 </template>
@@ -101,7 +125,6 @@ const portfolios = ref([])
 const selectedProduct = ref(null)
 const showProductModal = ref(false)
 
-
 const showModal = ref(false)
 const toast = ref({ show: false, type: 'success', message: '' })
 
@@ -127,7 +150,6 @@ const formatDate = (date) => {
 const loadProfile = async () => {
   try {
     const res = await api.get('/accounts/profile/')
-    console.log('profile:', JSON.stringify(res.data))
     const profile = res.data.user.profile
     age.value = profile.age
     risk_tolerance.value = profile.risk_tolerance
@@ -210,6 +232,23 @@ const loadPortfolios = async () => {
 
 // 상품 상세모달
 const openProductModal = (product) => {
+  //  portfolio_id, product_type이 없으면 추출 시도
+  if (!product.portfolio_id) {
+    const matched = portfolios.value.find((p) => p.id === product.id)
+    if (matched) {
+      selectedProduct.value = {
+        ...product,
+        portfolio_id: matched.id,
+        product_type: matched.product_type,
+        deposit_product: matched.deposit_product,
+        saving_product: matched.saving_product
+      }
+      showProductModal.value = true
+      return
+    }
+  }
+
+  // 이미 포함된 경우는 그대로 사용
   selectedProduct.value = product
   showProductModal.value = true
 }
@@ -218,7 +257,6 @@ onMounted(() => {
   loadProfile()
   loadPortfolios()
 })
-
 </script>
 
 <style scoped>

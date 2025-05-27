@@ -30,7 +30,7 @@ def banks_products(request):
         company = FinancialCompany.objects.filter(name=name).first()
         if not company:
             print(f"[경고] '{name}' 회사가 DB에 존재하지 않습니다.")
-            response[name] = { "products": [] }  # ✅ 강제로라도 포함
+            response[name] = { "products": [] }  #  강제로라도 포함
             continue
 
         products = FinancialProduct.objects.filter(company=company).order_by('-createdAt')

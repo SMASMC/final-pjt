@@ -33,7 +33,7 @@ class FinanceConfig(AppConfig):
                                 'details': item.get('details', '')
                             }
                         )
-                print("✅ JSON 기반 금융상품 초기화 완료")
+                print(" JSON 기반 금융상품 초기화 완료")
             else:
                 print("📡 금융상품 JSON 없음 → API fetch 및 등록 시작")
                 call_command('fetch_finance_data')

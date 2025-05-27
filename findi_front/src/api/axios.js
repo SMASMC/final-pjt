@@ -99,25 +99,25 @@ export default api
 /*
 📌 사용 예시
 
-✅ GET 요청 (사용자 정보 가져오기)
+ GET 요청 (사용자 정보 가져오기)
 await api.get('/users/1')
 
-✅ POST 요청 (게시글 생성)
+ POST 요청 (게시글 생성)
 await api.post('/posts/', {
   title: '새 글 제목',
   content: '본문 내용',
 })
 
-✅ PUT 요청 (게시글 수정)
+ PUT 요청 (게시글 수정)
 await api.put('/posts/1/', {
   title: '수정된 제목',
   content: '수정된 내용',
 })
 
-✅ DELETE 요청 (게시글 삭제)
+ DELETE 요청 (게시글 삭제)
 await api.delete('/posts/1/')
 
-✅ 인증 토큰 자동 갱신 포함
+ 인증 토큰 자동 갱신 포함
 - access_token이 만료되면 refresh_token으로 자동 갱신 후 요청 재시도됨
 - 실패 시 localStorage 비우고 로그인 페이지로 이동
 */
