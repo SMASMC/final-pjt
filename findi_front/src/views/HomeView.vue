@@ -8,7 +8,8 @@
       <div class="mb-12">
         <h1 class="text-4xl md:text-5xl font-bold leading-snug">
           <span class="text-[#302770] font-bmjua">금융 상품의 모든 것,</span><br />
-          <span class="text-[#8A69E1]">Findi</span> <span class="font-bmjua">에서</span><br />
+          <span class="text-[#8A69E1] font-symbol">Findi</span> <span class="font-bmjua">에서</span
+          ><br />
           <span class="font-bmjua">쉽고 간편하게</span>
         </h1>
       </div>
@@ -267,31 +268,6 @@
     </div>
   </section>
 
-  <!-- Section 5: 상품 소개 -->
-  <!--<section ref="section5"
-      class="min-h-screen bg-gradient-to-b from-[#ffffff] to-[#c6fff6] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-80">
-      //왼쪽 이미지 
-      <transition name="fade-slide">
-        <img v-if="sectionAnimations[4]" src="@/assets/main_page/custom_products.png" alt="맞춤 상품"
-          class="w-[300px] md:w-[400px]" />
-      </transition>
-
-       //오른쪽 텍스트 및 버튼 
-      <transition name="fade-slide">
-        <div v-if="sectionAnimations[4]" class="text-center md:text-left items-center flex flex-col">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6 font-bmjua text-center">
-            당신에게 딱 맞는 상품을 조회하세요
-          </h2>
-          <button
-            class="bg-[#00B299] text-white px-6 py-3 rounded-full font-semibold text-sm cursor-pointer hover:bg-[#009a88] transition duration-200"
-            @click="goToRecommend">
-            맞춤 상품 조회
-          </button>
-        </div>
-      </transition>
-    </section>
-  -->
-
   <!-- Section 7: 5대 은행 맞춤상품 조회 -->
   <section
     ref="section7"
@@ -365,7 +341,7 @@ const scrollToSection = (num) => {
 }
 
 // 페이지 이동용 버튼
-const goToBanks = () => router.push('/banks')
+const goToBanks = () => router.push('/bankmaps')
 const goToProducts = () => router.push('/products')
 const goToVideos = () => router.push('/videosearch')
 const goToarticles = () => router.push('/articles')

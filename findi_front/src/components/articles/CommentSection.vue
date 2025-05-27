@@ -4,9 +4,20 @@
 
     <!-- 댓글 작성 폼 -->
     <form @submit.prevent="submitComment" class="mb-6">
-      <textarea v-model="newComment" placeholder="댓글을 입력하세요" class="w-full border rounded p-2" rows="3" required></textarea>
+      <textarea
+        v-model="newComment"
+        placeholder="댓글을 입력하세요"
+        class="w-full border rounded p-2"
+        rows="3"
+        required
+      ></textarea>
       <div class="flex justify-end mt-2">
-        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">댓글 작성</button>
+        <button
+          type="submit"
+          class="bg-[#8A69E1] text-white px-4 py-2 rounded hover:bg-[#8A69E1]/90 cursor-pointer"
+        >
+          댓글 작성
+        </button>
       </div>
     </form>
 
@@ -15,30 +26,45 @@
       <li v-if="comments.length === 0" class="text-gray-400">아직 댓글이 없습니다.</li>
       <li v-for="comment in visibleComments" :key="comment.id" class="border-b py-2">
         <div class="text-sm">
-          <strong>{{ comment.user?.userName || '알 수 없음' }}</strong>
+          <strong class="block mb-1">{{ comment.user?.userName || '알 수 없음' }}</strong>
           <template v-if="editingCommentId === comment.id">
-            <textarea
-              v-model="editedContent"
-              class="w-full border mt-1 rounded p-1"
-              rows="2"
-            />
+            <textarea v-model="editedContent" class="w-full border rounded p-1" rows="2" />
           </template>
           <template v-else>
-            {{ comment.content }}
+            <p class="whitespace-pre-wrap">{{ comment.content }}</p>
           </template>
         </div>
+
         <p class="text-xs text-gray-400">{{ formatDate(comment.created_at) }}</p>
         <div class="text-xs mt-1 flex gap-2">
-          <button v-if="comment.is_author && editingCommentId !== comment.id" @click="startEditing(comment)" class="text-blue-500 hover:underline">수정</button>
-          <button v-if="comment.is_author && editingCommentId === comment.id" @click="submitEdit(comment.id)" class="text-green-500 hover:underline">저장</button>
-          <button v-if="comment.is_author" @click="deleteComment(comment.id)" class="text-red-500 hover:underline">삭제</button>
+          <button
+            v-if="comment.is_author && editingCommentId !== comment.id"
+            @click="startEditing(comment)"
+            class="text-blue-500 hover:underline cursor-pointer"
+          >
+            수정
+          </button>
+          <button
+            v-if="comment.is_author && editingCommentId === comment.id"
+            @click="submitEdit(comment.id)"
+            class="text-green-500 hover:underline cursor-pointer"
+          >
+            저장
+          </button>
+          <button
+            v-if="comment.is_author"
+            @click="deleteComment(comment.id)"
+            class="text-red-500 hover:underline cursor-pointer"
+          >
+            삭제
+          </button>
         </div>
       </li>
     </ul>
 
     <!-- 더보기/접기 -->
     <div v-if="comments.length > visibleCount" class="text-right mt-2">
-      <button @click="toggleComments" class="text-sm text-purple-600 hover:underline">
+      <button @click="toggleComments" class="text-sm text-[#8A69E1] hover:underline cursor-pointer">
         {{ isExpanded ? '접기' : '더보기' }}
       </button>
     </div>
@@ -76,7 +102,7 @@ const loadComments = async () => {
   try {
     const { data } = await api.get(`/articles/${props.articleId}/comments/`)
     comments.value = data
-    isExpanded.value = false  // 초기화 시 접힌 상태로
+    isExpanded.value = false // 초기화 시 접힌 상태로
   } catch (err) {
     console.error('댓글 로드 실패:', err)
   }
@@ -101,7 +127,7 @@ const deleteComment = async (id) => {
     await api.delete(`/articles/${props.articleId}/comments/${id}/`, {
       headers: { Authorization: `Bearer ${authStore.accessToken}` }
     })
-    comments.value = comments.value.filter(c => c.id !== id)
+    comments.value = comments.value.filter((c) => c.id !== id)
     emit('comment-deleted', id)
   } catch (err) {
     alert('댓글 삭제 실패')
@@ -119,7 +145,7 @@ const submitEdit = async (commentId) => {
     const { data } = await api.put(`/articles/${props.articleId}/comments/${commentId}/`, payload, {
       headers: { Authorization: `Bearer ${authStore.accessToken}` }
     })
-    const idx = comments.value.findIndex(c => c.id === commentId)
+    const idx = comments.value.findIndex((c) => c.id === commentId)
     if (idx !== -1) comments.value[idx] = data
     editingCommentId.value = null
     editedContent.value = ''
@@ -138,7 +164,10 @@ onMounted(() => {
   loadComments()
 })
 
-watch(() => props.articleId, (newId) => {
-  if (newId) loadComments()
-})
+watch(
+  () => props.articleId,
+  (newId) => {
+    if (newId) loadComments()
+  }
+)
 </script>

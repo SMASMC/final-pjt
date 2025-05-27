@@ -1,1 +1,32 @@
-@import './base.css';
+@import "tailwindcss";
+@import "flowbite";
+
+@font-face {
+  font-family: 'BMJUA';
+  src: url('/fonts/BMJUA_otf.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 기본 폰트를 BMJUA로 설정 */
+@layer base {
+  html {
+    font-family: 'BMJUA', sans-serif;
+  }
+}
+
+/* 유틸리티 클래스도 원하면 추가 */
+@layer utilities {
+    .font-bmjua {
+      font-family: 'BMJUA', sans-serif;
+    }
+  
+    .font-symbol {
+      font-family: system-ui, Arial, sans-serif;
+    }
+  }
+
+body {
+  font-family: 'BMJUA', sans-serif;
+}

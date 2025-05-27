@@ -1,8 +1,6 @@
 <!-- src/views/articles/ArticleView.vue -->
 <template>
-  <div class="max-w-6xl mx-auto p-4 pt-40">
-    <h1 class="text-2xl font-bold mb-4">자유 게시판</h1>
-
+  <div class="max-w-6xl mx-auto p-4 pt-20">
     <!-- 글 생성 버튼 -->
     <div class="flex justify-end mb-4">
       <button
@@ -25,7 +23,6 @@
   </div>
 
   <ToastMessage v-if="toast.visible" :type="toast.type" :message="toast.message" />
-
 </template>
 
 <script setup>
@@ -62,5 +59,4 @@ const handleArticleCreated = () => {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -4,9 +4,8 @@
   <div class="max-w-3xl mx-auto pt-40">
     <h1 class="text-2xl font-bold mb-4">{{ article.title }}</h1>
     <p class="text-sm text-gray-500 mb-4">
-      작성자: {{ article.user?.userName || '알 수 없음' }} |
-      작성일: {{ formatDate(article.created_at) }} |
-      조회수: {{ article.views }}
+      작성자: {{ article.user?.userName || '알 수 없음' }} | 작성일:
+      {{ formatDate(article.created_at) }} | 조회수: {{ article.views }}
     </p>
 
     <div class="prose whitespace-pre-line mb-6" v-html="article.content"></div>
@@ -14,18 +13,17 @@
     <div v-if="article.is_author" class="flex justify-end gap-2 mb-6">
       <button
         @click="isEditOpen = true"
-        class="text-sm px-3 py-1 border rounded hover:bg-gray-100"
+        class="text-sm px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer"
       >
         수정
       </button>
       <button
         @click="deleteArticle"
-        class="text-sm px-3 py-1 border rounded text-red-500 hover:bg-red-50"
+        class="text-sm px-3 py-1 border rounded text-red-500 hover:bg-red-50 cursor-pointer"
       >
         삭제
       </button>
     </div>
-
 
     <CommentSection
       v-if="article.id"
@@ -33,7 +31,6 @@
       @comment-added="fetchArticle"
       @comment-deleted="fetchArticle"
     />
-
 
     <ArticleEditModal
       v-if="isEditOpen"
@@ -47,6 +44,15 @@
 
   <ToastMessage v-if="toast.visible" :type="toast.type" :message="toast.message" />
 
+  <ConfirmModal
+    :show="showModal"
+    title="게시물 삭제 확인"
+    content="정말로 게시물을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+    confirmText="삭제하기"
+    cancelText="취소"
+    @confirm="confirmDeleteArticle"
+    @cancel="showModal = false"
+  />
 </template>
 
 <script setup>
@@ -57,7 +63,9 @@ import { useAuthStore } from '@/stores/auth'
 import CommentSection from '@/components/articles/CommentSection.vue'
 import ArticleEditModal from '@/components/articles/ArticleEditModal.vue'
 import ToastMessage from '@/components/ToastMessage.vue'
+import ConfirmModal from '@/components/ConfirmModal.vue'
 
+const showModal = ref(false)
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
@@ -98,9 +106,13 @@ const delayedViewCount = async () => {
   timer = setTimeout(async () => {
     if (!hasViewed) {
       try {
-        await api.post(`/articles/${route.params.id}/increment-views/`, {}, {
-          headers: { Authorization: `Bearer ${authStore.accessToken}` }
-        })
+        await api.post(
+          `/articles/${route.params.id}/increment-views/`,
+          {},
+          {
+            headers: { Authorization: `Bearer ${authStore.accessToken}` }
+          }
+        )
         hasViewed = true
         article.value.views += 1
       } catch (error) {
@@ -109,21 +121,24 @@ const delayedViewCount = async () => {
     }
   }, 3000)
 }
+const deleteArticle = () => {
+  showModal.value = true
+}
 
-const deleteArticle = async () => {
-  if (!confirm('정말 삭제하시겠습니까?')) return
+const confirmDeleteArticle = async () => {
   try {
     await api.delete(`/articles/${route.params.id}/`, {
       headers: { Authorization: `Bearer ${authStore.accessToken}` }
     })
     showToast('success', '삭제 완료')
 
-    // 토스트 표시를 위해 잠시 기다린 후 페이지 이동
     setTimeout(() => {
       router.push('/articles')
-    }, 1000) // 1초
+    }, 1000)
   } catch (error) {
     showToast('danger', '삭제 실패')
+  } finally {
+    showModal.value = false
   }
 }
 

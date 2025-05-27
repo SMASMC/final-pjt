@@ -9,8 +9,13 @@
       <!-- 메뉴 -->
       <ul class="menu-list font-bmjua">
         <li v-for="(item, index) in menuItems" :key="index">
-          <router-link :to="item.to" class="menu-link" :class="router.currentRoute.value.path === item.to ? 'menu-link-active' : 'menu-link-inactive'
-            ">
+          <router-link
+            :to="item.to"
+            class="menu-link"
+            :class="
+              router.currentRoute.value.path === item.to ? 'menu-link-active' : 'menu-link-inactive'
+            "
+          >
             {{ item.label }}
           </router-link>
         </li>
@@ -19,14 +24,16 @@
       <!-- 버튼 -->
       <!-- 로그인이 안 된 경우 -->
       <div v-if="!isLoggedIn" class="button-group">
-        <button class="btn-signup font-bmjua" @click="goToSignup">회원 가입</button>
-        <button class="btn-login font-bmjua" @click="goToLogin">로그인</button>
+        <button class="btn-signup font-bmjua cursor-pointer" @click="goToSignup">회원 가입</button>
+        <button class="btn-login font-bmjua cursor-pointer" @click="goToLogin">로그인</button>
       </div>
       <!-- 로그인이 된 경우 -->
       <div v-else class="flex items-center gap-3">
         <!-- 프로필 버튼 -->
-        <button @click="goToProfile"
-          class="flex items-center bg-[#8A69E1] text-white hover:bg-[#8A69E1]/90 transition rounded-full space-x-1 pr-4 cursor-pointer">
+        <button
+          @click="goToProfile"
+          class="flex items-center bg-[#8A69E1] text-white hover:bg-[#8A69E1]/90 transition rounded-full space-x-1 pr-4 cursor-pointer"
+        >
           <img :src="profileImage" alt="프로필" class="w-10 h-10 rounded-full object-cover" />
           <span class="w-full text-sm font-light font-bmjua">{{ userName }} 님</span>
         </button>
@@ -69,7 +76,6 @@ const goToLogout = () => {
 const goToProfile = () => router.push('/profile')
 
 const menuItems = [
-  { label: 'HOME', to: '/' },
   { label: '은행 찾기', to: '/bankmaps' },
   { label: '예/적금 상품 조회', to: '/products' },
   { label: '주식 정보 영상 조회', to: '/videosearch' },

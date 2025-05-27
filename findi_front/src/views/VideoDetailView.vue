@@ -3,7 +3,7 @@
 <template>
   <div class="max-w-5xl mx-auto px-6 pt-28 pb-12">
     <!--  pt-28로 상단 여백 추가 -->
-    <button class="text-purple-600 font-semibold mb-6 hover:underline" @click="goBack">
+    <button class="text-[#8A69E1] font-semibold mb-6 hover:underline" @click="goBack">
       ← 뒤로가기
     </button>
 

@@ -19,7 +19,7 @@
       </p>
       <button
         @click="goToProfile"
-        class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition"
+        class="bg-[#8A69E1]/90 text-white px-6 py-3 rounded-full text-lg hover:bg-[#8A69E1]/80 transition"
       >
         프로필로 가기
       </button>
@@ -47,9 +47,10 @@
       <div class="text-center mt-10">
         <button
           @click="fetchAIRecommendations"
-          class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition"
+          class="bg-[#8A69E1]/90 text-white px-6 py-3 rounded-full text-lg hover:bg-[#8A69E1]/80 transition cursor-pointer"
         >
-          AI 맞춤 상품 찾아보기
+          <span v-if="isLoading">불러오는 중...</span>
+          <span v-else>AI 맞춤 상품 찾아보기</span>
         </button>
       </div>
     </div>
@@ -78,7 +79,7 @@ const router = useRouter()
 const goToProfile = () => {
   router.push('/profile')
 }
-
+const isLoading = ref(false)
 const banks = ref({})
 //  은행명과 로고 경로 매핑
 const bankLogos = {
@@ -133,12 +134,15 @@ const fetchProfileStatus = async () => {
 
 const fetchAIRecommendations = async () => {
   try {
+    isLoading.value = true
     const res = await api.get('/finance/find-ai-fit-products/')
     aiProducts.value = res.data.products
     aiMessage.value = res.data.ai_recommendation
     showToast('success', 'AI 추천 결과를 불러왔습니다.')
   } catch (e) {
     showToast('danger', 'AI 추천 호출 실패')
+  } finally {
+    isLoading.value = false
   }
 }
 

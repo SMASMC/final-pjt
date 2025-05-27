@@ -14,7 +14,7 @@
       @wheel.stop
     >
       <!-- 헤더 -->
-      <div class="chat-header bg-purple-500 text-white p-3 font-bold rounded-t-2xl">
+      <div class="chat-header bg-[#8A69E1] text-white p-3 font-bold rounded-t-2xl">
         무엇이 궁금하신가요?
       </div>
 

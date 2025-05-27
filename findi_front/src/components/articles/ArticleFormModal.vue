@@ -5,16 +5,33 @@
 
       <form @submit.prevent="handleSubmit">
         <label class="block mb-2 text-sm font-medium">제목</label>
-        <input v-model="title" type="text" class="w-full border border-gray-300 rounded px-3 py-2 mb-4" required />
+        <input
+          v-model="title"
+          type="text"
+          class="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+          required
+        />
 
         <label class="block mb-2 text-sm font-medium">내용</label>
-        <QuillEditor v-model:content="content" toolbar="full" contentType="html" :style="{ height: '200px' }" />
+        <QuillEditor
+          v-model:content="content"
+          toolbar="full"
+          contentType="html"
+          :style="{ height: '200px' }"
+        />
 
         <div class="mt-6 flex justify-end gap-2">
-          <button type="button" @click="$emit('close')" class="px-4 py-2 border rounded hover:bg-gray-100">
+          <button
+            type="button"
+            @click="$emit('close')"
+            class="px-4 py-2 border rounded hover:bg-gray-100 cursor-pointer"
+          >
             취소
           </button>
-          <button type="submit" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600">
+          <button
+            type="submit"
+            class="px-4 py-2 bg-[#8A69E1] text-white rounded hover:bg-[#8A69E1]/90 cursor-pointer"
+          >
             생성
           </button>
         </div>
@@ -22,7 +39,6 @@
     </div>
   </div>
   <ToastMessage v-if="toast.show" :type="toast.type" :message="toast.message" />
-
 </template>
 
 <script setup>

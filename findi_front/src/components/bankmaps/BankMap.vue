@@ -1,13 +1,19 @@
 <template>
   <div class="flex w-[90%] h-[90vh] mx-auto p-4 gap-4">
     <!-- 좌측 드롭다운 패널 -->
-    <div class="w-[340px] shrink-0 space-y-3 bg-white rounded-xl border border-purple-300 p-4 shadow-md">
+    <div
+      class="w-[340px] shrink-0 space-y-3 bg-white rounded-xl border border-purple-300 p-4 shadow-md"
+    >
       <div class="flex flex-col">
         <h1 class="text-2xl">은행 검색</h1>
-        <br>
+        <br />
 
         <label class="text-sm text-purple-800 mb-1">시/도</label>
-        <select v-model="sido" @change="updateGugunList" class="border border-purple-300 p-2 rounded focus:outline-purple-400">
+        <select
+          v-model="sido"
+          @change="updateGugunList"
+          class="border border-purple-300 p-2 rounded focus:outline-purple-400"
+        >
           <option value="">시/도 선택</option>
           <option v-for="s in dataStore.mapInfo" :key="s.name" :value="s.name">{{ s.name }}</option>
         </select>
@@ -15,7 +21,10 @@
 
       <div class="flex flex-col">
         <label class="text-sm text-purple-800 mb-1">시/군/구</label>
-        <select v-model="gugun" class="border border-purple-300 p-2 rounded focus:outline-purple-400">
+        <select
+          v-model="gugun"
+          class="border border-purple-300 p-2 rounded focus:outline-purple-400"
+        >
           <option value="">시/군/구 선택</option>
           <option v-for="g in dataStore.gugunList" :key="g">{{ g }}</option>
         </select>
@@ -23,17 +32,26 @@
 
       <div class="flex flex-col">
         <label class="text-sm text-purple-800 mb-1">은행</label>
-        <select v-model="bank" class="border border-purple-300 p-2 rounded focus:outline-purple-400">
+        <select
+          v-model="bank"
+          class="border border-purple-300 p-2 rounded focus:outline-purple-400"
+        >
           <option value="">은행 선택</option>
           <option v-for="b in dataStore.bankInfo" :key="b">{{ b }}</option>
         </select>
       </div>
 
       <div class="flex gap-2">
-        <button @click="search" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-full">
+        <button
+          @click="search"
+          class="bg-[#8A69E1]/90 text-white px-4 py-2 rounded hover:bg-[#8A69E1]/80 w-full"
+        >
           검색
         </button>
-        <button @click="goToMyLocation" class="bg-white border border-purple-300 text-purple-700 px-4 py-2 rounded hover:bg-purple-100 w-full">
+        <button
+          @click="goToMyLocation"
+          class="bg-white border border-[#8A69E1]/90 text-[#8A69E1]/90 px-4 py-2 rounded hover:bg-[#8A69E1]/80 w-full"
+        >
           📍현위치
         </button>
       </div>
@@ -94,14 +112,14 @@ onMounted(async () => {
       const loc = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude)
       map = new kakao.maps.Map(document.getElementById('map'), {
         center: loc,
-        level: 4,
+        level: 4
       })
       new kakao.maps.Marker({ map, position: loc })
     })
   } else {
     map = new kakao.maps.Map(document.getElementById('map'), {
       center: new kakao.maps.LatLng(37.49818, 127.027386),
-      level: 3,
+      level: 3
     })
   }
 
@@ -112,14 +130,14 @@ onMounted(async () => {
 })
 
 function updateGugunList() {
-  const selected = dataStore.mapInfo.find(region => region.name === sido.value)
+  const selected = dataStore.mapInfo.find((region) => region.name === sido.value)
   dataStore.gugunList = selected?.countries || []
 }
 
 // 수동 현위치 이동 버튼
 function goToMyLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => {
+    navigator.geolocation.getCurrentPosition((pos) => {
       const loc = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude)
       new kakao.maps.Marker({ map, position: loc })
       map.setCenter(loc)
@@ -136,18 +154,18 @@ function search() {
   const bounds = new kakao.maps.LatLngBounds()
 
   // 기존 마커 제거
-  markers.forEach(m => m.setMap(null))
+  markers.forEach((m) => m.setMap(null))
   markers = []
   selectedPlace.value = null
 
   ps.keywordSearch(query, (result, status) => {
     if (status === kakao.maps.services.Status.OK) {
-      result.forEach(place => {
+      result.forEach((place) => {
         const latlng = new kakao.maps.LatLng(place.y, place.x)
 
         const marker = new kakao.maps.Marker({
           map,
-          position: latlng,
+          position: latlng
         })
 
         // 마커 클릭 시 인포윈도우 + 줌

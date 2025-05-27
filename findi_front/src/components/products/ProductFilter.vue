@@ -23,7 +23,7 @@
     <!-- 필터 적용 버튼 -->
     <button
       @click="applyFilter"
-      class="bg-purple-500 text-white px-5 py-2 rounded hover:bg-purple-600 transition w-full cursor-pointer"
+      class="bg-[#8A69E1] text-white px-5 py-2 rounded hover:bg-[#8A69E1]/90 transition w-full cursor-pointer"
     >
       확인
     </button>
@@ -57,12 +57,12 @@ const bankList = ref([])
 const periodList = ref([])
 
 // 중복 제거된 은행 목록 추출 함수
-const extractBankList = (data) => Array.from(new Set(data.map(item => item.kor_co_nm)))
+const extractBankList = (data) => Array.from(new Set(data.map((item) => item.kor_co_nm)))
 
 // 상품 기간 리스트 추출 함수 (중복 제거 및 오름차순 정렬)
 const extractPeriodList = (data) => {
   const terms = new Set()
-  data.forEach(item => {
+  data.forEach((item) => {
     const term = parseInt(item.save_trm)
     if (!isNaN(term)) terms.add(term)
   })
@@ -80,7 +80,7 @@ const loadFilterData = () => {
 const applyFilter = () => {
   const filter = {}
   if (selectedBank.value) filter.bank = selectedBank.value
-  if (selectedPeriod.value) filter.save_trm = Number(selectedPeriod.value)  // 문자열 → 숫자 변환
+  if (selectedPeriod.value) filter.save_trm = Number(selectedPeriod.value) // 문자열 → 숫자 변환
   emit('filter-changed', filter)
 }
 

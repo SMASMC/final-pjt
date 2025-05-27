@@ -25,13 +25,13 @@
           <button
             type="button"
             @click="$emit('close')"
-            class="px-4 py-2 border rounded hover:bg-gray-100"
+            class="px-4 py-2 border rounded hover:bg-gray-100 cursor-pointer"
           >
             취소
           </button>
           <button
             type="submit"
-            class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+            class="px-4 py-2 bg-[#8A69E1] text-white rounded hover:bg-[#8A69E1]/90 cursor-pointer"
           >
             수정 완료
           </button>
@@ -75,7 +75,7 @@ const handleSubmit = async () => {
     emit('updated')
     emit('close')
   } catch (error) {
-    alert('수정 실패')
+    showToast('danger', '수정 실패')
   }
 }
 </script>

@@ -20,20 +20,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in sortedProducts" :key="product.fin_prdt_cd + '-' + product.save_trm"
+        <tr
+          v-for="product in sortedProducts"
+          :key="product.fin_prdt_cd + '-' + product.save_trm"
           @click="$emit('row-click', product)"
-          class="hover:bg-gray-100 cursor-pointer text-center hover:scale-105 duration-400">
+          class="hover:bg-gray-100 cursor-pointer text-center hover:scale-105 duration-400"
+        >
           <td class="p-2">{{ product.dcls_month }}</td>
           <td class="p-2">{{ product.kor_co_nm }}</td>
           <td class="p-2 text-left">{{ product.fin_prdt_nm }}</td>
           <td class="p-2">{{ product.save_trm }}개월</td>
           <td class="p-2">
-            {{ product.intr_rate != null && product.intr_rate !== '' ? Number(product.intr_rate).toFixed(2) + '%' : '-'
+            {{
+              product.intr_rate != null && product.intr_rate !== ''
+                ? Number(product.intr_rate).toFixed(2) + '%'
+                : '-'
             }}
           </td>
           <td class="p-2">
-            {{ product.intr_rate2 != null && product.intr_rate2 !== '' ? Number(product.intr_rate2).toFixed(2) + '%' :
-              '-' }}
+            {{
+              product.intr_rate2 != null && product.intr_rate2 !== ''
+                ? Number(product.intr_rate2).toFixed(2) + '%'
+                : '-'
+            }}
           </td>
         </tr>
       </tbody>
@@ -98,8 +107,8 @@ const SortIcon = defineComponent({
   setup(props) {
     const arrowClass = (dir) => {
       return sortField.value === props.field && sortOrder.value === dir
-        ? 'text-purple-600 font-bold'
-        : 'text-gray-300'
+        ? 'text-purple-600 font-bold font-symbol'
+        : 'text-gray-300 font-symbol'
     }
 
     return () =>
