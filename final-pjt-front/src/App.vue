@@ -1,29 +1,31 @@
 <template>
-  <!-- Intro Overlay -->
-  <div v-if="showIntro" class="fixed inset-0 z-[9999] overflow-hidden">
-    <!-- 첫 번째 전체 배경색 (가장 밑바닥) -->
-    <div class="absolute inset-0" :style="{ backgroundColor: colors[0], zIndex: 1 }"></div>
+  <div class="custom-cursor">
+    <!-- Intro Overlay -->
+    <div v-if="showIntro" class="fixed inset-0 z-[9999] overflow-hidden">
+      <!-- 첫 번째 전체 배경색 (가장 밑바닥) -->
+      <div class="absolute inset-0" :style="{ backgroundColor: colors[0], zIndex: 1 }"></div>
 
-    <!-- 나머지 색상들이 아래에서 올라오며 첫 레이어를 덮음 -->
-    <div
-      v-for="(color, index) in colors.slice(0)"
-      :key="index"
-      class="absolute w-full h-full animate-slideUpLayer"
-      :style="{
-        backgroundColor: color,
-        animationDelay: `${index * 0.3}s`,
-        zIndex: index + 2
-      }"
-    ></div>
+      <!-- 나머지 색상들이 아래에서 올라오며 첫 레이어를 덮음 -->
+      <div
+        v-for="(color, index) in colors.slice(0)"
+        :key="index"
+        class="absolute w-full h-full animate-slideUpLayer"
+        :style="{
+          backgroundColor: color,
+          animationDelay: `${index * 0.3}s`,
+          zIndex: index + 2
+        }"
+      ></div>
+    </div>
+    <!-- Main Content -->
+    <div class="min-h-screen bg-[#f5f3f7]">
+      <NavBar v-if="!hideNav.includes(route.path)" />
+      <RouterView />
+      <ToastMessage v-if="toastStore.show" :type="toastStore.type" :message="toastStore.message" />
+    </div>
+    <!-- Floating Button -->
+    <FloatingButton />
   </div>
-  <!-- Main Content -->
-  <div class="min-h-screen bg-[#f5f3f7] custom-cursor">
-    <NavBar v-if="!hideNav.includes(route.path)" />
-    <RouterView />
-    <ToastMessage v-if="toastStore.show" :type="toastStore.type" :message="toastStore.message" />
-  </div>
-  <!-- Floating Button -->
-  <FloatingButton />
 </template>
 
 <script setup>
@@ -73,7 +75,7 @@ onMounted(() => {
 }
 .custom-cursor {
   cursor:
-    url('/findi_mascot_head.cur') 0 0,
+    url('/findi_cursor_32px.png') 0 0,
     auto !important;
 }
 </style>
