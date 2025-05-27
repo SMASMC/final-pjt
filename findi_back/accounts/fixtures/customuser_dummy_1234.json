@@ -1,0 +1,162 @@
+[
+  {
+    "model": "accounts.customuser",
+    "pk": "2c95515d-0b0b-426c-856d-bf7bd214b6a6",
+    "fields": {
+      "email": "user01@example.com",
+      "userName": "테스트유저1",
+      "age": 21,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "ff03b25d-c18c-4e2f-a137-33cbf2ee03fe",
+    "fields": {
+      "email": "user02@example.com",
+      "userName": "테스트유저2",
+      "age": 22,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "bd1e4073-4cc7-4467-a3fa-98ec28805aa8",
+    "fields": {
+      "email": "user03@example.com",
+      "userName": "테스트유저3",
+      "age": 23,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "038cf43e-e3ad-4086-a072-ea30f03e3a7a",
+    "fields": {
+      "email": "user04@example.com",
+      "userName": "테스트유저4",
+      "age": 24,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "c5f57715-fd1a-43af-8701-e6307a4a8119",
+    "fields": {
+      "email": "user05@example.com",
+      "userName": "테스트유저5",
+      "age": 25,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "05c584f0-9e0f-4d16-b893-cfcd3dc73f77",
+    "fields": {
+      "email": "user06@example.com",
+      "userName": "테스트유저6",
+      "age": 26,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "2e6b3544-c890-4e1d-94db-2a67ca993580",
+    "fields": {
+      "email": "user07@example.com",
+      "userName": "테스트유저7",
+      "age": 27,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "54a16a11-12d7-4735-999c-281defac5e2c",
+    "fields": {
+      "email": "user08@example.com",
+      "userName": "테스트유저8",
+      "age": 28,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "954d4f65-79b7-41f7-b191-55ca5da73663",
+    "fields": {
+      "email": "user09@example.com",
+      "userName": "테스트유저9",
+      "age": 29,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  },
+  {
+    "model": "accounts.customuser",
+    "pk": "a3d1c1b9-0620-4c4a-b7dc-7313a224d9ab",
+    "fields": {
+      "email": "user10@example.com",
+      "userName": "테스트유저10",
+      "age": 30,
+      "loginPlatform": "local",
+      "role": "user",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z",
+      "deletedAt": null,
+      "is_active": true,
+      "password": "pbkdf2_sha256$260000$J9Hb7tqL9H3uOaXQhKwEmR$ZHw+FZSu7R5J5HKypAkikR0nZcXAoA0rJZmKq39sCkA="
+    }
+  }
+]
