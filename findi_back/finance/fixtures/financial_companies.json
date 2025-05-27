@@ -1,0 +1,154 @@
+[
+{
+  "model": "finance.financialcompany",
+  "pk": "08ebb21f-bc91-44bb-8080-1692c1c68d2d",
+  "fields": {
+    "name": "경남은행",
+    "code": "0010024"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "11875a96-bd13-4459-8287-be6604b51077",
+  "fields": {
+    "name": "수협은행",
+    "code": "0014807"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "13e1b97f-3edb-48d5-9537-1058e2955d3a",
+  "fields": {
+    "name": "광주은행",
+    "code": "0010019"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "22172289-3015-443b-89db-2870b9c13e57",
+  "fields": {
+    "name": "한국스탠다드차타드은행",
+    "code": "0010002"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "382a0ac1-60ba-4cf6-b508-6792b004e2f7",
+  "fields": {
+    "name": "전북은행",
+    "code": "0010022"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "53ffb940-71a6-4c68-bcef-9f6765d3e087",
+  "fields": {
+    "name": "농협은행주식회사",
+    "code": "0013175"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "64eba3c3-e869-4073-8f54-c9938917e17a",
+  "fields": {
+    "name": "한국씨티은행",
+    "code": "0010006"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "6c7a8b66-e53b-48ec-9961-43ca9f0e7d10",
+  "fields": {
+    "name": "우리은행",
+    "code": "0010001"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "7aef695e-ea92-4323-ad3d-e546e67cb19a",
+  "fields": {
+    "name": "아이엠뱅크",
+    "code": "0010016"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "7decfb83-faa6-457a-8abb-5fb2d89f05c1",
+  "fields": {
+    "name": "제주은행",
+    "code": "0010020"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "8a4a523c-3845-4135-a1a7-0d543abf5fce",
+  "fields": {
+    "name": "주식회사 케이뱅크",
+    "code": "0014674"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "982f9429-57bd-4a90-9ec2-e760651cc2ec",
+  "fields": {
+    "name": "국민은행",
+    "code": "0010927"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "b4e014b4-af47-4dcd-9708-d7aa51fccfc1",
+  "fields": {
+    "name": "한국산업은행",
+    "code": "0010030"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "b6302827-11a9-4641-bfe8-30026f2766e9",
+  "fields": {
+    "name": "신한은행",
+    "code": "0011625"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "c0c504dc-3176-4970-8ed0-3a47cc8803bc",
+  "fields": {
+    "name": "하나은행",
+    "code": "0013909"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "d21109ce-ab56-4e36-ab3f-84a4121a0acc",
+  "fields": {
+    "name": "토스뱅크 주식회사",
+    "code": "0017801"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "f14924c9-b83d-4468-bc01-66433d2f5b0e",
+  "fields": {
+    "name": "중소기업은행",
+    "code": "0010026"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "f51a6016-99f6-4788-a16e-4602901d35da",
+  "fields": {
+    "name": "주식회사 카카오뱅크",
+    "code": "0015130"
+  }
+},
+{
+  "model": "finance.financialcompany",
+  "pk": "f7076c71-e10b-41cd-ba5a-b7898e87abd7",
+  "fields": {
+    "name": "부산은행",
+    "code": "0010017"
+  }
+}
+]
