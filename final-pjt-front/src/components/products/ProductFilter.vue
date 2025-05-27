@@ -72,7 +72,7 @@ const loadFilterData = async () => {
     const url = props.selectedTab === 'deposit' ? '/finance/deposit/' : '/finance/saving/'
 
     const response = await api.get(url)
-    const data = response.data
+    const data = response.data.results || []
 
     bankList.value = extractBankList(data)
     periodList.value = extractPeriodList(data)
