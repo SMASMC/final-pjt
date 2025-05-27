@@ -32,10 +32,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-
-// JSON 캐시 데이터 불러오기 (프론트 캐싱용)
-import finance_cache_deposit from '../../../../findi_back/finance/data_cache/finance_cache_deposit.json'
-import finance_cache_saving from '../../../../findi_back/finance/data_cache/finance_cache_saving.json'
+import api from '@/api/axios'
 
 // 부모 컴포넌트로부터 전달되는 현재 탭 정보 ('deposit' 또는 'saving')
 const props = defineProps({
@@ -70,10 +67,18 @@ const extractPeriodList = (data) => {
 }
 
 // 선택된 탭(deposit/saving)에 따라 JSON에서 은행/기간 리스트 로드
-const loadFilterData = () => {
-  const data = props.selectedTab === 'deposit' ? finance_cache_deposit : finance_cache_saving
-  bankList.value = extractBankList(data)
-  periodList.value = extractPeriodList(data)
+const loadFilterData = async () => {
+  try {
+    const url = props.selectedTab === 'deposit' ? '/finance/deposit/' : '/finance/saving/'
+
+    const response = await api.get(url)
+    const data = response.data
+
+    bankList.value = extractBankList(data)
+    periodList.value = extractPeriodList(data)
+  } catch (err) {
+    console.error('필터 데이터 로드 실패:', err)
+  }
 }
 
 // '확인' 버튼 클릭 시, 부모로 필터 전달
