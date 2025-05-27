@@ -42,8 +42,6 @@
 <div style="display: flex; gap: 8px; align-items: center;">
   <!--Django-->
   <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=white"/>
-  <!-- Json -->
-<img src="https://img.shields.io/badge/JSON-000000?style=flat-square&logo=json&logoColor=white"/>
 </div>
 
   <br/>
