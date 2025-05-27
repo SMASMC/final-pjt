@@ -61,16 +61,32 @@
 </div>
 
 <br>
-<br>
 
 ### API
 
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+  <!-- Kakao -->
+  <img src="https://img.shields.io/badge/Kakao%20OAuth-FFCD00?style=flat-square&logo=KakaoTalk&logoColor=black" />
+  <!-- Google OAuth -->
+  <img src="https://img.shields.io/badge/Google%20OAuth-4285F4?style=flat-square&logo=Google&logoColor=white" />
+  <!-- OpenAI -->
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=OpenAI&logoColor=white" />
+  <!-- YouTube API -->
+  <img src="https://img.shields.io/badge/YouTube%20API-FF0000?style=flat-square&logo=YouTube&logoColor=white" />
+  <!-- Google SMTP -->
+  <img src="https://img.shields.io/badge/Google%20SMTP-34A853?style=flat-square&logo=Gmail&logoColor=white" />
+  <!-- Kakao Map -->
+  <img src="https://img.shields.io/badge/Kakao%20Map-FFCD00?style=flat-square&logo=Mapbox&logoColor=black" />
+  <!-- 금융감독원 API -->
+  <img src="https://img.shields.io/badge/%EA%B8%88%EC%9C%B5%EA%B0%90%EB%8F%85%EC%9B%90%20API-0054A6?style=flat-square&logo=govtech&logoColor=white" />
+</div>
 
 
 ## ERD
 ![Findi_ERD](https://github.com/user-attachments/assets/ac858fcf-f434-4746-b767-4b77adecb920)
 
 <br>
+
 
 ## 컴포넌트 구조
 
