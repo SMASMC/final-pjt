@@ -43,6 +43,8 @@
 <div style="display: flex; gap: 8px; align-items: center;">
   <!--Django-->
   <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=white"/>
+  <!--SQLite-->
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=SQLite&logoColor=white"/>
 </div>
 
   <br/>
@@ -51,8 +53,7 @@
 <div style="display: flex; gap: 8px; align-items: center;">
 <!--Postman-->
   <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=Postman&logoColor=white"/>
-<!--SQLite-->
-  <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=SQLite&logoColor=white"/>
+
 <!--Notion-->
   <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"/>
   <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
@@ -215,7 +216,7 @@
 
 <br>
 
-## 생성형 AI를 활용한 팻봇 프롬프트 작성 및 로직 구현
+## 생성형 AI를 활용한 챗봇 프롬프트 작성 및 로직 구현
 ![image](https://github.com/user-attachments/assets/5c8640a7-c8b2-4589-8297-f909a66c16bc)
 
 
