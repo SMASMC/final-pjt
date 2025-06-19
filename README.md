@@ -201,7 +201,8 @@
 >사용자에게 금리가 변동됐음을 알리는 이메일이 발송된다
 
 > **챗봇**
-https://github.com/user-attachments/assets/c85619a5-35ad-47ad-9caa-773bb4450e11
+![chatbot](https://github.com/user-attachments/assets/6b9062c3-dbc4-4b86-a2f9-c5bb1b61272e)
+
 
 
 
