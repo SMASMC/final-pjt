@@ -145,7 +145,7 @@ router.beforeEach((to, from, next) => {
       const auth = JSON.parse(rawAuth)
 
       // 내부 키들이 모두 존재하는지 확인
-      const hasValidAuth = auth.accessToken && auth.refreshToken && auth.user
+      const hasValidAuth = auth.accessToken && auth.user
       isLoggedIn = !!hasValidAuth
     } catch (e) {
       console.warn('localStorage auth 파싱 실패:', e)

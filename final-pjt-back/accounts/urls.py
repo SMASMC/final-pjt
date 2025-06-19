@@ -1,15 +1,16 @@
 from django.urls import path, include
 from . import views
-from .views import CustomRegisterView, CustomLoginView
+from .views import CustomRegisterView, CustomLoginView, refresh_token_cookie
 
 app_name = "accounts"
 
 urlpatterns = [
     # auth/login/을 먼저 선언하고 따로 사용하는 이유는 dj_rest_auth.urls에서 custom으로 login을 사용하기 때문
     path('auth/login/', CustomLoginView.as_view(), name='custom_login'), # 먼저 선언
+    path("auth/logout/", views.logout_view, name="logout"),
     path('auth/', include('dj_rest_auth.urls')),  # 로그인/로그아웃/비밀번호
     path('auth/registration/', CustomRegisterView.as_view(), name='rest_auth_registration'),  # 회원가입
-
+    path("auth/refresh/", refresh_token_cookie, name="refresh_token"),
     # Google OAuth
     path('google/login/', views.google_login, name='google_login'),  # 소셜 OAuth 로그인
     path('google/login/callback/', views.google_login_callback, name='google_login_callback'),  # 소셜 OAuth 콜백

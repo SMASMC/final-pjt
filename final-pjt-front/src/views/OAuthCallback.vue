@@ -11,9 +11,8 @@ onMounted(async () => {
   try {
     const params = new URLSearchParams(window.location.search)
     const access_token = params.get('access_token')
-    const refresh_token = params.get('refresh_token')
 
-    if (!access_token || !refresh_token) {
+    if (!access_token) {
       router.replace({ name: 'login' })
       return
     }
@@ -25,7 +24,7 @@ onMounted(async () => {
       }
     })
 
-    const { access_token: serverAccessToken, refresh_token: serverRefreshToken, user } = res.data
+    const { user } = res.data
 
     if (!user?.id) {
       throw new Error('사용자 정보 누락')
@@ -33,8 +32,7 @@ onMounted(async () => {
 
     // JWT 저장 및 유저 정보 저장
     store.loginSuccess({
-      access: serverAccessToken || access_token,
-      refresh: serverRefreshToken || refresh_token,
+      access: access_token,
       user
     })
 
