@@ -190,13 +190,13 @@
 
 ## 📺 시연 영상
 
-<h3> **📝 메인페이지** </h3>
+<h3> 📝 메인페이지 </h3>
 
 ![mainpage](https://github.com/user-attachments/assets/8c7228a2-00d0-40e5-a4db-97b4bfd80482)
 
 <br>
 
-<h3> **📨 이메일 전송** </h3>
+<h3> 📨 이메일 전송 </h3>
 ![smtp (1)](https://github.com/user-attachments/assets/38e6e74a-125e-4f2b-9434-6b376482e40a)
 
 - 사용자가 가입한 상품의 금리 정보를 관리자가 수정하면
@@ -204,7 +204,7 @@
 
 <br>
 
-<h3> **💬 챗봇** </h3>
+<h3> 💬 챗봇 </h3>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/28d33ee3-8fd3-4460-b22b-55bec8ae4a33" width="90%"/>
 </p>
