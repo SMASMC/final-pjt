@@ -203,9 +203,9 @@
 
 <br>
 
-<h3>💬 챗봇</h3>
+<h3>💬 챗봇</h3
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/dd882e88-9967-4337-8d56-e521c1b792b2" width="90%"/>
+  <img src="https://github.com/user-attachments/assets/28d33ee3-8fd3-4460-b22b-55bec8ae4a33" width="90%"/>
 </p>
 - JSON으로 구현한 FAQ와 OpenAI GPT에 프롬프트 전달 및 답변 제공 기능
 
