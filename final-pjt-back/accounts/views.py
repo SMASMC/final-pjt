@@ -35,19 +35,29 @@ from finance.models import DepositProduct, SavingProduct
 class CustomLoginView(LoginView):
     permission_classes = [AllowAny]
     serializer_class = CustomLoginSerializer
+
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        
-        user = serializer.user  # 로그인된 사용자
+        user = serializer.user
         refresh = RefreshToken.for_user(user)
         user_data = UserWithProfileSerializer(user).data
 
-        return Response({
+        response = Response({
             'access_token': str(refresh.access_token),
-            'refresh_token': str(refresh),
             'user': user_data
-        }, status=status.HTTP_200_OK)
+        }, status=200)
+
+        response.set_cookie(
+            key='refresh_token',
+            value=str(refresh),
+            httponly=True,
+            secure=os.getenv("JWT_COOKIE_SECURE") == "True",
+            samesite=os.getenv("JWT_COOKIE_SAMESITE", "Lax"),
+            domain=os.getenv("JWT_COOKIE_DOMAIN", "localhost"),
+            max_age=int(os.getenv("SIMPLE_JWT_REFRESH_TOKEN_LIFETIME"))
+        )
+        return response
     
 # CustomTokenObtainPairView의 선언 이유는? 
 # 이 클래스는 기본 TokenObtainPairView의 응답에 사용자 정보를 추가하고 싶을 때 사용
@@ -60,24 +70,27 @@ class CustomRegisterView(RegisterView):
     serializer_class = CustomRegisterSerializer
 
     def create(self, request, *args, **kwargs):
-        # 회원가입 시리얼라이저로 유효성 검사
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-
-        # 사용자 생성
         user = serializer.save(request)
-
-        # JWT 토큰 발급
         refresh = RefreshToken.for_user(user)
-
-        # 직렬화된 사용자 + 프로필 정보
         user_data = UserWithProfileSerializer(user).data
 
-        return Response({
+        response = Response({
             'access_token': str(refresh.access_token),
-            'refresh_token': str(refresh),
             'user': user_data
-        }, status=status.HTTP_201_CREATED)
+        }, status=201)
+
+        response.set_cookie(
+            key='refresh_token',
+            value=str(refresh),
+            httponly=True,
+            secure=os.getenv("JWT_COOKIE_SECURE") == "True",
+            samesite=os.getenv("JWT_COOKIE_SAMESITE", "Lax"),
+            domain=os.getenv("JWT_COOKIE_DOMAIN", "localhost"),
+            max_age=int(os.getenv("SIMPLE_JWT_REFRESH_TOKEN_LIFETIME"))
+        )
+        return response
 
 load_dotenv()
 User = get_user_model()
@@ -172,9 +185,19 @@ def google_login_callback(request):
     # 5. 프론트로 리디렉션
     params = urlencode({
         "access_token": access_token_jwt,
-        "refresh_token": refresh_token_jwt,
     })
-    return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
+    response = redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
+
+    response.set_cookie(
+        key='refresh_token',
+        value=refresh_token_jwt,
+        httponly=True,
+        secure=os.getenv("JWT_COOKIE_SECURE") == "True",
+        samesite=os.getenv("JWT_COOKIE_SAMESITE", "Lax"),
+        domain=os.getenv("JWT_COOKIE_DOMAIN", "localhost"),
+        max_age=int(os.getenv("SIMPLE_JWT_REFRESH_TOKEN_LIFETIME"))
+    )
+    return response
 
 # kakao oauth 구현
 def kakao_login(request):
@@ -250,16 +273,30 @@ def kakao_login_callback(request):
     # 4. JWT 발급
     refresh = RefreshToken.for_user(user)
     jwt_access = str(refresh.access_token)
-    jwt_refresh = str(refresh)
 
     # 5. 프론트로 리디렉션
     params = urlencode({
         "access_token": jwt_access,
-        "refresh_token": jwt_refresh,
     })
 
     return redirect(f"{FRONTEND_OAUTH_CALLBACK_URL}?{params}")
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def refresh_token_cookie(request):
+    from rest_framework_simplejwt.serializers import TokenRefreshSerializer
+    from rest_framework_simplejwt.exceptions import TokenError
+
+    refresh_token = request.COOKIES.get('refresh_token')
+    if not refresh_token:
+        return Response({'error': 'Refresh token not found'}, status=401)
+
+    try:
+        serializer = TokenRefreshSerializer(data={"refresh": refresh_token})
+        serializer.is_valid(raise_exception=True)
+        return Response({"access_token": serializer.validated_data["access"]})
+    except TokenError:
+        return Response({'error': 'Invalid refresh token'}, status=403)
 
 
 @api_view(['POST'])
@@ -327,26 +364,6 @@ def reset_password(request):
     except User.DoesNotExist:
         return Response({'error': '사용자를 찾을 수 없습니다.'}, status=404)
 
-# 사용자 Profile + user 조회
-# @api_view(['GET', 'PUT'])
-# @permission_classes([IsAuthenticated])
-# @parser_classes([MultiPartParser, FormParser])
-# def user_profile(request):
-#     # UserProfile이 없으면 생성
-#     profile, _ = UserProfile.objects.get_or_create(user=request.user)
-
-#     # GET: 프로필 정보 반환
-#     if request.method == 'GET':
-#         serializer = UserProfileUpdateSerializer(profile)
-#         return Response(serializer.data)
-
-#     # PUT: 프로필 정보 수정
-#     if request.method == 'PUT':
-#         serializer = UserProfileUpdateSerializer(profile, data=request.data, partial=True)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=200)
-#         return Response(serializer.errors, status=400)
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser, FormParser])
@@ -360,7 +377,6 @@ def user_profile(request):
         refresh = RefreshToken.for_user(user)
         return Response({
             'access_token': str(refresh.access_token),
-            'refresh_token': str(refresh),
             'user': serializer.data
         }, status=200)
 
@@ -468,6 +484,17 @@ def user_portfolio_delete(request, portfolio_id):
     portfolio.delete()
     return Response({'message': '포트폴리오가 삭제되었습니다.'}, status=200)
 
+@api_view(['POST'])
+def logout_view(request):
+    response = Response({"message": "Logged out successfully."}, status=200)
+    # 쿠키에서 refresh_token 제거
+    response.delete_cookie(
+        key="refresh_token",
+        path="/",  # 쿠키의 path와 일치해야 정확히 삭제됨
+        domain=os.getenv("JWT_COOKIE_DOMAIN", "localhost"),
+    )
+
+    return response
 
 # 회원 탈퇴
 @api_view(['DELETE'])

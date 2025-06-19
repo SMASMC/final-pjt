@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'dj_rest_auth.registration',    
+    'corsheaders',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -199,9 +200,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # CORS 설정
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-]
+CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+
 CORS_ALLOW_CREDENTIALS = True
 
 # REST Framework 설정

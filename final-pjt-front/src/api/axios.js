@@ -6,7 +6,7 @@ import { useAuthStore } from '@/stores/auth'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
-  withCredentials: false
+  withCredentials: true // 쿠키 자동 포함
 })
 
 // Content-Type 기본 설정
@@ -17,21 +17,22 @@ api.interceptors.request.use(
   async (config) => {
     const authStore = useAuthStore()
     let access = authStore.accessToken
-    const refresh = authStore.refreshToken
 
-    // access 만료 시 refresh 시도
-    if (access && isTokenExpired(access) && refresh) {
+    // access_token 만료 시 -> 쿠키로 refresh 요청
+    if (access && isTokenExpired(access)) {
       try {
-        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/refresh/`, {
-          refresh
-        })
-        const { access: newAccess, refresh: newRefresh } = res.data
+        const res = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/accounts/auth/refresh/`,
+          {},
+          { withCredentials: true }
+        )
+        const newAccess = res.data.access_token
 
         authStore.loginSuccess({
           access: newAccess,
-          refresh: newRefresh,
-          user: authStore.user // 기존 사용자 정보 유지
+          user: authStore.user
         })
+
         access = newAccess
       } catch (err) {
         authStore.logout()
@@ -40,7 +41,6 @@ api.interceptors.request.use(
       }
     }
 
-    // 헤더에 accessToken 추가
     if (access) {
       config.headers.Authorization = `Bearer ${access}`
     }
@@ -60,23 +60,17 @@ api.interceptors.response.use(
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true
 
-      const refreshToken = authStore.refreshToken
-      if (!refreshToken) {
-        authStore.logout()
-        router.replace({ name: 'login' })
-        return Promise.reject(error)
-      }
-
       try {
-        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/refresh/`, {
-          refresh: refreshToken
-        })
+        const res = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/accounts/auth/refresh/`,
+          {},
+          { withCredentials: true }
+        )
 
-        const { access: newAccess, refresh: newRefresh } = res.data
+        const newAccess = res.data.access_token
 
         authStore.loginSuccess({
           access: newAccess,
-          refresh: newRefresh,
           user: authStore.user
         })
 
