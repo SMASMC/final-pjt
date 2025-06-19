@@ -205,7 +205,7 @@
 
 <h3>💬 챗봇</h3>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/dd882e88-9967-4337-8d56-e521c1b792b2" width="600"/>
+  <img src="https://github.com/user-attachments/assets/dd882e88-9967-4337-8d56-e521c1b792b2" width="100%"/>
 </p>
 
 
