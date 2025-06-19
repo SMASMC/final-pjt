@@ -201,9 +201,9 @@
 >사용자에게 금리가 변동됐음을 알리는 이메일이 발송된다
 
 > **챗봇**
-![chatbot](https://github.com/user-attachments/assets/6b9062c3-dbc4-4b86-a2f9-c5bb1b61272e)
+![chatbot](https://github.com/user-attachments/assets/dd882e88-9967-4337-8d56-e521c1b792b2)
 
-
+> Jason으로 구현한 FAQ 와 Openai-GPT에 프롬프트 전달 및 답변 제공 기능
 
 
 
