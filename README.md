@@ -1,4 +1,4 @@
-# Findi 
+# 🏆 Findi - 서울 1반 1등 프로젝트
 
 <img src="https://github.com/user-attachments/assets/bd3f111e-0826-4bdd-9ea9-72a0663a44bb" width="10%" alt="findi logo"/>
 
@@ -227,7 +227,7 @@
 
 
 <br>
-
+# 🥇 서울 1반 1등
 ## 😎 느낀점 및 후기
 
 - **송명철**
