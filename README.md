@@ -222,6 +222,15 @@
 
 <br>
 
+<h3> 🤖 OpenAI 기반 금융 상품 추천 알고리즘 </h3>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/050ad72c-a398-43ec-9204-822eaaed613f" width="90%" />
+</p>
+
+- 사용자의 성향 및 프로필 정보를 기반으로 OpenAI API에 프롬프트를 전달하여, 개인화된 금융 상품을 추천하는 알고리즘 구현
+- 챗봇과 연동하여 실시간 대화형 추천 시스템 제공
+
+
 <h3> 💬 챗봇 </h3>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/28d33ee3-8fd3-4460-b22b-55bec8ae4a33" width="90%"/>
